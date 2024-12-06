@@ -1,0 +1,91 @@
+{
+    "datasets": [
+        {
+            "name": "adult",
+            "path": "data/adult.csv",
+            "parameters": {
+                "target_variable": "income",
+                "sensible_attribute": "sex"
+            }
+        }
+
+
+    ],
+    "models": [
+        {
+            "name": "Decision Tree",
+            "params": {
+                "max_features": 14,
+                "min_samples_leaf": 100,
+                "random_state": 10
+            }
+        },
+        {
+            "name": "Logistic Regression",
+            "params": {
+                "random_state": 42
+            }
+        },
+        {
+            "name": "Random Forest",
+            "params": {
+                "n_estimators": 100,
+                "random_state": 10
+            }
+        },
+        {
+            "name": "KNN",
+            "params": {
+                "n_neighbours": 7
+            }
+        }
+    ],
+    "techniques": [
+        {
+            "name": "Reject Option Classification",
+            "params": {
+                "metric_name": "Statistical parity difference",
+                "low_class_thresh": 0.1,
+                "high_class_thresh": 0.9,
+                "num_class_thresh": 100,
+                "num_ROC_margin": 50,
+                "metric_ub": 0.05,
+                "metric_lb": 0.05
+            }
+        },
+        {
+            "name": "Equalized Odds",
+            "params": {
+                "constraint": "fpr",
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Calibrated EO",
+            "params": {
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Deterinistic Reranking",
+            "params": {
+                "constraints": "Statistical parity difference"
+            }
+        },
+        {
+            "name": "Threshold Optimizer",
+            "params": {
+                "constraints": "false_negative_rate_parity"
+            }
+        }
+    ],
+    "tables_dir": "tables/",
+    "results_dir": "results/",
+    "plots_dir": "plots/",
+
+    "num_thresh_test": 100,
+
+    "min_confidence": 0.8,
+    "min_support": 0.2
+
+}
