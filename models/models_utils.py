@@ -3,7 +3,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import balanced_accuracy_score
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
+
 
 def instanciate_and_fit_model(model, X_train, y_train):
     model_name = model["name"].lower()
@@ -47,3 +48,10 @@ def calculate_best_thr(num_thresh, dataset_orig_test_pred, dataset_orig_test, un
     best_ind = np.where(ba_arr == np.max(ba_arr))[0][0]
     best_class_thresh = class_thresh_arr[best_ind]
     return best_class_thresh
+
+def calculate_model_performance(dataset_orig_test, dataset_transd_test_pred):
+    accuracy = round(accuracy_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
+    recall = round(recall_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
+    precision = round(precision_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
+    F1 = round(f1_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
+    return accuracy, recall, precision, F1

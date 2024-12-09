@@ -52,11 +52,36 @@
                 "metric_ub": 0.05,
                 "metric_lb": -0.05
             }
+        },
+        {
+            "name": "Equalized Odds",
+            "params": {
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Calibrated EO",
+            "params": {
+                "constraint": "fpr",
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Deterinistic Reranking",
+            "params": {
+                "constraints": "Statistical parity difference"
+            }
+        },
+        {
+            "name": "Threshold Optimizer",
+            "params": {
+                "constraints": "false_negative_rate_parity"
+            }
         }
     ],
-    "tables_dir": "output/tables/",
-    "results_dir": "output/results/",
-    "plots_dir": "output/plots/",
+    "tables_dir": "tables/",
+    "results_dir": "results/",
+    "plots_dir": "plots/",
 
     "num_thresh_test": 100,
 

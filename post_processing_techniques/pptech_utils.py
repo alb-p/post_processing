@@ -17,6 +17,9 @@ def apply_pp_techinque(technique,best_class_thresh, dataset, dataset_pred, unpri
         num_ROC_margin = technique_params["num_ROC_margin"]
         metric_ub = technique_params["metric_ub"]
         metric_lb = technique_params["metric_lb"]
+        allowed_metrics = ["Statistical parity difference", "Average odds difference", "Equal opportunity difference"]
+        if metric_name not in allowed_metrics:
+            raise ValueError("Metric name should be one of allowed metrics")
         technique_instance = RejectOptionClassification(unprivileged_groups=unprivileged_groups,
                                                         privileged_groups=privileged_groups,
                                                         low_class_thresh=low_class_thresh,
@@ -46,6 +49,8 @@ def apply_pp_techinque(technique,best_class_thresh, dataset, dataset_pred, unpri
         raise ValueError(f"Technique {technique_name} not supported.")
     
     technique_instance = technique_instance.fit(dataset, dataset_pred)
+
+
     fav_inds = dataset_pred.scores > best_class_thresh
     dataset_pred.labels[fav_inds] = dataset_pred.favorable_label
     dataset_pred.labels[~fav_inds] = dataset_pred.unfavorable_label

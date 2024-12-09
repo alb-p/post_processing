@@ -1,3 +1,4 @@
+import pandas as pd
 
 def preprocess_adult(dataset):
     to_drop = ["fnlwgt", "education", "relationship", "workclass", "occupation"]
@@ -35,3 +36,70 @@ def prev_unprev(dataset, sensible_attribute, target_variable):
         privileged_groups = [{'sex': 0}]
         unprivileged_groups = [{'sex': 1}]
     return privileged_groups, unprivileged_groups
+
+
+def prepare_adult_asso_rules(dataset_to_prepare): 
+    # Convert the dataset to a DataFrame
+    if not isinstance(dataset_to_prepare, pd.DataFrame):
+        df_prepared = dataset_to_prepare.convert_to_dataframe()[0]
+    else:
+        df_prepared = dataset_to_prepare
+
+    # Education number from 0 to 5 are put in '<6' and those above 13 into '>12'
+    df_prepared['education.num'] = df_prepared['education.num'].apply(lambda x: group_edu(x))
+    df_prepared['education.num'] = df_prepared['education.num'].astype(str)
+    # Group age by decade
+    df_prepared['Age (decade)'] = df_prepared['age'].apply(lambda x: x//10*10)
+    df_prepared = df_prepared.drop(columns='age')
+    # Group hours per week
+    df_prepared['hours.per.week'] = df_prepared['hours.per.week'].apply(lambda x: '>40' if x > 40 else '<=40')
+
+    # Capital gain is splitted into two columns capital.gain>0 and capital.gain=0
+    df_prepared['capital.gain>0'] = df_prepared['capital.gain'].apply(lambda x: 1 if x > 0 else 0)
+    df_prepared['capital.gain=0'] = df_prepared['capital.gain'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='capital.gain', inplace=True)
+
+    # Capital loss is splitted into two columns capital.loss>0 and capital.loss=0
+    df_prepared['capital.loss>0'] = df_prepared['capital.loss'].apply(lambda x: 1 if x > 0 else 0)
+    df_prepared['capital.loss=0'] = df_prepared['capital.loss'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='capital.loss', inplace=True)
+
+
+    df_prepared['male'] = df_prepared['sex'].apply(lambda x: 1 if x == 1 else 0)
+    df_prepared['female'] = df_prepared['sex'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='sex', inplace=True) 
+
+    # Process 'race' column
+    df_prepared['white'] = df_prepared['race'].apply(lambda x: 1 if x == 1 else 0)
+    df_prepared['n_white'] = df_prepared['race'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='race', inplace=True)
+
+    # Process 'income' column
+    df_prepared['>50K'] = df_prepared['income'].apply(lambda x: 1 if x == 1 else 0)
+    df_prepared['<50K'] = df_prepared['income'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='income', inplace=True)
+
+    # 1 if married, 0 otherwise
+    df_prepared['married'] = df_prepared['marital.status'].apply(lambda x: 1 if x == 1 else 0)
+    df_prepared['n_married'] = df_prepared['marital.status'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='marital.status', inplace=True)
+
+    # United-States is 1 all the other countries are 0
+    df_prepared['UnitedStates'] = df_prepared['native.country'].apply(lambda x: 1 if x == 1 else 0)
+    df_prepared['n_UnitedStates'] = df_prepared['native.country'].apply(lambda x: 1 if x == 0 else 0)
+    df_prepared.drop(columns='native.country', inplace=True)
+    
+    df_prepared.drop(columns=['capital.loss>0', 'capital.loss=0', 'capital.gain>0', 'capital.gain=0'], inplace=True)
+    df_prepared.drop(columns=['hours.per.week'], inplace=True)
+
+    df_prepared = pd.get_dummies(df_prepared, columns=['education.num','Age (decade)'],drop_first=False) 
+    return df_prepared
+
+def group_edu(x):
+    if x <= 5:
+        return '<6'
+    elif x >= 13:
+        return '>12'
+    else:
+        return x
+    

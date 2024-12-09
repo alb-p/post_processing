@@ -1,0 +1,9 @@
+dataset_name,technique_name,model_name,accuracy,recall,precision,F1
+adult,Reject Option Classification,Decision Tree,0.819,0.456,0.696,0.551
+adult,Reject Option Classification,Logistic Regression,0.79,0.141,0.965,0.246
+adult,Reject Option Classification,Random Forest,0.821,0.291,0.919,0.442
+adult,Reject Option Classification,KNN,0.804,0.215,0.917,0.348
+adult,Equalized Odds,Decision Tree,0.788,0.719,0.548,0.622
+adult,Equalized Odds,Logistic Regression,0.772,0.777,0.52,0.623
+adult,Equalized Odds,Random Forest,0.779,0.468,0.554,0.507
+adult,Equalized Odds,KNN,0.786,0.559,0.561,0.56
