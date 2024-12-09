@@ -1,0 +1,17 @@
+antecedents,consequents,support,confidence
+frozenset({'Age (decade)_20.0'}),frozenset({'<50K'}),0.229,0.941
+"frozenset({'male', 'n_married'})",frozenset({'<50K'}),0.235,0.931
+"frozenset({'male', 'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.212,0.93
+frozenset({'n_married'}),frozenset({'<50K'}),0.479,0.915
+"frozenset({'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.432,0.913
+"frozenset({'white', 'n_married'})",frozenset({'<50K'}),0.394,0.909
+"frozenset({'white', 'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.363,0.908
+"frozenset({'n_married', 'female'})",frozenset({'<50K'}),0.244,0.9
+"frozenset({'n_married', 'female', 'UnitedStates'})",frozenset({'<50K'}),0.22,0.897
+frozenset({'education.num_9.0'}),frozenset({'<50K'}),0.278,0.88
+"frozenset({'UnitedStates', 'education.num_9.0'})",frozenset({'<50K'}),0.258,0.879
+"frozenset({'white', 'education.num_9.0'})",frozenset({'<50K'}),0.235,0.874
+"frozenset({'white', 'UnitedStates', 'education.num_9.0'})",frozenset({'<50K'}),0.221,0.872
+frozenset({'female'}),frozenset({'<50K'}),0.271,0.823
+"frozenset({'female', 'UnitedStates'})",frozenset({'<50K'}),0.242,0.819
+"frozenset({'white', 'female'})",frozenset({'<50K'}),0.216,0.81

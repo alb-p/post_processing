@@ -1,9 +1,0 @@
-dataset_name,technique_name,model_name,GroupFairness,PredictiveParity,EqualOpportunity
-adult,Reject Option Classification,Decision Tree,-0.687,-0.171,-0.51
-adult,Reject Option Classification,Logistic Regression,-0.709,-0.019,-0.669
-adult,Reject Option Classification,Random Forest,-0.646,-0.121,-0.398
-adult,Reject Option Classification,KNN,-0.649,-0.104,-0.298
-adult,Equalized Odds,Decision Tree,-0.681,-0.174,-0.464
-adult,Equalized Odds,Logistic Regression,-0.709,-0.019,-0.669
-adult,Equalized Odds,Random Forest,-0.641,-0.137,-0.416
-adult,Equalized Odds,KNN,-0.649,-0.104,-0.298

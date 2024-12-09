@@ -28,7 +28,8 @@ def compute_df_transactions(dataset, dataset_name):
     df_transactions = data_asso_rules.map(lambda x: True if x > 0 else False)
     return df_transactions
 
-def compute_diff_association_rules(association_rules_technique, transf_asso_rules, model_name, filepath):
+def compute_diff_association_rules(association_rules_technique, transf_asso_rules, model_name):
+    print(association_rules_technique)
     support_col = f"{model_name}_support"
     confidence_col = f"{model_name}_confidence"
     association_rules_technique[support_col] = None
@@ -61,7 +62,7 @@ def compute_diff_association_rules(association_rules_technique, transf_asso_rule
             [association_rules_technique, pd.DataFrame(rules_to_append)],
             ignore_index=True
         )
-    association_rules_technique.to_csv(filepath, index=False)
+    return association_rules_technique
     
     
 def export_association_rules(rules, dataset_name, file_path):
@@ -94,6 +95,3 @@ def clean_association_rules(rules):
         })
     # questo passaggio rimette indici da 0
     return pd.DataFrame(clean_rules, columns=["antecedents", "consequents", "support", "confidence"])
-    
-    
-    

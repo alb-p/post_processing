@@ -52,6 +52,12 @@
                 "metric_ub": 0.05,
                 "metric_lb": -0.05
             }
+        },
+        {
+            "name": "Equalized Odds",
+            "params": {
+                "randseed": 42
+            }
         }
     ],
     "tables_dir": "output/tables/",

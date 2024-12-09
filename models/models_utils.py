@@ -1,10 +1,13 @@
 import numpy as np
+import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
+import seaborn as sns
 
+from utils.gen_utils import sns_line_plotting
 
 def instanciate_and_fit_model(model, X_train, y_train):
     model_name = model["name"].lower()
@@ -49,9 +52,30 @@ def calculate_best_thr(num_thresh, dataset_orig_test_pred, dataset_orig_test, un
     best_class_thresh = class_thresh_arr[best_ind]
     return best_class_thresh
 
-def calculate_model_performance(dataset_orig_test, dataset_transd_test_pred):
-    accuracy = round(accuracy_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
-    recall = round(recall_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
-    precision = round(precision_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
-    F1 = round(f1_score(dataset_orig_test.labels, dataset_transd_test_pred.labels),3)
+def compute_model_performance(dataset_orig_test, dataset_transf_test_pred):
+    accuracy = round(accuracy_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
+    recall = round(recall_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
+    precision = round(precision_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
+    F1 = round(f1_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
     return accuracy, recall, precision, F1
+
+
+def compute_model_performance(dataset_orig_test, dataset_orig_test_pred,dataset_transf_test_pred, filepath, technique_name, model_name):
+    accuracy_before = round(accuracy_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+    recall_before = round(recall_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+    precision_before = round(precision_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+    F1_before = round(f1_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+
+    accuracy_after = round(accuracy_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    recall_after = round(recall_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    precision_after = round(precision_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    F1_after = round(f1_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+
+    df_performances = pd.DataFrame({
+        'Metrics': ['Accuracy', 'Recall', 'Precision', 'F1-Score'],
+        'Before': [accuracy_before, recall_before, precision_before, F1_before],
+        'After': [accuracy_after, recall_after, precision_after, F1_after]
+    })
+    filepath = filepath + "/"+technique_name+"_"+model_name+"_model_performances.png"
+    sns_line_plotting(df = df_performances, filepath = filepath, axhline = 1, title=f"{technique_name} - {model_name}: Performances")
+    return round(accuracy_after - accuracy_before, 3), round(recall_after - recall_before, 3), round(precision_after - precision_before, 3), round(F1_after - F1_before, 3)
