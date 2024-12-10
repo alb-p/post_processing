@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 from aif360.datasets import BinaryLabelDataset
 from sklearn.preprocessing import StandardScaler
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 from utils.gen_utils import sns_bar_plotting
 
 
@@ -50,45 +51,11 @@ def X_y_train(dataset):
     y_train = dataset.labels.ravel()
     return scale_orig, X_train, y_train
 
-# def train_test_distribution_plot(dataset_orig, dataset_orig_train, dataset_orig_test, sensible_attribute, target_variable, plots_dir, dataset_name): 
-#     df_orig = dataset_orig.convert_to_dataframe()[0]
-#     df_train = dataset_orig_train.convert_to_dataframe()[0]
-#     df_test = dataset_orig_test.convert_to_dataframe()[0]
-#      # Group by gender and income, and normalize counts
-#     income_gender_counts_orig = df_orig.groupby([sensible_attribute, target_variable]).size() / len(df_orig)
-#     income_gender_counts_train = df_train.groupby([sensible_attribute, target_variable]).size() / len(df_train)
-#     income_gender_counts_test = df_test.groupby([sensible_attribute, target_variable]).size() / len(df_test)
-    
-#     # Create a DataFrame for plotting
-#     df_comparison = pd.DataFrame({
-#         'Origin': income_gender_counts_orig,
-#         'Training': income_gender_counts_train,
-#         'Testing': income_gender_counts_test
-#     }).stack().reset_index()
-    
-#     # Rename columns for clarity
-#     df_comparison.columns = [sensible_attribute, target_variable, 'Dataset', 'Proportion']
-#     sns_bar_plotting(
-#         df=df_comparison, 
-#         x='Dataset', 
-#         y='Proportion', 
-#         hue=f'{sensible_attribute}({target_variable})', 
-#         filepath=f'{plots_dir}/{dataset_name}/train_test_distribution.png'
-#     )
 def train_test_distribution_plot(dataset_orig, dataset_orig_train, dataset_orig_test, sensible_attribute, target_variable, plots_dir, dataset_name): 
-    df_orig = dataset_orig.convert_to_dataframe()[0]
-    df_train = dataset_orig_train.convert_to_dataframe()[0]
-    df_test = dataset_orig_test.convert_to_dataframe()[0]
-    
-    # Group by sensible_attribute and target_variable, normalize counts
-    income_gender_counts_orig = df_orig.groupby([sensible_attribute, target_variable]).size().unstack()
-    income_gender_counts_train = df_train.groupby([sensible_attribute, target_variable]).size().unstack()
-    income_gender_counts_test = df_test.groupby([sensible_attribute, target_variable]).size().unstack()
+    income_gender_counts_orig, orig_size = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
+    income_gender_counts_train, train_size = extract_target_sensible_attributes(dataset_orig_train, sensible_attribute, target_variable)
+    income_gender_counts_test, test_size = extract_target_sensible_attributes(dataset_orig_test, sensible_attribute, target_variable)
 
-
-    orig_size = len(df_orig)
-    train_size = len(df_train)
-    test_size = len(df_test)
     df_comparison_train_test = pd.DataFrame({
         'Male(<=50K)': [income_gender_counts_orig.loc[1, 0]/orig_size, income_gender_counts_train.loc[1, 0]/train_size, income_gender_counts_test.loc[1, 0]/test_size],
         'Male(>50K)': [income_gender_counts_orig.loc[1, 1]/orig_size, income_gender_counts_train.loc[1, 1]/train_size, income_gender_counts_test.loc[1, 1]/test_size],
@@ -107,41 +74,91 @@ def train_test_distribution_plot(dataset_orig, dataset_orig_train, dataset_orig_
         y=value_name, 
         hue= var_name,
         title='Train-test distributions',
-        filepath=f'{plots_dir}/{dataset_name}/train_test_distribution.png'
+        filepath=f'{plots_dir}/{dataset_name}/{dataset_name}_train_test_distribution.png'
     )
 
+def extract_target_sensible_attributes(dataset, sensible_attribute, target_variable):
+    if  isinstance(dataset, BinaryLabelDataset):
+        dataset = dataset.convert_to_dataframe()[0]
+    return dataset.groupby([sensible_attribute, target_variable]).size().unstack(), len(dataset)
+
+def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensible_attribute, target_variable, plots_dir, dataset_name, technique_name, model_name): 
+    income_gender_counts_orig, _ = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
+    income_gender_counts_pred, _ = extract_target_sensible_attributes(dataset_pred, sensible_attribute, target_variable)
+    income_gender_counts_transf, _ = extract_target_sensible_attributes(dataset_transf, sensible_attribute, target_variable)
+    df_comparison_target = pd.DataFrame({
+        'Male(<=50K)': [income_gender_counts_orig.loc[1, 0], income_gender_counts_pred.loc[1, 0], income_gender_counts_transf.loc[1,0]],
+        'Male(>50K)': [income_gender_counts_orig.loc[1, 1], income_gender_counts_pred.loc[1, 1], income_gender_counts_transf.loc[1,1]],
+        'Female(<=50K)': [income_gender_counts_orig.loc[0, 0], income_gender_counts_pred.loc[0, 0], income_gender_counts_transf.loc[0,0]],
+        'Female(>50K)': [income_gender_counts_orig.loc[0, 1], income_gender_counts_pred.loc[0, 1], income_gender_counts_transf.loc[0,1]],
+    },index = ['Original', 'Predicted', 'Transformed'])
+
+    
+    # var_name = sensible_attribute+'_'+target_variable
+    # value_name='Count'
+    # df_comparison_target_reset = df_comparison_target.reset_index().melt(id_vars='index', var_name=var_name, value_name=value_name)
+    # df_comparison_target_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
+    
+
+    # FIXME: delete this hard coding from old code
+    df_comparison_target_reset = df_comparison_target[['Male(<=50K)', 'Male(>50K)', 'Female(<=50K)', 'Female(>50K)']].reset_index().melt(id_vars='index', var_name='Gender_Income', value_name='Count')
+    df_comparison_target_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
+
+    
+    # sns_bar_plotting(
+    #     df=df_comparison_target_reset, 
+    #     x='Dataset_Type', 
+    #     y=value_name, 
+    #     hue= var_name,
+    #     title=f'{technique_name} - {model_name}: Target distributions',
+    #     filepath=f'{plots_dir}/{dataset_name}/{technique_name}_{model_name}_target_distribution.png'
+    # )
+    filepath=f'{plots_dir}/{dataset_name}/{technique_name}_{model_name}_target_distribution.png'
+
+    # Plotting with Seaborn
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=df_comparison_target_reset, x='Dataset_Type', y='Count', hue='Gender_Income', palette='rocket')
+    plt.title("Income by Gender Across Original, Predicted, and Transformed Datasets")
+    plt.xlabel("Dataset Type")
+    plt.ylabel("Count of Individuals")
+    plt.xticks(rotation=0)
+    plt.legend(title="Income and Gender")
+
+    # Save and show the plot
+    plt.savefig(filepath)
 
 
-# def train_test_distribution_plot(dataset_orig, dataset_orig_train, dataset_orig_test, sensible_attribute, target_variable, plots_dir, dataset_name): 
-#     # Convert datasets to DataFrames
-#     df_orig = dataset_orig.convert_to_dataframe()[0]
-#     df_train = dataset_orig_train.convert_to_dataframe()[0]
-#     df_test = dataset_orig_test.convert_to_dataframe()[0]
+# def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensible_attribute, target_variable, plots_dir, dataset_name, technique_name, model_name):
+#     # Extract and verify target distributions
+#     income_gender_counts_orig, _ = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
+#     income_gender_counts_pred, _ = extract_target_sensible_attributes(dataset_pred, sensible_attribute, target_variable)
+#     income_gender_counts_transf, _ = extract_target_sensible_attributes(dataset_transf, sensible_attribute, target_variable)
     
-#     # Group by sensible_attribute and target_variable, normalize counts
-#     income_gender_counts_orig = df_orig.groupby([sensible_attribute, target_variable]).size() / len(df_orig)
-#     income_gender_counts_train = df_train.groupby([sensible_attribute, target_variable]).size() / len(df_train)
-#     income_gender_counts_test = df_test.groupby([sensible_attribute, target_variable]).size() / len(df_test)
+#     # Construct DataFrame for target distribution only
+#     df_comparison_target = pd.DataFrame({
+#         'Male(<=50K)': [income_gender_counts_orig.loc[1, 0], income_gender_counts_pred.loc[1, 0], income_gender_counts_transf.loc[1, 0]],
+#         'Male(>50K)': [income_gender_counts_orig.loc[1, 1], income_gender_counts_pred.loc[1, 1], income_gender_counts_transf.loc[1, 1]],
+#         'Female(<=50K)': [income_gender_counts_orig.loc[0, 0], income_gender_counts_pred.loc[0, 0], income_gender_counts_transf.loc[0, 0]],
+#         'Female(>50K)': [income_gender_counts_orig.loc[0, 1], income_gender_counts_pred.loc[0, 1], income_gender_counts_transf.loc[0, 1]],
+#     }, index=['Original', 'Predicted', 'Transformed'])
     
-#     # Create a DataFrame for plotting
-#     df_comparison = pd.DataFrame({
-#         'Origin': income_gender_counts_orig,
-#         'Training': income_gender_counts_train,
-#         'Testing': income_gender_counts_test
-#     }).stack().reset_index()
-    
-#     # Rename columns for clarity
-#     df_comparison.columns = [sensible_attribute, target_variable, 'Dataset', 'Proportion']
-    
-#     # Create a combined column for hue
-#     df_comparison['Attribute(Target)'] = df_comparison[sensible_attribute].astype(str) + '(' + df_comparison[target_variable].astype(str) + ')'
-    
-#     # Call the plotting function
+#     # Debugging: Verify contents
+#     print(df_comparison_target)
+
+#     # Reshape for plotting
+#     df_comparison_reset = df_comparison_target.reset_index().melt(id_vars='index', var_name=f'{sensible_attribute}_{target_variable}', value_name='Count')
+#     df_comparison_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
+
+#     # Debugging: Verify reshaped data
+#     print(df_comparison_reset)
+
+#     # Plot the target distribution
 #     sns_bar_plotting(
-#         df=df_comparison, 
-#         x='Dataset', 
-#         y='Proportion', 
-#         hue='Attribute(Target)',  # Use the combined column name
-#         title='Train-test distributions',
-#         filepath=f'{plots_dir}/{dataset_name}/train_test_distribution.png'
+#         df=df_comparison_reset,
+#         x='Dataset_Type',
+#         y='Count',
+#         hue=f'{sensible_attribute}_{target_variable}',
+#         title=f'{technique_name} - {model_name}: Target distributions',
+#         filepath=f'{plots_dir}/{dataset_name}/{technique_name}_{model_name}_target_distribution.png'
 #     )
+

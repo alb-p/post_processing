@@ -1,3 +1,21 @@
 dataset_name,technique_name,model_name,GroupFairness,PredictiveParity,EqualOpportunity
-adult,Reject Option Classification,Decision Tree,0.468,-0.298,0.703
-adult,Reject Option Classification,Logistic Regression,0.616,-0.556,1.646
+adult,Reject Option Classification,Decision Tree,0.453,-0.281,0.699
+adult,Reject Option Classification,Logistic Regression,0.627,-0.561,1.64
+adult,Reject Option Classification,Random Forest,0.516,-0.382,1.256
+adult,Reject Option Classification,KNN,0.612,-0.374,1.239
+adult,Equalized Odds,Decision Tree,0.059,-0.156,-0.03
+adult,Equalized Odds,Logistic Regression,0.128,-0.01,0.908
+adult,Equalized Odds,Random Forest,1.032,-0.041,1.431
+adult,Equalized Odds,KNN,0.205,-0.042,0.797
+adult,Calibrated EO,Decision Tree,-0.328,-0.783,-0.184
+adult,Calibrated EO,Logistic Regression,-0.263,-0.99,0.067
+adult,Calibrated EO,Random Forest,-0.361,-0.822,-0.164
+adult,Calibrated EO,KNN,-0.35,-0.863,-0.354
+adult,Deterministic Reranking,Decision Tree,0.02,-0.409,0.262
+adult,Deterministic Reranking,Logistic Regression,0.073,-0.602,0.431
+adult,Deterministic Reranking,Random Forest,-0.022,-0.44,0.215
+adult,Deterministic Reranking,KNN,-0.013,-0.475,0.03
+adult,Threshold Optimizer,Decision Tree,0.836,-0.354,0.908
+adult,Threshold Optimizer,Logistic Regression,0.406,-0.569,0.034
+adult,Threshold Optimizer,Random Forest,-0.049,-0.067,0.303
+adult,Threshold Optimizer,KNN,0.097,-0.176,0.215

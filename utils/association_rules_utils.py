@@ -29,7 +29,6 @@ def compute_df_transactions(dataset, dataset_name):
     return df_transactions
 
 def compute_diff_association_rules(association_rules_technique, transf_asso_rules, model_name):
-    print(association_rules_technique)
     support_col = f"{model_name}_support"
     confidence_col = f"{model_name}_confidence"
     association_rules_technique[support_col] = None

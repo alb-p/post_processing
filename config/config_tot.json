@@ -69,13 +69,14 @@
         {
             "name": "Deterinistic Reranking",
             "params": {
-                "constraints": "Statistical parity difference"
+                "type": "Constrained"
             }
         },
         {
             "name": "Threshold Optimizer",
             "params": {
-                "constraints": "false_negative_rate_parity"
+                "constraints": "false_negative_rate_parity",
+                "objective": "balanced_accuracy_score"
             }
         }
     ],

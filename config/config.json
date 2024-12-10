@@ -8,8 +8,6 @@
                 "sensible_attribute": "sex"
             }
         }
-
-
     ],
     "models": [
         {
@@ -57,6 +55,26 @@
             "name": "Equalized Odds",
             "params": {
                 "randseed": 42
+            }
+        },
+        {
+            "name": "Calibrated EO",
+            "params": {
+                "constraint": "fpr",
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Deterministic Reranking",
+            "params": {
+                "type": "Constrained"
+            }
+        },
+        {
+            "name": "Threshold Optimizer",
+            "params": {
+                "constraints": "false_negative_rate_parity",
+                "objective": "balanced_accuracy_score"
             }
         }
     ],

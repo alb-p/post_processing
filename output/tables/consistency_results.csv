@@ -1,3 +1,21 @@
 dataset_name,technique_name,model_name,consistency
-adult,Reject Option Classification,Decision Tree,0.943
-adult,Reject Option Classification,Logistic Regression,0.973
+adult,Reject Option Classification,Decision Tree,0.94
+adult,Reject Option Classification,Logistic Regression,0.97
+adult,Reject Option Classification,Random Forest,0.964
+adult,Reject Option Classification,KNN,0.949
+adult,Equalized Odds,Decision Tree,0.959
+adult,Equalized Odds,Logistic Regression,0.951
+adult,Equalized Odds,Random Forest,0.934
+adult,Equalized Odds,KNN,0.944
+adult,Calibrated EO,Decision Tree,0.924
+adult,Calibrated EO,Logistic Regression,0.913
+adult,Calibrated EO,Random Forest,0.921
+adult,Calibrated EO,KNN,0.92
+adult,Deterministic Reranking,Decision Tree,0.92
+adult,Deterministic Reranking,Logistic Regression,0.92
+adult,Deterministic Reranking,Random Forest,0.92
+adult,Deterministic Reranking,KNN,0.92
+adult,Threshold Optimizer,Decision Tree,0.947
+adult,Threshold Optimizer,Logistic Regression,0.978
+adult,Threshold Optimizer,Random Forest,0.919
+adult,Threshold Optimizer,KNN,0.914

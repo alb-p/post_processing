@@ -1,9 +1,0 @@
-antecedents,consequents,support,confidence
-"frozenset({'male', 'n_married'})",frozenset({'<50K'}),0.244,0.966
-"frozenset({'male', 'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.22,0.965
-"frozenset({'male', 'n_married', 'white'})",frozenset({'<50K'}),0.206,0.962
-frozenset({'n_married'}),frozenset({'<50K'}),0.458,0.875
-"frozenset({'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.413,0.872
-"frozenset({'white', 'n_married'})",frozenset({'<50K'}),0.375,0.866
-"frozenset({'white', 'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.345,0.863
-frozenset({'Age (decade)_20.0'}),frozenset({'<50K'}),0.21,0.863

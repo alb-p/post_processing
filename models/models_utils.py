@@ -9,7 +9,7 @@ import seaborn as sns
 
 from utils.gen_utils import sns_line_plotting
 
-def instanciate_and_fit_model(model, X_train, y_train):
+def instantiate_and_fit_model(model, X_train, y_train):
     model_name = model["name"].lower()
     if "decision tree" in model_name:
         model_instance = DecisionTreeClassifier()

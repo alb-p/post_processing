@@ -1,0 +1,59 @@
+antecedents,consequents,orig_support,orig_confidence,Decision Tree_support,Decision Tree_confidence,Logistic Regression_support,Logistic Regression_confidence,Random Forest_support,Random Forest_confidence,KNN_support,KNN_confidence,support,confidence
+"frozenset({'n_married', 'female'})",frozenset({'<50K'}),0.267,0.958,0.267,0.958,0.267,0.958,0.267,0.958,0.267,0.958,,
+"frozenset({'n_married', 'female', 'UnitedStates'})",frozenset({'<50K'}),0.243,0.956,0.243,0.956,0.243,0.956,0.243,0.956,0.243,0.956,,
+"frozenset({'white', 'female', 'n_married'})",frozenset({'<50K'}),0.209,0.954,0.209,0.954,0.209,0.954,0.209,0.954,0.209,0.954,,
+frozenset({'Age (decade)_20.0'}),frozenset({'<50K'}),0.232,0.945,,,,,,,,,,
+"frozenset({'Age (decade)_20.0', 'UnitedStates'})",frozenset({'<50K'}),0.205,0.942,,,,,,,,,,
+frozenset({'n_married'}),frozenset({'<50K'}),0.498,0.939,0.498,0.939,0.498,0.939,0.498,0.939,0.498,0.939,,
+"frozenset({'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.45,0.937,0.45,0.937,0.45,0.937,0.45,0.937,0.45,0.937,,
+"frozenset({'white', 'n_married'})",frozenset({'<50K'}),0.404,0.933,0.404,0.933,0.404,0.933,0.404,0.933,0.404,0.933,,
+"frozenset({'white', 'UnitedStates', 'n_married'})",frozenset({'<50K'}),0.373,0.931,0.373,0.931,0.373,0.931,0.373,0.931,0.373,0.931,,
+"frozenset({'n_married', 'male'})",frozenset({'<50K'}),0.231,0.917,0.231,0.917,0.231,0.917,0.231,0.917,0.231,0.917,,
+"frozenset({'n_married', 'male', 'UnitedStates'})",frozenset({'<50K'}),0.207,0.916,0.207,0.916,0.207,0.916,0.207,0.916,0.207,0.916,,
+frozenset({'female'}),frozenset({'<50K'}),0.302,0.896,0.302,0.896,0.302,0.896,0.302,0.896,0.302,0.896,,
+"frozenset({'female', 'UnitedStates'})",frozenset({'<50K'}),0.271,0.894,0.271,0.894,0.271,0.894,0.271,0.894,0.271,0.894,,
+"frozenset({'white', 'female'})",frozenset({'<50K'}),0.237,0.886,0.237,0.886,0.237,0.886,0.237,0.886,0.237,0.886,,
+"frozenset({'white', 'female', 'UnitedStates'})",frozenset({'<50K'}),0.218,0.884,0.218,0.884,0.218,0.884,0.218,0.884,0.218,0.884,,
+frozenset({'education.num_9.0'}),frozenset({'<50K'}),0.271,0.837,,,,,,,,,,
+"frozenset({'education.num_9.0', 'UnitedStates'})",frozenset({'<50K'}),0.249,0.832,,,,,,,,,,
+"frozenset({'education.num_9.0', 'white'})",frozenset({'<50K'}),0.224,0.82,,,,,,,,,,
+"frozenset({'education.num_9.0', 'white', 'UnitedStates'})",frozenset({'<50K'}),0.21,0.817,,,,,,,,,,
+"frozenset({'n_married', 'Age (decade)_0.0', 'female'})",frozenset({'<50K'}),,,,,,,,,0.267,0.958,0.267,0.958
+"frozenset({'n_married', 'Age (decade)_0.0', 'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.267,0.958,0.267,0.958
+"frozenset({'n_married', 'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.267,0.958,0.267,0.958
+"frozenset({'n_married', 'Age (decade)_0.0', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.243,0.956,0.243,0.956
+"frozenset({'Age (decade)_0.0', 'UnitedStates', 'education.num_<6', 'female', 'n_married'})",frozenset({'<50K'}),,,,,,,,,0.243,0.956,0.243,0.956
+"frozenset({'n_married', 'education.num_<6', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.243,0.956,0.243,0.956
+"frozenset({'white', 'n_married', 'Age (decade)_0.0', 'female'})",frozenset({'<50K'}),,,,,,,,,0.209,0.954,0.209,0.954
+"frozenset({'white', 'n_married', 'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.209,0.954,0.209,0.954
+"frozenset({'Age (decade)_0.0', 'education.num_<6', 'female', 'n_married', 'white'})",frozenset({'<50K'}),,,,,,,,,0.209,0.954,0.209,0.954
+"frozenset({'n_married', 'Age (decade)_0.0'})",frozenset({'<50K'}),,,,,,,,,0.498,0.939,0.498,0.939
+"frozenset({'n_married', 'Age (decade)_0.0', 'education.num_<6'})",frozenset({'<50K'}),,,,,,,,,0.498,0.939,0.498,0.939
+"frozenset({'n_married', 'education.num_<6'})",frozenset({'<50K'}),,,,,,,,,0.498,0.939,0.498,0.939
+"frozenset({'n_married', 'Age (decade)_0.0', 'education.num_<6', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.45,0.937,0.45,0.937
+"frozenset({'n_married', 'Age (decade)_0.0', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.45,0.937,0.45,0.937
+"frozenset({'n_married', 'education.num_<6', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.45,0.937,0.45,0.937
+"frozenset({'white', 'n_married', 'Age (decade)_0.0', 'education.num_<6'})",frozenset({'<50K'}),,,,,,,,,0.404,0.933,0.404,0.933
+"frozenset({'white', 'Age (decade)_0.0', 'n_married'})",frozenset({'<50K'}),,,,,,,,,0.404,0.933,0.404,0.933
+"frozenset({'white', 'education.num_<6', 'n_married'})",frozenset({'<50K'}),,,,,,,,,0.404,0.933,0.404,0.933
+"frozenset({'white', 'n_married', 'Age (decade)_0.0', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.373,0.931,0.373,0.931
+"frozenset({'white', 'n_married', 'education.num_<6', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.373,0.931,0.373,0.931
+"frozenset({'Age (decade)_0.0', 'UnitedStates', 'education.num_<6', 'n_married', 'white'})",frozenset({'<50K'}),,,,,,,,,0.373,0.931,0.373,0.931
+"frozenset({'n_married', 'Age (decade)_0.0', 'male'})",frozenset({'<50K'}),,,,,,,,,0.231,0.917,0.231,0.917
+"frozenset({'n_married', 'education.num_<6', 'male'})",frozenset({'<50K'}),,,,,,,,,0.231,0.917,0.231,0.917
+"frozenset({'n_married', 'Age (decade)_0.0', 'education.num_<6', 'male'})",frozenset({'<50K'}),,,,,,,,,0.231,0.917,0.231,0.917
+"frozenset({'Age (decade)_0.0', 'UnitedStates', 'education.num_<6', 'n_married', 'male'})",frozenset({'<50K'}),,,,,,,,,0.207,0.916,0.207,0.916
+"frozenset({'n_married', 'education.num_<6', 'male', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.207,0.916,0.207,0.916
+"frozenset({'n_married', 'Age (decade)_0.0', 'male', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.207,0.916,0.207,0.916
+"frozenset({'Age (decade)_0.0', 'female'})",frozenset({'<50K'}),,,,,,,,,0.302,0.896,0.302,0.896
+"frozenset({'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.302,0.896,0.302,0.896
+"frozenset({'Age (decade)_0.0', 'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.302,0.896,0.302,0.896
+"frozenset({'Age (decade)_0.0', 'education.num_<6', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.271,0.894,0.271,0.894
+"frozenset({'Age (decade)_0.0', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.271,0.894,0.271,0.894
+"frozenset({'education.num_<6', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.271,0.894,0.271,0.894
+"frozenset({'white', 'Age (decade)_0.0', 'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.237,0.886,0.237,0.886
+"frozenset({'white', 'education.num_<6', 'female'})",frozenset({'<50K'}),,,,,,,,,0.237,0.886,0.237,0.886
+"frozenset({'white', 'Age (decade)_0.0', 'female'})",frozenset({'<50K'}),,,,,,,,,0.237,0.886,0.237,0.886
+"frozenset({'Age (decade)_0.0', 'UnitedStates', 'education.num_<6', 'female', 'white'})",frozenset({'<50K'}),,,,,,,,,0.218,0.884,0.218,0.884
+"frozenset({'white', 'Age (decade)_0.0', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.218,0.884,0.218,0.884
+"frozenset({'white', 'education.num_<6', 'female', 'UnitedStates'})",frozenset({'<50K'}),,,,,,,,,0.218,0.884,0.218,0.884

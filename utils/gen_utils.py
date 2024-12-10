@@ -23,7 +23,7 @@ def sns_line_plotting(df, x='Stage',y='Value',hue='Metrics', title = "Metric Per
         if axhline == 0:
             plt.ylim(-1, 1)
         elif axhline == 1:
-            plt.ylim(0.5, 1.5)
+            plt.ylim(0, 1.1)
     plt.xlabel(x)
     plt.ylabel(y)
     plt.legend(title=hue)
