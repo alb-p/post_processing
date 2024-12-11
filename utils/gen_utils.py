@@ -29,6 +29,7 @@ def sns_line_plotting(df, x='Stage',y='Value',hue='Metrics', title = "Metric Per
     plt.legend(title=hue)
     plt.grid(grid)
     plt.savefig(filepath)
+    plt.close()
 
 def sns_bar_plotting(df, x='Dataset_Type', y='Count', hue='Gender_Income', title="Bar Plot", filepath='output/plots/sns_bar_plotting_noname.png'):
     sns.barplot(data=df, x=x, y=y, hue=hue, palette='rocket')

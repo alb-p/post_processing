@@ -23,7 +23,7 @@ def compute_fairness_metrics(df_orig_test, df_orig_test_pred, df_transf_test_pre
     })
     filepath = filepath + "/"+technique_name+"_"+model_name+"_fairness_metrics.png"
     sns_line_plotting(df=df_fairness, axhline=0, filepath=filepath, title=f'{technique_name} - {model_name}: Fairness metrics')
-    return round(metrics_after['GroupFairness']['Value']-metrics_before['GroupFairness']['Value'],3),round(metrics_after['PredictiveParity']['Value']-metrics_before['PredictiveParity']['Value'],3), round(metrics_after['EqualOpportunity']['Value']-metrics_before['EqualOpportunity']['Value'],3)
+    return round(abs(metrics_before['GroupFairness']['Value'])-abs(metrics_after['GroupFairness']['Value']),3),round(abs(metrics_before['PredictiveParity']['Value'])- abs(metrics_after['PredictiveParity']['Value']),3),round(abs(metrics_before['EqualOpportunity']['Value'])- abs(metrics_after['EqualOpportunity']['Value']),3)
 
 def preliminary(df_before, df_after, unprivileged_groups, privileged_groups, target_variable, sensible_attribute):
     y_before_privileged, y_before_discriminated = get_test_groups(df_before, unprivileged_groups, privileged_groups, target_variable, sensible_attribute)

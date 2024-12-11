@@ -91,12 +91,43 @@ def compute_consistency(dataset_orig_test, dataset_transf_test_pred, orig_asso_r
     
 
 def plot_consistency(df, dataset_name, filepath):
-    df_consistency = pd.DataFrame({
-        'Metrics': ['Consistency'],
-        'Before': [1],
-        'After':[df['consistency'].values[0]]
-    })
-    sns_line_plotting(df=df_consistency, axhline=1, filepath=filepath, title=f'{dataset_name}: Consistency')
+    #  Create a DataFrame for plotting directly from the input DataFrame
+    df_consistency = df[['technique_name', 'model_name', 'consistency']].rename(
+        columns={'technique_name': 'Technique', 'model_name': 'Model', 'consistency': 'Value'}
+    )
+    
+    # Call sns_line_plotting with the prepared DataFrame
+    sns_line_c_plotting(
+        df=df_consistency,
+        x='Model',
+        y='Value',
+        hue='Technique',
+        title=f'{dataset_name}: Consistency',
+        axhline=1,
+        filepath=filepath
+    )
+
+def sns_line_c_plotting(df, x='Stage', y='Value', hue='Metrics', title="Metric Performance: Before vs After", grid=True, axhline=-1, filepath='output/plots/sns_line_plotting_noname.png'):
+    # Plot the line chart
+    plt.figure(figsize=(10, 6))
+    sns.lineplot(data=df, x=x, y=y, hue=hue, marker="o")
+
+    # Set the plot title and labels
+    plt.title(title)
+    if axhline != -1:
+        plt.axhline(axhline, color='red', linestyle='--')
+        if axhline == 0:
+            plt.ylim(-1, 1)
+        elif axhline == 1:
+            plt.ylim(0.5, 1.1)
+    plt.xlabel(x)
+    plt.ylabel(y)
+    plt.legend(title=hue)
+    plt.grid(grid)
+    plt.savefig(filepath)
+    plt.close()
+
+
 
 def plot_consistency_list(consistency_list, plots_dir, dataset_name, technique_name):
     #FIXME: move the plotting function to gen_utils

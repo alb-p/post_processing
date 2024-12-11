@@ -19,6 +19,7 @@ accuracy_list = []
 fairness_list = []
 consistency_list = []
 
+
 def load_config(config_path):
     with open(config_path, "r") as f:
         return json.load(f)
@@ -220,7 +221,7 @@ def main(config_path):
         "dataset_name", "technique_name", "model_name", "consistency"
     ])
     consistency_df.to_csv(f"{tables_dir}/consistency_results.csv", index=False)
-    filepath = plots_dir+"/"+dataset_name+"/"+technique_name+"_consistency.png"
+    filepath = plots_dir+"/"+dataset_name+"_consistency.png"
     plot_consistency(consistency_df, dataset_name, filepath)
 
 if __name__ == "__main__":
