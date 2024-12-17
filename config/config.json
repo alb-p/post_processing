@@ -8,6 +8,8 @@
                 "sensible_attribute": "sex"
             }
         }
+
+
     ],
     "models": [
         {
@@ -65,7 +67,7 @@
             }
         },
         {
-            "name": "Deterministic Reranking",
+            "name": "Deterinistic Reranking",
             "params": {
                 "type": "Constrained"
             }

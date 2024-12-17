@@ -2,6 +2,19 @@ from sklearn.metrics import confusion_matrix
 
 def fairness_metrics_division(TP_discr, TN_discr, FP_discr, FN_discr, len_discr,
                               TP_priv, TN_priv, FP_priv, FN_priv, len_priv, threshold):
+    '''
+    GroupFairness,
+    PredictiveParity,
+    PredictiveEquality,
+    EqualOpportunity,
+    EqualizedOdds,
+    ConditionalUseAccuracyEquality,
+    OverallAccuracyEquality,
+    TreatmentEquality,
+    FORParity,
+    FN,
+    FP,
+    '''
     metrics = {}
 
     # Compute each metric

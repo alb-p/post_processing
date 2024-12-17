@@ -6,7 +6,11 @@ import seaborn as sns
 
 
 # TODO: male/female -> privileged/unprivileged
+
 def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, target_variable, sensible_attribute, filepath, technique_name, model_name):
+    '''
+    Return the accuracy of the model after the transformation
+    '''
     income_gender_counts_test = df_orig_test.groupby([sensible_attribute, target_variable]).size().unstack()
     income_gender_counts_test_pred = df_orig_test_pred.groupby([sensible_attribute, target_variable]).size().unstack()
     income_gender_counts_transf_test_pred = df_transf_test_pred.groupby([sensible_attribute, target_variable]).size().unstack()
@@ -18,32 +22,17 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     male_accuracy_after = round((1 - abs(income_gender_counts_transf_test_pred.loc[1, 1] - income_gender_counts_test.loc[1, 1]) / total_test_len), 3)
     female_accuracy_after = round((1 - abs(income_gender_counts_transf_test_pred.loc[0, 0] - income_gender_counts_test.loc[0, 0]) / total_test_len), 3)
     total_accuracy_after = round((1 - abs(abs(income_gender_counts_transf_test_pred.loc[1, 1] - income_gender_counts_test.loc[1, 1])+abs(income_gender_counts_transf_test_pred.loc[0, 0] - income_gender_counts_test.loc[0, 0])) / total_test_len), 3)
+
     df_accuracy = pd.DataFrame({
         'Metrics': ['Male Accuracy', 'Female Accuracy', 'Overall Accuracy'],
         'Before': [male_accuracy_before, female_accuracy_before, total_accuracy_before],
         'After':[male_accuracy_after, female_accuracy_after, total_accuracy_after] 
-    })        
+    })   
     filepath = filepath + "/"+technique_name+"_"+model_name+"_accuracy.png"
     sns_line_plotting(df=df_accuracy, axhline=1, filepath=filepath, title=f'{technique_name} - {model_name}: Accuracy')
     
-    return round(male_accuracy_after-male_accuracy_before,3), round(female_accuracy_after-female_accuracy_before,3), round(total_accuracy_after-total_accuracy_before,3)
-
-def compute_accuracy_values(df_orig_test, df_orig_test_pred, df_transf_test_pred,
-                    target_variable,sensible_attribute, filepath,
-                    technique_name, model_name):
-    income_gender_counts_test = df_orig_test.groupby([sensible_attribute, target_variable]).size().unstack()
-    income_gender_counts_test_pred = df_orig_test_pred.groupby([sensible_attribute, target_variable]).size().unstack()
-    income_gender_counts_transf_test_pred = df_transf_test_pred.groupby([sensible_attribute, target_variable]).size().unstack()
-    total_test_len = df_orig_test.shape[0]
-    total_accuracy_before = round((1 - abs(abs(income_gender_counts_test_pred.loc[1, 1] - income_gender_counts_test.loc[1, 1])+abs(income_gender_counts_test_pred.loc[0, 0] - income_gender_counts_test.loc[0, 0])) / total_test_len), 3)
-    total_accuracy_after = round((1 - abs(abs(income_gender_counts_transf_test_pred.loc[1, 1] - income_gender_counts_test.loc[1, 1])+abs(income_gender_counts_transf_test_pred.loc[0, 0] - income_gender_counts_test.loc[0, 0])) / total_test_len), 3)
-    pd.DataFrame(columns=['Metrics', 'Before', 'After'])
-    df_accuracy = pd.DataFrame({
-        'Metrics': ['Overall Accuracy'],
-        'Before': [round(total_accuracy_before, 3)],
-        'After':[round(total_accuracy_before, 3)]
-    })   
-    return df_accuracy
+    # return round(male_accuracy_after-male_accuracy_before,3), round(female_accuracy_after-female_accuracy_before,3), round(total_accuracy_after-total_accuracy_before,3)
+    return male_accuracy_after, female_accuracy_after, total_accuracy_after
 
 def plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name):
     columns = ["Dataset", "Technique", "Model", "priv_accuracy", "unpriv_accuracy", "total_accuracy"]

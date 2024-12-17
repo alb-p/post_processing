@@ -41,3 +41,18 @@ def sns_bar_plotting(df, x='Dataset_Type', y='Count', hue='Gender_Income', title
 
     # Save and show the plot
     plt.savefig(filepath)
+
+def plot_fn_metrics(df_metrics, title, filepath):
+
+    df_metrics_melted = df_metrics.melt(id_vars='Metric', var_name='Stage', value_name='Value')
+    
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=df_metrics_melted, x='Metric', y='Value', hue='Stage', palette='viridis')
+    plt.axhline(0, color='red', linestyle='--')
+    plt.ylabel('Metric Value')
+    plt.xticks(rotation=0, ha='right')
+    plt.ylim(-1, 1)
+    plt.title(title)
+    plt.legend(title='Metric')
+    plt.grid(True)
+    plt.savefig(filepath)

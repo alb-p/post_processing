@@ -10,7 +10,7 @@ from utils.data_utils import load_data, save_data, generate_bld, X_y_train, trai
 from data.adult_utils import preprocess_adult, prev_unprev
 from utils.fairness_utils import compute_fairness_metrics
 from utils.gen_utils import sns_line_plotting
-from utils.quality_utils import compute_accuracy, compute_accuracy_values, compute_consistency, plot_accuracy_list, plot_consistency, plot_consistency_list
+from utils.quality_utils import compute_accuracy, compute_consistency, plot_accuracy_list, plot_consistency, plot_consistency_list
 
 logging.basicConfig(level=logging.INFO)
 
@@ -69,7 +69,6 @@ def main(config_path):
             technique_name = technique["name"]
             print(f"Applying technique: {technique_name}")
             association_rules_technique = []
-            df_accuracy_values = pd.DataFrame(columns=['Metrics', 'Before', 'After'])
             model_counter = 0
             for model in config["models"]:
                 model_counter += 1
@@ -147,11 +146,6 @@ def main(config_path):
                                       priv_accuracy,
                                       unpriv_accuracy,
                                       total_accuracy])
-                temp = compute_accuracy_values(
-                    df_orig_test, df_orig_test_pred, df_transf_test_pred,
-                    target_variable,sensible_attribute, filepath,
-                    technique_name, model_name)
-                df_accuracy_values = pd.concat([df_accuracy_values, temp], ignore_index=True)
                 
                 ## Association Rules
                 #compute association rules only for the first model in the list
@@ -195,8 +189,7 @@ def main(config_path):
             if diff_asso_rules is not None:
                 diff_asso_rules.to_csv(f"{tables_dir}/{dataset_name}/{technique_name}_diff_asso_rules.csv", index=False)
             plot_consistency_list(consistency_list, plots_dir, dataset_name, technique_name)
-            plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name)
-            # sns_line_plotting(df_accuracy_values, filepath=f"{plots_dir}/{dataset_name}/{technique_name}_accuracy_values", title=f'{technique_name} - {model_name}: Accuracy')
+            # plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name)
 
     performance_df = pd.DataFrame(performance_list, columns=[
         "dataset_name", "technique_name", "model_name",
@@ -216,6 +209,7 @@ def main(config_path):
         "GroupFairness", "PredictiveParity", "EqualOpportunity"
     ])
     fairness_df.to_csv(f"{tables_dir}/fairness_results.csv", index=False)
+    
 
     consistency_df = pd.DataFrame(consistency_list, columns=[
         "dataset_name", "technique_name", "model_name", "consistency"

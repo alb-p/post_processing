@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.metrics import confusion_matrix
 
 from utils.fairness_metrics import fairness_metrics_division
-from utils.gen_utils import sns_line_plotting
+from utils.gen_utils import plot_fn_metrics, sns_line_plotting
 
 def compute_fairness_metrics(df_orig_test, df_orig_test_pred, df_transf_test_pred, unprivileged_groups, privileged_groups, target_variable, sensible_attribute, filepath, technique_name, model_name):
     
@@ -17,12 +17,14 @@ def compute_fairness_metrics(df_orig_test, df_orig_test_pred, df_transf_test_pre
     after_values = [metrics_after[metric]['Value'] for metric in fairness_metrics_selection]
 
     df_fairness = pd.DataFrame({
-        'Metrics': ['GroupFairness', 'PredictiveParity', 'EqualOpportunity'],
+        'Metric': ['GroupFairness', 'PredictiveParity', 'EqualOpportunity'],
         'Before': before_values,
         'After': after_values
     })
     filepath = filepath + "/"+technique_name+"_"+model_name+"_fairness_metrics.png"
-    sns_line_plotting(df=df_fairness, axhline=0, filepath=filepath, title=f'{technique_name} - {model_name}: Fairness metrics')
+    # sns_line_plotting(df=df_fairness, axhline=0, filepath=filepath, title=f'{technique_name} - {model_name}: Fairness metrics')
+    title = f'{technique_name} - {model_name}: Fairness metrics Before and After applying post-processing'
+    plot_fn_metrics(df_fairness,title, filepath)
     return round(abs(metrics_before['GroupFairness']['Value'])-abs(metrics_after['GroupFairness']['Value']),3),round(abs(metrics_before['PredictiveParity']['Value'])- abs(metrics_after['PredictiveParity']['Value']),3),round(abs(metrics_before['EqualOpportunity']['Value'])- abs(metrics_after['EqualOpportunity']['Value']),3)
 
 def preliminary(df_before, df_after, unprivileged_groups, privileged_groups, target_variable, sensible_attribute):

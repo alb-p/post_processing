@@ -46,6 +46,11 @@ def apply_pp_technique(technique, model_instance, best_class_thresh, dataset, da
             unprivileged_groups = unprivileged_groups,
             seed = randseed)
     elif "reranking" in technique_name:
+        '''
+        The reranking process enforces constraints as minimum
+        and/or maximum representation of each group at different positions
+        in the ranked list.
+        '''
         technique_instance  = DeterministicReranking(
             privileged_groups = privileged_groups,
             unprivileged_groups = unprivileged_groups)
@@ -65,6 +70,8 @@ def apply_pp_technique(technique, model_instance, best_class_thresh, dataset, da
             group_sizes["unprivileged"] / total_size,
             group_sizes["privileged"] / total_size
         ]
+        print("Target proportion")
+        print(target_prop)
         already_fitted = True
     elif "threshold" in technique_name:
         constraints = technique_params["constraints"]

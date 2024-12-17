@@ -80,9 +80,9 @@
             }
         }
     ],
-    "tables_dir": "tables/",
-    "results_dir": "results/",
-    "plots_dir": "plots/",
+    "tables_dir": "output/tables/",
+    "results_dir": "output/results/",
+    "plots_dir": "output/plots/",
 
     "num_thresh_test": 100,
 

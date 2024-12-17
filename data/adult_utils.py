@@ -13,6 +13,7 @@ def preprocess_adult(dataset):
         'Never-married': 0,
         'Divorced': 0,
         'Separated': 0,
+        'Separated': 0,
         'Widowed': 0,
         'Married-civ-spouse': 1,
         'Married-spouse-absent': 1,
@@ -48,7 +49,7 @@ def prepare_adult_asso_rules(dataset_to_prepare):
     # Education number from 0 to 5 are put in '<6' and those above 13 into '>12'
     df_prepared['education.num'] = df_prepared['education.num'].apply(lambda x: group_edu(x))
     df_prepared['education.num'] = df_prepared['education.num'].astype(str)
-    # Group age by decade
+    # Group age by decade (i.e. decade_20 represents ages between 20 and 29)
     df_prepared['Age (decade)'] = df_prepared['age'].apply(lambda x: x//10*10)
     df_prepared = df_prepared.drop(columns='age')
     # Group hours per week

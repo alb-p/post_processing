@@ -93,13 +93,6 @@ def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensibl
         'Female(>50K)': [income_gender_counts_orig.loc[0, 1], income_gender_counts_pred.loc[0, 1], income_gender_counts_transf.loc[0,1]],
     },index = ['Original', 'Predicted', 'Transformed'])
 
-    
-    # var_name = sensible_attribute+'_'+target_variable
-    # value_name='Count'
-    # df_comparison_target_reset = df_comparison_target.reset_index().melt(id_vars='index', var_name=var_name, value_name=value_name)
-    # df_comparison_target_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
-    
-
     # FIXME: delete this hard coding from old code
     df_comparison_target_reset = df_comparison_target[['Male(<=50K)', 'Male(>50K)', 'Female(<=50K)', 'Female(>50K)']].reset_index().melt(id_vars='index', var_name='Gender_Income', value_name='Count')
     df_comparison_target_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
@@ -117,48 +110,22 @@ def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensibl
 
     # Plotting with Seaborn
     plt.figure(figsize=(10, 6))
-    sns.barplot(data=df_comparison_target_reset, x='Dataset_Type', y='Count', hue='Gender_Income', palette='rocket')
-    plt.title("Income by Gender Across Original, Predicted, and Transformed Datasets")
+    ax = sns.barplot(data=df_comparison_target_reset, x='Dataset_Type', y='Count', hue='Gender_Income', palette='rocket')
+    plt.title(f"{technique_name} - {model_name } : Income by Gender")
     plt.xlabel("Dataset Type")
     plt.ylabel("Count of Individuals")
     plt.xticks(rotation=0)
     plt.legend(title="Income and Gender")
+    for p in ax.patches:
+        ax.annotate(
+            format(p.get_height(), '.1f'),  # Format the height value (e.g., one decimal place)
+            (p.get_x() + p.get_width() / 2., p.get_height()),  # Position of the text
+            ha='center',  # Horizontal alignment
+            va='center',  # Vertical alignment
+            xytext=(0, 8),  # Offset from the top of the bar
+            textcoords='offset points'  # Use offset in points
+        )
+
 
     # Save and show the plot
     plt.savefig(filepath)
-
-
-# def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensible_attribute, target_variable, plots_dir, dataset_name, technique_name, model_name):
-#     # Extract and verify target distributions
-#     income_gender_counts_orig, _ = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
-#     income_gender_counts_pred, _ = extract_target_sensible_attributes(dataset_pred, sensible_attribute, target_variable)
-#     income_gender_counts_transf, _ = extract_target_sensible_attributes(dataset_transf, sensible_attribute, target_variable)
-    
-#     # Construct DataFrame for target distribution only
-#     df_comparison_target = pd.DataFrame({
-#         'Male(<=50K)': [income_gender_counts_orig.loc[1, 0], income_gender_counts_pred.loc[1, 0], income_gender_counts_transf.loc[1, 0]],
-#         'Male(>50K)': [income_gender_counts_orig.loc[1, 1], income_gender_counts_pred.loc[1, 1], income_gender_counts_transf.loc[1, 1]],
-#         'Female(<=50K)': [income_gender_counts_orig.loc[0, 0], income_gender_counts_pred.loc[0, 0], income_gender_counts_transf.loc[0, 0]],
-#         'Female(>50K)': [income_gender_counts_orig.loc[0, 1], income_gender_counts_pred.loc[0, 1], income_gender_counts_transf.loc[0, 1]],
-#     }, index=['Original', 'Predicted', 'Transformed'])
-    
-#     # Debugging: Verify contents
-#     print(df_comparison_target)
-
-#     # Reshape for plotting
-#     df_comparison_reset = df_comparison_target.reset_index().melt(id_vars='index', var_name=f'{sensible_attribute}_{target_variable}', value_name='Count')
-#     df_comparison_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
-
-#     # Debugging: Verify reshaped data
-#     print(df_comparison_reset)
-
-#     # Plot the target distribution
-#     sns_bar_plotting(
-#         df=df_comparison_reset,
-#         x='Dataset_Type',
-#         y='Count',
-#         hue=f'{sensible_attribute}_{target_variable}',
-#         title=f'{technique_name} - {model_name}: Target distributions',
-#         filepath=f'{plots_dir}/{dataset_name}/{technique_name}_{model_name}_target_distribution.png'
-#     )
-
