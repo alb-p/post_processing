@@ -1,21 +1,17 @@
 dataset_name,technique_name,model_name,consistency
-adult,Reject Option Classification,Decision Tree,0.939
-adult,Reject Option Classification,Logistic Regression,0.964
-adult,Reject Option Classification,Random Forest,0.964
-adult,Reject Option Classification,KNN,0.948
-adult,Equalized Odds,Decision Tree,0.959
-adult,Equalized Odds,Logistic Regression,0.956
-adult,Equalized Odds,Random Forest,0.943
-adult,Equalized Odds,KNN,0.943
-adult,Calibrated EO,Decision Tree,0.921
-adult,Calibrated EO,Logistic Regression,0.911
-adult,Calibrated EO,Random Forest,0.918
-adult,Calibrated EO,KNN,0.916
-adult,Deterministic Reranking,Decision Tree,0.919
-adult,Deterministic Reranking,Logistic Regression,0.919
-adult,Deterministic Reranking,Random Forest,0.919
-adult,Deterministic Reranking,KNN,0.919
-adult,Threshold Optimizer,Decision Tree,0.926
-adult,Threshold Optimizer,Logistic Regression,0.987
-adult,Threshold Optimizer,Random Forest,0.919
-adult,Threshold Optimizer,KNN,0.913
+adult,Equalized Odds,Decision Tree,0.956
+adult,Equalized Odds,Logistic Regression,0.955
+adult,Equalized Odds,Random Forest,0.954
+adult,Equalized Odds,KNN,0.949
+adult,Calibrated EO,Decision Tree,0.923
+adult,Calibrated EO,Logistic Regression,0.914
+adult,Calibrated EO,Random Forest,0.92
+adult,Calibrated EO,KNN,0.921
+adult,Deterinistic Reranking,Decision Tree,0.921
+adult,Deterinistic Reranking,Logistic Regression,0.921
+adult,Deterinistic Reranking,Random Forest,0.921
+adult,Deterinistic Reranking,KNN,0.921
+adult,Threshold Optimizer,Decision Tree,0.948
+adult,Threshold Optimizer,Logistic Regression,0.988
+adult,Threshold Optimizer,Random Forest,0.922
+adult,Threshold Optimizer,KNN,0.916

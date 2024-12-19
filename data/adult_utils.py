@@ -27,19 +27,8 @@ def preprocess_adult(dataset):
 
     return dataset_preproc
 
-
-def prev_unprev(dataset, sensible_attribute, target_variable):
-    income_gender_counts = dataset.groupby([sensible_attribute, target_variable]).size().unstack()
-    if (income_gender_counts.loc[0][1] < income_gender_counts.loc[1][1]):
-        privileged_groups = [{'sex': 1}]
-        unprivileged_groups = [{'sex': 0}]
-    else:
-        privileged_groups = [{'sex': 0}]
-        unprivileged_groups = [{'sex': 1}]
-    return privileged_groups, unprivileged_groups
-
-
 def prepare_adult_asso_rules(dataset_to_prepare): 
+    print("Preparing Adult dataset for association rules...")
     # Convert the dataset to a DataFrame
     if not isinstance(dataset_to_prepare, pd.DataFrame):
         df_prepared = dataset_to_prepare.convert_to_dataframe()[0]
@@ -64,7 +53,6 @@ def prepare_adult_asso_rules(dataset_to_prepare):
     df_prepared['capital.loss>0'] = df_prepared['capital.loss'].apply(lambda x: 1 if x > 0 else 0)
     df_prepared['capital.loss=0'] = df_prepared['capital.loss'].apply(lambda x: 1 if x == 0 else 0)
     df_prepared.drop(columns='capital.loss', inplace=True)
-
 
     df_prepared['male'] = df_prepared['sex'].apply(lambda x: 1 if x == 1 else 0)
     df_prepared['female'] = df_prepared['sex'].apply(lambda x: 1 if x == 0 else 0)

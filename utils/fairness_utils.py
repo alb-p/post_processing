@@ -42,8 +42,7 @@ def calculate_confusion_matrix(y_true, y_pred):
     TN = cm[0][0]
     FN = cm[1][0]
     FP = cm[0][1]
-    total = TP + TN + FN + FP
-    
+    total = TP + TN + FN + FP    
     return TP, TN, FN, FP, total
 
 def get_test_groups(df_test, unprivileged_groups, privileged_groups, target_variable, sensible_attribute):

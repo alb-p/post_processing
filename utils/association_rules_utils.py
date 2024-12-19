@@ -1,5 +1,6 @@
 import pandas as pd
 from data.adult_utils import prepare_adult_asso_rules
+from data.compas_utils import prepare_compas_asso_rules
 from mlxtend.frequent_patterns import association_rules, fpgrowth, apriori
 
 
@@ -14,8 +15,7 @@ def compute_taget_rules(df_transactions, target_variable, min_support, min_confi
     # Extract association rules with min confidence
     res = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
     res = res.sort_values(by='confidence', ascending=False)
-    # FIXME: Filter rules with consequents equal to target variable 
-    res_target = res[(res['consequents'] == {'<50K'}) | (res['consequents'] == {'>50K'})]
+    res_target = res[(res['consequents'] == {target_variable[0]}) | (res['consequents'] == {target_variable[1]})]
     res_target = res_target[["antecedents", "consequents", "support", "confidence"]]
     res_target = round(res_target, 3)
     return res_target
@@ -24,6 +24,8 @@ def compute_taget_rules(df_transactions, target_variable, min_support, min_confi
 def compute_df_transactions(dataset, dataset_name):
     if "adult" in dataset_name:
         data_asso_rules = prepare_adult_asso_rules(dataset)
+    if "compas" in dataset_name:
+        data_asso_rules = prepare_compas_asso_rules(dataset)
     # Create a binary representation of transactions
     df_transactions = data_asso_rules.map(lambda x: True if x > 0 else False)
     return df_transactions

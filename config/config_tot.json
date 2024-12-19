@@ -7,9 +7,15 @@
                 "target_variable": "income",
                 "sensible_attribute": "sex"
             }
+        },
+        {
+            "name": "compas",
+            "path": "data/compas-scores-two-years.csv",
+            "parameters": {
+                "target_variable": "risk",
+                "sensible_attribute": "race"
+            }
         }
-
-
     ],
     "models": [
         {

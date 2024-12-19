@@ -1,15 +1,13 @@
 {
     "datasets": [
         {
-            "name": "adult",
-            "path": "data/adult.csv",
+            "name": "compas",
+            "path": "data/compas-scores-two-years.csv",
             "parameters": {
-                "target_variable": "income",
-                "sensible_attribute": "sex"
+                "target_variable": "risk",
+                "sensible_attribute": "race"
             }
         }
-
-
     ],
     "models": [
         {
@@ -41,18 +39,6 @@
         }
     ],
     "techniques": [
-        {
-            "name": "Reject Option Classification",
-            "params": {
-                "metric_name": "Statistical parity difference",
-                "low_class_thresh": 0.1,
-                "high_class_thresh": 0.9,
-                "num_class_thresh": 100,
-                "num_ROC_margin": 50,
-                "metric_ub": 0.05,
-                "metric_lb": -0.05
-            }
-        },
         {
             "name": "Equalized Odds",
             "params": {
@@ -87,6 +73,6 @@
     "num_thresh_test": 100,
 
     "min_confidence": 0.8,
-    "min_support": 0.2
+    "min_support": 0.1
 
 }

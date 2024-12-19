@@ -1,4 +1,4 @@
-#!/home/alberto/Documents/Uni_MS/Tesi/Coding/post_processing_pipeline/pipeline_env/bin/python3
+#!/home/alberto/Documents/Uni_MS/Tesi/Coding/post_processing/pp_env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -33,6 +33,17 @@ def preprocess_dataset(dataset):
     dataset.dropna(inplace=True)
     return dataset
 
+def prev_unprev(dataset, sensible_attribute, target_variable):
+    target_sensible_count = dataset.groupby([sensible_attribute, target_variable]).size().unstack()
+    if (target_sensible_count.loc[0][1] < target_sensible_count.loc[1][1]):
+        privileged_groups = [{sensible_attribute: 1}]
+        unprivileged_groups = [{sensible_attribute: 0}]
+    else:
+        privileged_groups = [{sensible_attribute: 0}]
+        unprivileged_groups = [{sensible_attribute: 1}]
+    return privileged_groups, unprivileged_groups
+
+
 def generate_bld(dataset, target_variable, sensible_attribute):
     """
     Generates a binary dataset from the original dataset.
@@ -86,6 +97,9 @@ def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensibl
     income_gender_counts_orig, _ = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
     income_gender_counts_pred, _ = extract_target_sensible_attributes(dataset_pred, sensible_attribute, target_variable)
     income_gender_counts_transf, _ = extract_target_sensible_attributes(dataset_transf, sensible_attribute, target_variable)
+    
+    print("debbb")
+    print(income_gender_counts_transf)
     df_comparison_target = pd.DataFrame({
         'Male(<=50K)': [income_gender_counts_orig.loc[1, 0], income_gender_counts_pred.loc[1, 0], income_gender_counts_transf.loc[1,0]],
         'Male(>50K)': [income_gender_counts_orig.loc[1, 1], income_gender_counts_pred.loc[1, 1], income_gender_counts_transf.loc[1,1]],

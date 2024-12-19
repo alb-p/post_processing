@@ -11,6 +11,7 @@
 - [ ] rule by rule "consistency check"
 - [ ] why model performances metrics are better on detRank
 - [ ] understanding of outlier results
+- [ ] provare fit_predict con detRank
 
 
 
