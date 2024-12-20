@@ -5,6 +5,7 @@
             "path": "data/adult.csv",
             "parameters": {
                 "target_variable": "income",
+                "target_variable_values": ["<50K", ">50K"],
                 "sensible_attribute": "sex"
             }
         },
@@ -13,6 +14,7 @@
             "path": "data/compas-scores-two-years.csv",
             "parameters": {
                 "target_variable": "risk",
+                "target_variable_values": ["risk_low", "risk_high"],
                 "sensible_attribute": "race"
             }
         }

@@ -1,17 +1,5 @@
 dataset_name,technique_name,model_name,GroupFairness,PredictiveParity,EqualOpportunity
-adult,Equalized Odds,Decision Tree,0.034,-0.145,-0.217
-adult,Equalized Odds,Logistic Regression,0.061,-0.001,0.88
-adult,Equalized Odds,Random Forest,0.252,-0.016,0.404
-adult,Equalized Odds,KNN,0.104,-0.037,0.554
-adult,Calibrated EO,Decision Tree,-0.339,-0.84,-0.383
-adult,Calibrated EO,Logistic Regression,-0.269,-0.967,0.0
-adult,Calibrated EO,Random Forest,-0.369,-0.849,-0.301
-adult,Calibrated EO,KNN,-0.343,-0.859,-0.411
-adult,Deterinistic Reranking,Decision Tree,0.018,-0.386,0.426
-adult,Deterinistic Reranking,Logistic Regression,0.091,-0.531,0.767
-adult,Deterinistic Reranking,Random Forest,-0.009,-0.411,0.484
-adult,Deterinistic Reranking,KNN,0.017,-0.423,0.356
-adult,Threshold Optimizer,Decision Tree,0.575,-0.36,0.392
-adult,Threshold Optimizer,Logistic Regression,0.458,-0.518,0.0
-adult,Threshold Optimizer,Random Forest,0.096,-0.181,0.716
-adult,Threshold Optimizer,KNN,0.143,-0.198,0.562
+compas,Threshold Optimizer,Decision Tree,0.484,-0.394,0.424
+compas,Threshold Optimizer,Logistic Regression,-0.016,-0.165,0.517
+compas,Threshold Optimizer,Random Forest,0.37,-0.103,0.529
+compas,Threshold Optimizer,KNN,0.32,-0.126,0.003

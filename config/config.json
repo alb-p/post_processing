@@ -5,6 +5,7 @@
             "path": "data/compas-scores-two-years.csv",
             "parameters": {
                 "target_variable": "risk",
+                "target_variable_values": ["risk_low", "risk_high"],
                 "sensible_attribute": "race"
             }
         }
@@ -40,25 +41,6 @@
     ],
     "techniques": [
         {
-            "name": "Equalized Odds",
-            "params": {
-                "randseed": 42
-            }
-        },
-        {
-            "name": "Calibrated EO",
-            "params": {
-                "constraint": "fpr",
-                "randseed": 42
-            }
-        },
-        {
-            "name": "Deterinistic Reranking",
-            "params": {
-                "type": "Constrained"
-            }
-        },
-        {
             "name": "Threshold Optimizer",
             "params": {
                 "constraints": "false_negative_rate_parity",
@@ -66,9 +48,9 @@
             }
         }
     ],
-    "tables_dir": "output/tables/",
-    "results_dir": "output/results/",
-    "plots_dir": "output/plots/",
+    "tables_dir": "../output/tables/",
+    "results_dir": "../output/results/",
+    "plots_dir": "../output/plots/",
 
     "num_thresh_test": 100,
 

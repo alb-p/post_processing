@@ -1,17 +1,5 @@
 dataset_name,technique_name,model_name,priv_accuracy,unpriv_accuracy,overall_accuracy
-adult,Equalized Odds,Decision Tree,0.93,0.985,0.915
-adult,Equalized Odds,Logistic Regression,0.946,0.994,0.94
-adult,Equalized Odds,Random Forest,0.991,0.975,0.966
-adult,Equalized Odds,KNN,0.989,0.988,0.977
-adult,Calibrated EO,Decision Tree,0.987,0.963,0.95
-adult,Calibrated EO,Logistic Regression,0.962,0.963,0.925
-adult,Calibrated EO,Random Forest,0.965,0.963,0.928
-adult,Calibrated EO,KNN,0.974,0.963,0.937
-adult,Deterinistic Reranking,Decision Tree,1.0,1.0,1.0
-adult,Deterinistic Reranking,Logistic Regression,1.0,1.0,1.0
-adult,Deterinistic Reranking,Random Forest,1.0,1.0,1.0
-adult,Deterinistic Reranking,KNN,1.0,1.0,1.0
-adult,Threshold Optimizer,Decision Tree,0.883,0.86,0.743
-adult,Threshold Optimizer,Logistic Regression,0.742,0.867,0.609
-adult,Threshold Optimizer,Random Forest,0.884,0.984,0.868
-adult,Threshold Optimizer,KNN,0.86,0.979,0.839
+compas,Threshold Optimizer,Decision Tree,0.827,0.931,0.758
+compas,Threshold Optimizer,Logistic Regression,0.812,0.763,0.576
+compas,Threshold Optimizer,Random Forest,0.961,0.969,0.93
+compas,Threshold Optimizer,KNN,0.94,0.851,0.791
