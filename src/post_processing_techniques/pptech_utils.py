@@ -70,8 +70,6 @@ def apply_pp_technique(technique, model_instance, best_class_thresh, dataset, da
             group_sizes["unprivileged"] / total_size,
             group_sizes["privileged"] / total_size
         ]
-        print("Target proportion")
-        print(target_prop)
         already_fitted = True
     elif "threshold" in technique_name:
         constraints = technique_params["constraints"]

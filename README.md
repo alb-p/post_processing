@@ -12,7 +12,8 @@
 - [ ] why model performances metrics are better on detRank
 - [ ] understanding of outlier results
 - [ ] provare fit_predict con detRank
-
+- [ ] fix `main.py`: run outside `src` folder
+- [ ] add a delta plot for target_distribution
 
 
 ### Completed ✓

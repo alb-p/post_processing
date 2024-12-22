@@ -12,20 +12,12 @@ def compute_fairness_metrics(df_orig_test, df_orig_test_pred, df_transf_test_pre
     metrics_before = fairness_metrics_division(TP_discr, TN_discr, FP_discr, FN_discr, len_discr, TP_priv, TN_priv, FP_priv, FN_priv, len_priv, threshold=0.15)
     metrics_after = fairness_metrics_division(TP_discr_pp, TN_discr_pp, FP_discr_pp, FN_discr_pp, len_discr_pp, TP_priv_pp, TN_priv_pp, FP_priv_pp, FN_priv_pp, len_priv_pp, threshold=0.15)
     
-    fairness_metrics_selection = ['GroupFairness', 'PredictiveParity', 'EqualOpportunity']
-    before_values = [metrics_before[metric]['Value'] for metric in fairness_metrics_selection]
-    after_values = [metrics_after[metric]['Value'] for metric in fairness_metrics_selection]
-
-    df_fairness = pd.DataFrame({
-        'Metric': ['GroupFairness', 'PredictiveParity', 'EqualOpportunity'],
-        'Before': before_values,
-        'After': after_values
-    })
-    filepath = filepath + "/"+technique_name+"_"+model_name+"_fairness_metrics.png"
-    # sns_line_plotting(df=df_fairness, axhline=0, filepath=filepath, title=f'{technique_name} - {model_name}: Fairness metrics')
-    title = f'{technique_name} - {model_name}: Fairness metrics Before and After applying post-processing'
-    plot_fn_metrics(df_fairness,title, filepath)
-    return round(abs(metrics_before['GroupFairness']['Value'])-abs(metrics_after['GroupFairness']['Value']),3),round(abs(metrics_before['PredictiveParity']['Value'])- abs(metrics_after['PredictiveParity']['Value']),3),round(abs(metrics_before['EqualOpportunity']['Value'])- abs(metrics_after['EqualOpportunity']['Value']),3)
+    GroupFairness = round(abs(metrics_before['GroupFairness']['Value'])-abs(metrics_after['GroupFairness']['Value']),3)
+    PredictiveParity = round(abs(metrics_before['PredictiveParity']['Value'])- abs(metrics_after['PredictiveParity']['Value']),3)
+    PredictiveEquality = round(abs(metrics_before['PredictiveEquality']['Value'])- abs(metrics_after['PredictiveEquality']['Value']),3)
+    EqualOpportunity = round(abs(metrics_before['EqualOpportunity']['Value'])- abs(metrics_after['EqualOpportunity']['Value']),3)
+    EqualizedOdds = round(abs(metrics_before['EqualizedOdds']['Value'])- abs(metrics_after['EqualizedOdds']['Value']),3)
+    return GroupFairness, PredictiveParity, PredictiveEquality, EqualOpportunity, EqualizedOdds
 
 def preliminary(df_before, df_after, unprivileged_groups, privileged_groups, target_variable, sensible_attribute):
     y_before_privileged, y_before_discriminated = get_test_groups(df_before, unprivileged_groups, privileged_groups, target_variable, sensible_attribute)

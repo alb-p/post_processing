@@ -66,7 +66,7 @@ def compute_diff_association_rules(association_rules_technique, transf_asso_rule
     return association_rules_technique
     
     
-def export_association_rules(rules, dataset_name, file_path):
+def export_association_rules(rules, tables_dir, dataset_name, filename):
     """
     Exports association rules to a CSV file.
 
@@ -74,6 +74,8 @@ def export_association_rules(rules, dataset_name, file_path):
         rules (pd.DataFrame): DataFrame containing association rules.
         file_path (str): Path to save the CSV file.
     """
+    filepath = f"{tables_dir}/{dataset_name}/{filename}"
+    # os.makedirs(filepath, exist_ok=True)
     export_rules = []
     for _, rule in rules.iterrows():
         export_rules.append({
@@ -83,7 +85,7 @@ def export_association_rules(rules, dataset_name, file_path):
             "confidence": round(rule["confidence"],3)
         })
     export_df = pd.DataFrame(export_rules, columns=["Dataset", "Rule", "support", "confidence"])
-    export_df.to_csv(file_path, index=False)
+    export_df.to_csv(filepath, index=False)
     
 def clean_association_rules(rules):
     clean_rules = []

@@ -1,12 +1,23 @@
 {
     "datasets": [
         {
+            "name": "adult",
+            "path": "data/adult.csv",
+            "parameters": {
+                "target_variable": "income",
+                "target_variable_values": ["<50K", ">50K"],
+                "sensible_attribute": "sex",
+                "sensible_attribute_values": ["Female", "Male"]
+            }
+        },
+        {
             "name": "compas",
             "path": "data/compas-scores-two-years.csv",
             "parameters": {
                 "target_variable": "risk",
-                "target_variable_values": ["risk_low", "risk_high"],
-                "sensible_attribute": "race"
+                "target_variable_values": ["risk_high", "risk_low"],
+                "sensible_attribute": "race",
+                "sensible_attribute_values": ["African-American", "Caucasian"]
             }
         }
     ],
@@ -41,6 +52,37 @@
     ],
     "techniques": [
         {
+            "name": "Reject Option Classification",
+            "params": {
+                "metric_name": "Statistical parity difference",
+                "low_class_thresh": 0.1,
+                "high_class_thresh": 0.9,
+                "num_class_thresh": 100,
+                "num_ROC_margin": 50,
+                "metric_ub": 0.05,
+                "metric_lb": -0.05
+            }
+        },
+        {
+            "name": "Equalized Odds",
+            "params": {
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Calibrated EO",
+            "params": {
+                "constraint": "fpr",
+                "randseed": 42
+            }
+        },
+        {
+            "name": "Deterministic Reranking",
+            "params": {
+                "type": "Constrained"
+            }
+        },
+        {
             "name": "Threshold Optimizer",
             "params": {
                 "constraints": "false_negative_rate_parity",
@@ -51,10 +93,10 @@
     "tables_dir": "../output/tables/",
     "results_dir": "../output/results/",
     "plots_dir": "../output/plots/",
-
+    
     "num_thresh_test": 100,
 
     "min_confidence": 0.8,
-    "min_support": 0.1
+    "min_support": 0.2
 
 }

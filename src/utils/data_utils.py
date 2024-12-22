@@ -62,16 +62,16 @@ def X_y_train(dataset):
     y_train = dataset.labels.ravel()
     return scale_orig, X_train, y_train
 
-def train_test_distribution_plot(dataset_orig, dataset_orig_train, dataset_orig_test, sensible_attribute, target_variable, plots_dir, dataset_name): 
-    income_gender_counts_orig, orig_size = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
-    income_gender_counts_train, train_size = extract_target_sensible_attributes(dataset_orig_train, sensible_attribute, target_variable)
-    income_gender_counts_test, test_size = extract_target_sensible_attributes(dataset_orig_test, sensible_attribute, target_variable)
+def train_test_distribution_plot(dataset_orig, dataset_orig_train, dataset_orig_test, sensible_attribute, sensible_attribute_values, target_variable, target_variable_values, plots_dir, dataset_name): 
+    sensible_target_counts_orig, orig_size = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
+    sensible_target_counts_train, train_size = extract_target_sensible_attributes(dataset_orig_train, sensible_attribute, target_variable)
+    sensible_target_counts_test, test_size = extract_target_sensible_attributes(dataset_orig_test, sensible_attribute, target_variable)
 
     df_comparison_train_test = pd.DataFrame({
-        'Male(<=50K)': [income_gender_counts_orig.loc[1, 0]/orig_size, income_gender_counts_train.loc[1, 0]/train_size, income_gender_counts_test.loc[1, 0]/test_size],
-        'Male(>50K)': [income_gender_counts_orig.loc[1, 1]/orig_size, income_gender_counts_train.loc[1, 1]/train_size, income_gender_counts_test.loc[1, 1]/test_size],
-        'Female(<=50K)': [income_gender_counts_orig.loc[0, 0]/orig_size, income_gender_counts_train.loc[0, 0]/train_size, income_gender_counts_test.loc[0, 0]/test_size],
-        'Female(>50K)': [income_gender_counts_orig.loc[0, 1]/orig_size, income_gender_counts_train.loc[0, 1]/train_size, income_gender_counts_test.loc[0, 1]/test_size],
+        f'{sensible_attribute_values[1]},{target_variable_values[0]}': [sensible_target_counts_orig.loc[1, 0]/orig_size, sensible_target_counts_train.loc[1, 0]/train_size, sensible_target_counts_test.loc[1, 0]/test_size],
+        f'{sensible_attribute_values[1]},{target_variable_values[1]}': [sensible_target_counts_orig.loc[1, 1]/orig_size, sensible_target_counts_train.loc[1, 1]/train_size, sensible_target_counts_test.loc[1, 1]/test_size],
+        f'{sensible_attribute_values[0]},{target_variable_values[0]}': [sensible_target_counts_orig.loc[0, 0]/orig_size, sensible_target_counts_train.loc[0, 0]/train_size, sensible_target_counts_test.loc[0, 0]/test_size],
+        f'{sensible_attribute_values[0]},{target_variable_values[1]}': [sensible_target_counts_orig.loc[0, 1]/orig_size, sensible_target_counts_train.loc[0, 1]/train_size, sensible_target_counts_test.loc[0, 1]/test_size],
     }, index=['Origin', 'Training', 'Testing'])
 
 
@@ -93,8 +93,6 @@ def extract_target_sensible_attributes(dataset, sensible_attribute, target_varia
         dataset = dataset.convert_to_dataframe()[0]
     if sensible_attribute not in dataset.columns or target_variable not in dataset.columns:
         raise ValueError(f"Columns '{sensible_attribute}' or '{target_variable}' not found in the dataset.")
-    
-    print(dataset[target_variable].value_counts())
     return dataset.groupby([sensible_attribute, target_variable]).size().unstack(fill_value=0), len(dataset)
 
 def get_safe_value(data, outer_key, inner_key):
@@ -102,52 +100,55 @@ def get_safe_value(data, outer_key, inner_key):
         return data.loc[outer_key, inner_key]
     return 0
 
-def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensible_attribute, target_variable, plots_dir, dataset_name, technique_name, model_name): 
+def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensible_attribute, sensible_attribute_values,target_variable, target_variable_values, plots_dir, dataset_name, technique_name, model_name): 
   # Extract data for the three datasets
-    income_gender_counts_orig, _ = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
-    income_gender_counts_pred, _ = extract_target_sensible_attributes(dataset_pred, sensible_attribute, target_variable)
-    income_gender_counts_transf, _ = extract_target_sensible_attributes(dataset_transf, sensible_attribute, target_variable)
-    
-    print("Debug: Transformed Income Gender Counts")
-    print(income_gender_counts_transf)
+    sensible_target_counts_orig, _ = extract_target_sensible_attributes(dataset_orig, sensible_attribute, target_variable)
+    sensible_target_counts_pred, _ = extract_target_sensible_attributes(dataset_pred, sensible_attribute, target_variable)
+    sensible_target_counts_transf, _ = extract_target_sensible_attributes(dataset_transf, sensible_attribute, target_variable)
+
+    sens0_target0 = f'{sensible_attribute_values[0]},{target_variable_values[0]}'
+    sens0_target1 = f'{sensible_attribute_values[0]},{target_variable_values[1]}'
+    sens1_target0 = f'{sensible_attribute_values[1]},{target_variable_values[0]}'
+    sens1_target1 = f'{sensible_attribute_values[1]},{target_variable_values[1]}'
+
     
     # Create a DataFrame comparing values across datasets
     df_comparison_target = pd.DataFrame({
-        'Male(<=50K)': [
-            get_safe_value(income_gender_counts_orig, 1, 0),
-            get_safe_value(income_gender_counts_pred, 1, 0),
-            get_safe_value(income_gender_counts_transf, 1, 0),
+        sens1_target0: [
+            get_safe_value(sensible_target_counts_orig, 1, 0),
+            get_safe_value(sensible_target_counts_pred, 1, 0),
+            get_safe_value(sensible_target_counts_transf, 1, 0),
         ],
-        'Male(>50K)': [
-            get_safe_value(income_gender_counts_orig, 1, 1),
-            get_safe_value(income_gender_counts_pred, 1, 1),
-            get_safe_value(income_gender_counts_transf, 1, 1),
+        sens1_target1: [
+            get_safe_value(sensible_target_counts_orig, 1, 1),
+            get_safe_value(sensible_target_counts_pred, 1, 1),
+            get_safe_value(sensible_target_counts_transf, 1, 1),
         ],
-        'Female(<=50K)': [
-            get_safe_value(income_gender_counts_orig, 0, 0),
-            get_safe_value(income_gender_counts_pred, 0, 0),
-            get_safe_value(income_gender_counts_transf, 0, 0),
+        sens0_target0: [
+            get_safe_value(sensible_target_counts_orig, 0, 0),
+            get_safe_value(sensible_target_counts_pred, 0, 0),
+            get_safe_value(sensible_target_counts_transf, 0, 0),
         ],
-        'Female(>50K)': [
-            get_safe_value(income_gender_counts_orig, 0, 1),
-            get_safe_value(income_gender_counts_pred, 0, 1),
-            get_safe_value(income_gender_counts_transf, 0, 1),
+        sens0_target1: [
+            get_safe_value(sensible_target_counts_orig, 0, 1),
+            get_safe_value(sensible_target_counts_pred, 0, 1),
+            get_safe_value(sensible_target_counts_transf, 0, 1),
         ],
     }, index=['Original', 'Predicted', 'Transformed'])
     
     # FIXME: delete this hard coding from old code
-    df_comparison_target_reset = df_comparison_target[['Male(<=50K)', 'Male(>50K)', 'Female(<=50K)', 'Female(>50K)']].reset_index().melt(id_vars='index', var_name='Gender_Income', value_name='Count')
+    df_comparison_target_reset = df_comparison_target[[sens1_target0, sens1_target1, sens0_target0, sens0_target1]].reset_index().melt(id_vars='index', var_name='Sens_Target', value_name='Count')
     df_comparison_target_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
-    filepath=f'{plots_dir}/{dataset_name}/{technique_name}_{model_name}_target_distribution.png'
+    filepath=f'{plots_dir}/{dataset_name}/{model_name}_{technique_name}_target_distribution.png'
 
     # Plotting with Seaborn
     plt.figure(figsize=(10, 6))
-    ax = sns.barplot(data=df_comparison_target_reset, x='Dataset_Type', y='Count', hue='Gender_Income', palette='rocket')
-    plt.title(f"{technique_name} - {model_name } : Income by Gender")
+    ax = sns.barplot(data=df_comparison_target_reset, x='Dataset_Type', y='Count', hue='Sens_Target', palette='rocket')
+    plt.title(f"{model_name} - {technique_name} : Target Distribution Over Sensible Attribute")
     plt.xlabel("Dataset Type")
     plt.ylabel("Count of Individuals")
     plt.xticks(rotation=0)
-    plt.legend(title="Income and Gender")
+    plt.legend(title="Target and sensible attribute")
     for p in ax.patches:
         ax.annotate(
             format(p.get_height(), '.1f'),  # Format the height value (e.g., one decimal place)
@@ -161,3 +162,7 @@ def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensibl
 
     # Save and show the plot
     plt.savefig(filepath)
+    plt.close()
+
+def merge_accuracy_consistency(accuracy_df, consistency_df):
+    return pd.merge(accuracy_df, consistency_df,  on=["dataset_name", "model_name", "technique_name"])

@@ -76,6 +76,6 @@ def compute_model_performance(dataset_orig_test, dataset_orig_test_pred,dataset_
         'Before': [accuracy_before, recall_before, precision_before, F1_before],
         'After': [accuracy_after, recall_after, precision_after, F1_after]
     })
-    filepath = filepath + "/"+technique_name+"_"+model_name+"_model_performances.png"
-    sns_line_plotting(df = df_performances, filepath = filepath, axhline = 1, title=f"{technique_name} - {model_name}: Performances")
+    # filepath = filepath + "/"+technique_name+"_"+model_name+"_model_performances.png"
+    # sns_line_plotting(df = df_performances, filepath = filepath, axhline = 1, title=f"{technique_name} - {model_name}: Performances")
     return round(accuracy_after - accuracy_before, 3), round(recall_after - recall_before, 3), round(precision_after - precision_before, 3), round(F1_after - F1_before, 3)
