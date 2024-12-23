@@ -232,8 +232,6 @@ def main(config_path):
                 ])
             if diff_asso_rules is not None:
                 diff_asso_rules.to_csv(f"{tables_dir}/{dataset_name}/{technique_name}_diff_asso_rules.csv", index=False)
-            plot_consistency_list(consistency_list, plots_dir, dataset_name, technique_name)
-            # plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name)
 
     performance_metrics = ["Accuracy", "Recall", "Precision", "F1"]
     performance_df_columns = common_columns_df + performance_metrics

@@ -5,8 +5,6 @@
 ## Pipeline
 ![pipeline](/images/Experiment_pipeline.jpg)
 ### TODOs
-- [ ] fairness metrics picking
-- [ ] fn delta barplotting
 - [ ] check differences on minimal asso rules/overlapping rules
 - [ ] rule by rule "consistency check"
 - [ ] why model performances metrics are better on detRank
@@ -44,3 +42,5 @@
 - [x] DeterministicRanking accept only up to 5882 dataset rows (Det_rank.py to do)
 - [x] add info about how metrics/values/perce
 - [x] add a fairness delta
+- [x] fairness metrics picking
+- [x] fn delta barplotting

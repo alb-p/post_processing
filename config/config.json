@@ -97,6 +97,6 @@
     "num_thresh_test": 100,
 
     "min_confidence": 0.8,
-    "min_support": 0.2
+    "min_support": 0.1
 
 }

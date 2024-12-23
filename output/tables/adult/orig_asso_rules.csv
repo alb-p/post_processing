@@ -1,19 +1,49 @@
 Dataset,Rule,support,confidence
-adult,"{'n_married', 'female'} -> {'<50K'}",0.262,0.96
-adult,"{'n_married', 'UnitedStates', 'female'} -> {'<50K'}",0.239,0.96
-adult,"{'white', 'n_married', 'female'} -> {'<50K'}",0.211,0.956
-adult,{'n_married'} -> {'<50K'},0.49,0.939
-adult,"{'n_married', 'UnitedStates'} -> {'<50K'}",0.445,0.937
-adult,{'Age (decade)_20.0'} -> {'<50K'},0.225,0.937
-adult,"{'white', 'n_married'} -> {'<50K'}",0.4,0.933
-adult,"{'white', 'UnitedStates', 'n_married'} -> {'<50K'}",0.371,0.932
-adult,"{'n_married', 'male'} -> {'<50K'}",0.227,0.915
-adult,"{'n_married', 'male', 'UnitedStates'} -> {'<50K'}",0.205,0.913
-adult,{'female'} -> {'<50K'},0.298,0.892
-adult,"{'UnitedStates', 'female'} -> {'<50K'}",0.268,0.891
-adult,"{'white', 'female'} -> {'<50K'}",0.238,0.884
-adult,"{'white', 'UnitedStates', 'female'} -> {'<50K'}",0.219,0.882
-adult,{'education.num_9.0'} -> {'<50K'},0.274,0.843
-adult,"{'UnitedStates', 'education.num_9.0'} -> {'<50K'}",0.253,0.841
-adult,"{'white', 'education.num_9.0'} -> {'<50K'}",0.23,0.831
-adult,"{'white', 'UnitedStates', 'education.num_9.0'} -> {'<50K'}",0.216,0.829
+adult,"{'Age (decade)_20.0', 'n_married', 'UnitedStates'} -> {'<50K'}",0.166,0.982
+adult,"{'Age (decade)_20.0', 'n_married', 'male'} -> {'<50K'}",0.102,0.981
+adult,"{'Age (decade)_20.0', 'n_married'} -> {'<50K'}",0.188,0.981
+adult,"{'Age (decade)_20.0', 'n_married', 'UnitedStates', 'white'} -> {'<50K'}",0.142,0.981
+adult,"{'white', 'n_married', 'Age (decade)_20.0'} -> {'<50K'}",0.156,0.98
+adult,"{'education.num_9.0', 'n_married'} -> {'<50K'}",0.16,0.97
+adult,"{'education.num_9.0', 'n_married', 'UnitedStates'} -> {'<50K'}",0.148,0.969
+adult,"{'education.num_10.0', 'n_married', 'UnitedStates'} -> {'<50K'}",0.125,0.968
+adult,"{'education.num_10.0', 'n_married'} -> {'<50K'}",0.136,0.967
+adult,"{'education.num_10.0', 'white', 'n_married', 'UnitedStates'} -> {'<50K'}",0.106,0.966
+adult,"{'education.num_9.0', 'white', 'n_married'} -> {'<50K'}",0.128,0.965
+adult,"{'white', 'n_married', 'UnitedStates', 'education.num_9.0'} -> {'<50K'}",0.121,0.965
+adult,"{'education.num_10.0', 'white', 'n_married'} -> {'<50K'}",0.112,0.964
+adult,"{'n_married', 'female'} -> {'<50K'}",0.264,0.951
+adult,"{'n_married', 'UnitedStates', 'female'} -> {'<50K'}",0.238,0.95
+adult,"{'white', 'n_married', 'female'} -> {'<50K'}",0.211,0.949
+adult,"{'white', 'n_married', 'UnitedStates', 'female'} -> {'<50K'}",0.193,0.947
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.238,0.937
+adult,"{'Age (decade)_20.0', 'UnitedStates'} -> {'<50K'}",0.207,0.936
+adult,{'n_married'} -> {'<50K'},0.498,0.935
+adult,"{'n_married', 'UnitedStates'} -> {'<50K'}",0.448,0.935
+adult,"{'white', 'Age (decade)_20.0'} -> {'<50K'}",0.198,0.934
+adult,"{'white', 'UnitedStates', 'Age (decade)_20.0'} -> {'<50K'}",0.179,0.932
+adult,"{'white', 'n_married'} -> {'<50K'}",0.409,0.929
+adult,"{'white', 'n_married', 'UnitedStates'} -> {'<50K'}",0.376,0.928
+adult,"{'Age (decade)_20.0', 'male'} -> {'<50K'}",0.142,0.925
+adult,"{'Age (decade)_20.0', 'UnitedStates', 'male'} -> {'<50K'}",0.123,0.922
+adult,"{'white', 'Age (decade)_20.0', 'male'} -> {'<50K'}",0.121,0.921
+adult,"{'Age (decade)_20.0', 'white', 'UnitedStates', 'male'} -> {'<50K'}",0.109,0.918
+adult,"{'n_married', 'UnitedStates', 'male'} -> {'<50K'}",0.21,0.918
+adult,"{'n_married', 'male'} -> {'<50K'}",0.234,0.918
+adult,"{'n_married', 'Age (decade)_30.0', 'UnitedStates'} -> {'<50K'}",0.101,0.915
+adult,"{'n_married', 'Age (decade)_30.0'} -> {'<50K'}",0.114,0.913
+adult,"{'white', 'n_married', 'UnitedStates', 'male'} -> {'<50K'}",0.183,0.91
+adult,"{'white', 'n_married', 'male'} -> {'<50K'}",0.197,0.909
+adult,{'female'} -> {'<50K'},0.299,0.889
+adult,"{'UnitedStates', 'female'} -> {'<50K'}",0.265,0.886
+adult,"{'white', 'female'} -> {'<50K'}",0.238,0.879
+adult,"{'white', 'UnitedStates', 'female'} -> {'<50K'}",0.216,0.876
+adult,{'n_white'} -> {'<50K'},0.121,0.856
+adult,{'education.num_9.0'} -> {'<50K'},0.267,0.834
+adult,"{'education.num_9.0', 'UnitedStates'} -> {'<50K'}",0.245,0.827
+adult,"{'education.num_9.0', 'white'} -> {'<50K'}",0.224,0.822
+adult,{'education.num_10.0'} -> {'<50K'},0.191,0.822
+adult,"{'education.num_10.0', 'UnitedStates'} -> {'<50K'}",0.174,0.818
+adult,"{'education.num_9.0', 'white', 'UnitedStates'} -> {'<50K'}",0.21,0.817
+adult,"{'education.num_10.0', 'white'} -> {'<50K'}",0.159,0.806
+adult,"{'education.num_10.0', 'white', 'UnitedStates'} -> {'<50K'}",0.149,0.805

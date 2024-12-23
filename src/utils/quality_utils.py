@@ -45,7 +45,7 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     # sns_line_plotting(df=df_accuracy, axhline=1, filepath=filepath, title=f'{model_name} - {technique_name}: Accuracy')
     
     # return round(male_accuracy_after-male_accuracy_before,3), round(female_accuracy_after-female_accuracy_before,3), round(total_accuracy_after-total_accuracy_before,3)
-    return male_accuracy_after, female_accuracy_after, total_accuracy_after
+    return -male_accuracy_after, -female_accuracy_after, -total_accuracy_after
 
 def plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name):
     columns = ["Dataset", "Technique", "Model", "priv_accuracy", "unpriv_accuracy", "total_accuracy"]
@@ -90,7 +90,7 @@ def compute_consistency(dataset_orig_test, dataset_transf_test_pred, orig_asso_r
     total_rows = dataset_transf_test_pred.features.shape[0]
     #FIXME: add a minus to the delta
     delta = (rows_not_respecting_rules / total_rows)
-    return round(delta,3)
+    return -round(delta,3)
     
 
 def plot_consistency(df, dataset_name, filepath):
