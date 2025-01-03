@@ -85,7 +85,7 @@
         {
             "name": "Threshold Optimizer",
             "params": {
-                "constraints": "false_negative_rate_parity",
+                "constraints": "demographic_parity",
                 "objective": "balanced_accuracy_score"
             }
         }

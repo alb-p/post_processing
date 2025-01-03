@@ -1,0 +1,29 @@
+Dataset,Rule,support,confidence
+adult,"{'male', 'n_married', 'Age (decade)_20.0'} -> {'<50K'}",0.102,0.966
+adult,"{'male', 'n_married'} -> {'<50K'}",0.234,0.915
+adult,"{'male', 'UnitedStates', 'n_married'} -> {'<50K'}",0.21,0.914
+adult,"{'Age (decade)_20.0', 'UnitedStates', 'n_married'} -> {'<50K'}",0.151,0.908
+adult,"{'male', 'n_married', 'white'} -> {'<50K'}",0.196,0.908
+adult,"{'Age (decade)_20.0', 'n_married'} -> {'<50K'}",0.17,0.907
+adult,"{'male', 'UnitedStates', 'n_married', 'white'} -> {'<50K'}",0.18,0.907
+adult,"{'Age (decade)_20.0', 'UnitedStates', 'n_married', 'white'} -> {'<50K'}",0.128,0.905
+adult,"{'Age (decade)_20.0', 'n_married', 'white'} -> {'<50K'}",0.14,0.904
+adult,"{'n_married', 'education.num_9.0'} -> {'<50K'}",0.152,0.903
+adult,"{'UnitedStates', 'n_married', 'education.num_9.0'} -> {'<50K'}",0.14,0.902
+adult,"{'male', 'Age (decade)_20.0'} -> {'<50K'}",0.138,0.898
+adult,"{'education.num_9.0', 'UnitedStates', 'n_married', 'white'} -> {'<50K'}",0.112,0.897
+adult,"{'n_married', 'education.num_9.0', 'white'} -> {'<50K'}",0.119,0.897
+adult,"{'male', 'UnitedStates', 'Age (decade)_20.0'} -> {'<50K'}",0.12,0.89
+adult,"{'male', 'white', 'Age (decade)_20.0'} -> {'<50K'}",0.116,0.89
+adult,"{'male', 'UnitedStates', 'white', 'Age (decade)_20.0'} -> {'<50K'}",0.104,0.884
+adult,"{'UnitedStates', 'education.num_10.0', 'n_married'} -> {'<50K'}",0.109,0.868
+adult,"{'education.num_10.0', 'n_married'} -> {'<50K'}",0.118,0.865
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.214,0.86
+adult,"{'Age (decade)_20.0', 'UnitedStates'} -> {'<50K'}",0.188,0.857
+adult,"{'UnitedStates', 'n_married'} -> {'<50K'}",0.403,0.855
+adult,{'n_married'} -> {'<50K'},0.445,0.854
+adult,"{'Age (decade)_20.0', 'white'} -> {'<50K'}",0.177,0.852
+adult,"{'Age (decade)_20.0', 'UnitedStates', 'white'} -> {'<50K'}",0.16,0.85
+adult,"{'n_married', 'white'} -> {'<50K'}",0.362,0.847
+adult,"{'UnitedStates', 'n_married', 'white'} -> {'<50K'}",0.333,0.847
+adult,"{'Age (decade)_30.0', 'n_married'} -> {'<50K'}",0.105,0.836

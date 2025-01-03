@@ -1,0 +1,2 @@
+Dataset,Rule,support,confidence
+compas,"{'recidive', 'priors_Many'} -> {'risk_high'}",0.126,0.812

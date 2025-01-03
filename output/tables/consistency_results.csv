@@ -1,41 +1,41 @@
 dataset_name,model_name,technique_name,consistency
-adult,Decision Tree,Reject Option Classification,-0.081
-adult,Decision Tree,Equalized Odds,-0.059
-adult,Decision Tree,Calibrated EO,-0.092
-adult,Decision Tree,Deterministic Reranking,-0.112
-adult,Decision Tree,Threshold Optimizer,-0.0
-adult,Logistic Regression,Reject Option Classification,-0.042
-adult,Logistic Regression,Equalized Odds,-0.047
-adult,Logistic Regression,Calibrated EO,-0.111
-adult,Logistic Regression,Deterministic Reranking,-0.112
-adult,Logistic Regression,Threshold Optimizer,-0.023
-adult,Random Forest,Reject Option Classification,-0.058
-adult,Random Forest,Equalized Odds,-0.044
-adult,Random Forest,Calibrated EO,-0.096
-adult,Random Forest,Deterministic Reranking,-0.112
-adult,Random Forest,Threshold Optimizer,-0.038
-adult,KNN,Reject Option Classification,-0.066
-adult,KNN,Equalized Odds,-0.054
-adult,KNN,Calibrated EO,-0.095
-adult,KNN,Deterministic Reranking,-0.112
-adult,KNN,Threshold Optimizer,-0.112
-compas,Decision Tree,Reject Option Classification,-0.083
-compas,Decision Tree,Equalized Odds,-0.079
-compas,Decision Tree,Calibrated EO,-0.09
-compas,Decision Tree,Deterministic Reranking,-0.063
-compas,Decision Tree,Threshold Optimizer,-0.083
-compas,Logistic Regression,Reject Option Classification,-0.102
-compas,Logistic Regression,Equalized Odds,-0.062
-compas,Logistic Regression,Calibrated EO,-0.089
-compas,Logistic Regression,Deterministic Reranking,-0.063
-compas,Logistic Regression,Threshold Optimizer,-0.042
-compas,Random Forest,Reject Option Classification,-0.104
-compas,Random Forest,Equalized Odds,-0.055
-compas,Random Forest,Calibrated EO,-0.084
-compas,Random Forest,Deterministic Reranking,-0.063
-compas,Random Forest,Threshold Optimizer,-0.08
-compas,KNN,Reject Option Classification,-0.101
-compas,KNN,Equalized Odds,-0.046
-compas,KNN,Calibrated EO,-0.088
-compas,KNN,Deterministic Reranking,-0.063
-compas,KNN,Threshold Optimizer,-0.085
+adult,Decision Tree,Reject Option Classification,0.92
+adult,Decision Tree,Equalized Odds,0.946
+adult,Decision Tree,Calibrated EO,0.908
+adult,Decision Tree,Deterministic Reranking,0.887
+adult,Decision Tree,Threshold Optimizer,1.0
+adult,Logistic Regression,Reject Option Classification,0.969
+adult,Logistic Regression,Equalized Odds,0.965
+adult,Logistic Regression,Calibrated EO,0.89
+adult,Logistic Regression,Deterministic Reranking,0.887
+adult,Logistic Regression,Threshold Optimizer,0.989
+adult,Random Forest,Reject Option Classification,0.96
+adult,Random Forest,Equalized Odds,0.959
+adult,Random Forest,Calibrated EO,0.904
+adult,Random Forest,Deterministic Reranking,0.887
+adult,Random Forest,Threshold Optimizer,0.895
+adult,KNN,Reject Option Classification,0.932
+adult,KNN,Equalized Odds,0.949
+adult,KNN,Calibrated EO,0.902
+adult,KNN,Deterministic Reranking,0.887
+adult,KNN,Threshold Optimizer,0.884
+compas,Decision Tree,Reject Option Classification,0.917
+compas,Decision Tree,Equalized Odds,0.921
+compas,Decision Tree,Calibrated EO,0.91
+compas,Decision Tree,Deterministic Reranking,0.937
+compas,Decision Tree,Threshold Optimizer,0.918
+compas,Logistic Regression,Reject Option Classification,0.898
+compas,Logistic Regression,Equalized Odds,0.938
+compas,Logistic Regression,Calibrated EO,0.911
+compas,Logistic Regression,Deterministic Reranking,0.937
+compas,Logistic Regression,Threshold Optimizer,0.957
+compas,Random Forest,Reject Option Classification,0.896
+compas,Random Forest,Equalized Odds,0.945
+compas,Random Forest,Calibrated EO,0.916
+compas,Random Forest,Deterministic Reranking,0.937
+compas,Random Forest,Threshold Optimizer,0.93
+compas,KNN,Reject Option Classification,0.899
+compas,KNN,Equalized Odds,0.954
+compas,KNN,Calibrated EO,0.912
+compas,KNN,Deterministic Reranking,0.937
+compas,KNN,Threshold Optimizer,0.919

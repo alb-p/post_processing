@@ -85,15 +85,17 @@ def model_printing(df_to_plot, metrics, axhline=-1, title="Put here the title", 
             ax.set_title(f'{model} - {title}')
             ax.set_xticks(x + width * (len(technique_names) - 1) / 2)
             ax.set_xticklabels(metrics)
-            ax.legend(title="Techniques")
+            
+            ax.grid(axis='y')
 
             if axhline != -1:
-                plt.axhline(axhline, color='red', linestyle='--')
+                plt.axhline(axhline, color='red', linestyle='--', label= "Ideal Value")
             if axhline == 0:
                 plt.ylim(-1, 1)
             elif axhline == 1:
                 plt.ylim(0, 1.1)
 
+            ax.legend(title="Techniques")
             plt.xticks(rotation=0)
             plt.tight_layout()
             plt.savefig(f"{filepath}/{dataset}/{model}_{title}.png")

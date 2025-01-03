@@ -31,9 +31,9 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     # total_accuracy_before = round((1 - abs(abs(male_pred_before - male_actual) + abs(female_pred_before - female_actual)) / total_test_len), 3)
 
     #FIXME: add a minus to the delta
-    male_accuracy_after = round((abs(male_pred_after - male_actual) / total_test_len), 3)
-    female_accuracy_after = round((abs(female_pred_after - female_actual) / total_test_len), 3)
-    total_accuracy_after = round((abs(abs(male_pred_after - male_actual) + abs(female_pred_after - female_actual)) / total_test_len), 3)
+    male_accuracy_after = round(1-(abs(male_pred_after - male_actual) / total_test_len), 3)
+    female_accuracy_after = round(1-(abs(female_pred_after - female_actual) / total_test_len), 3)
+    total_accuracy_after = round(1-(abs(abs(male_pred_after - male_actual) + abs(female_pred_after - female_actual)) / total_test_len), 3)
 
     # df_accuracy = pd.DataFrame({
     #     'Metrics': ['Male Accuracy', 'Female Accuracy', 'Overall Accuracy'],
@@ -45,7 +45,7 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     # sns_line_plotting(df=df_accuracy, axhline=1, filepath=filepath, title=f'{model_name} - {technique_name}: Accuracy')
     
     # return round(male_accuracy_after-male_accuracy_before,3), round(female_accuracy_after-female_accuracy_before,3), round(total_accuracy_after-total_accuracy_before,3)
-    return -male_accuracy_after, -female_accuracy_after, -total_accuracy_after
+    return male_accuracy_after, female_accuracy_after, total_accuracy_after
 
 def plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name):
     columns = ["Dataset", "Technique", "Model", "priv_accuracy", "unpriv_accuracy", "total_accuracy"]
@@ -88,9 +88,8 @@ def compute_consistency(dataset_orig_test, dataset_transf_test_pred, orig_asso_r
     rows_not_respecting_rules = rows_violating_rules.sum()
     # Calculate the delta
     total_rows = dataset_transf_test_pred.features.shape[0]
-    #FIXME: add a minus to the delta
     delta = (rows_not_respecting_rules / total_rows)
-    return -round(delta,3)
+    return round(1-delta,3)
     
 
 def plot_consistency(df, dataset_name, filepath):

@@ -7,7 +7,7 @@ from data.compas_utils import preprocess_compas
 from models.models_utils import calculate_best_thr, compute_model_performance, get_scores, instantiate_and_fit_model, predict_model
 from post_processing_techniques.pptech_utils import apply_pp_technique
 from utils.association_rules_utils import clean_association_rules, compute_association_rules, compute_diff_association_rules, export_association_rules
-from utils.data_utils import load_data, merge_accuracy_consistency, save_data, prev_unprev, generate_bld, X_y_train, train_test_distribution_plot, stages_distribution_plot
+from utils.data_utils import load_data, merge_accuracy_consistency, print_distribution, save_data, prev_unprev, generate_bld, X_y_train, train_test_distribution_plot, stages_distribution_plot
 from data.adult_utils import preprocess_adult
 from utils.fairness_utils import compute_fairness_metrics
 from utils.gen_utils import model_printing, sns_line_plotting
@@ -82,7 +82,7 @@ def main(config_path):
             target_variable_values,
             plots_dir,
             dataset_name)
-                
+        # print_distribution(dataset_orig_test, dataset_orig_test, dataset_name)
         orig_asso_rules_target = compute_association_rules(
                         dataset = dataset_orig_test,
                         dataset_name = dataset_name,
@@ -97,13 +97,15 @@ def main(config_path):
             filename="orig_asso_rules.csv")
         
         orig_asso_rules_target = orig_asso_rules_target.rename(columns={'support': 'orig_support', 'confidence': 'orig_confidence'})
-        # TODO: necessario?
-        association_rules_dataset = orig_asso_rules_target.copy()
 
         model_counter = 0
         for model in config["models"]:
             model_counter += 1
             model_name = model["name"]
+            association_rules_dataset = orig_asso_rules_target.copy()
+            print("association_rules_dataset")
+            print(association_rules_dataset)
+            print("end association_rules_dataset")
             print(f"Training model: {model_name}")
             model_instance = instantiate_and_fit_model(model, X_train, y_train)
             pos_ind, dataset_orig_train_pred = predict_model(model_instance, dataset_orig_train, X_train)
@@ -209,18 +211,21 @@ def main(config_path):
                     dataset = dataset_transf_test_pred, dataset_name = dataset_name,
                     target_variable = target_variable_values, support = user_min_support,
                     confidence = user_min_confidence)
-                
-                print(f"Association rules for {technique_name} technique {model_name} model")
+
+                print(f"Association rules for {model_name} model - {technique_name} technique")
                 print(transf_asso_rules_target)
+                export_association_rules(
+                    transf_asso_rules_target,
+                    tables_dir,
+                    dataset_name,
+                    filename=f"{model_name}_{technique_name}_asso_rules.csv")
                 #transf_asso_rules_target.to_csv(f"{tables_dir}/{dataset_name}/{technique_name}-{model_name}_asso_rules.csv", index=False)
+                association_rules_dataset.to_csv(f"{tables_dir}/{dataset_name}/{model_name}_{technique_name}_progress_dataset_asso.csv", index=False)
                 diff_asso_rules = compute_diff_association_rules(
                     association_rules_dataset, 
                     transf_asso_rules_target, 
-                    model_name)
-                diff_asso_rules = compute_diff_association_rules(
-                    association_rules_dataset, 
-                    transf_asso_rules_target, 
-                    model_name )
+                    technique_name)
+                
                 consistency = compute_consistency(
                     dataset_orig_test, dataset_transf_test_pred,
                     orig_asso_rules_target, dataset_name)
@@ -231,7 +236,9 @@ def main(config_path):
                     consistency
                 ])
             if diff_asso_rules is not None:
-                diff_asso_rules.to_csv(f"{tables_dir}/{dataset_name}/{technique_name}_diff_asso_rules.csv", index=False)
+                diff_asso_rules.to_csv(f"{tables_dir}/{dataset_name}/{model_name}_diff_asso_rules.csv", index=False)
+            else:
+                logging.info(f"No association rules for {model_name} model")
 
     performance_metrics = ["Accuracy", "Recall", "Precision", "F1"]
     performance_df_columns = common_columns_df + performance_metrics
@@ -276,7 +283,7 @@ def main(config_path):
     model_printing(
         df_to_plot=quality_df,
         metrics=data_quality_metrics,
-        axhline=0,
+        axhline=1,
         title="Quality Metrics Behavior",
         filepath=f"{plots_dir}")
 
