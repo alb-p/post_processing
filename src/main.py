@@ -18,6 +18,7 @@ logging.basicConfig(level=logging.INFO)
 performance_list = []
 accuracy_list = []
 fairness_list = []
+fairness_star_list = []
 consistency_list = []
 
 
@@ -37,8 +38,6 @@ def main(config_path):
     tables_dir = config["tables_dir"]
     plots_dir = config["plots_dir"]
     num_thresh = config["num_thresh_test"]
-    user_min_support = config["min_support"]
-    user_min_confidence = config["min_confidence"]
 
     technique_counter = 0
     model_counter = 0
@@ -53,6 +52,10 @@ def main(config_path):
         target_variable_values = dataset["parameters"]["target_variable_values"]
         sensible_attribute = dataset["parameters"]["sensible_attribute"]
         sensible_attribute_values = dataset["parameters"]["sensible_attribute_values"]
+
+        user_min_support = dataset["association_rules_parameters"]["min_support"]
+        user_min_confidence =  dataset["association_rules_parameters"]["min_confidence"]
+
         print(f"Processing dataset: {dataset_name}")
         data = load_data(dataset_path)
         if "adult" in dataset_name:
@@ -125,6 +128,7 @@ def main(config_path):
                 technique_counter += 1
                 technique_name = technique["name"]
                 print(f"Applying technique: {technique_name}")
+
                 # association_rules_dataset = []
                 dataset_transf_test_pred = apply_pp_technique(
                     technique=technique,
@@ -169,8 +173,8 @@ def main(config_path):
                                         model_recall,
                                         model_precision,
                                         model_F1])
-    
-                GroupFairness, PredictiveParity, PredictiveEquality, EqualOpportunity, EqualizedOdds= compute_fairness_metrics(
+                # Star is True if the metric has changed sign, meaning that the group with bigger fairness value has changed
+                GroupFairness, GF_star, PredictiveParity, PP_star, PredictiveEquality, PE_star, EqualOpportunity, EOp_star, EqualizedOdds, EOd_star= compute_fairness_metrics(
                     df_orig_test,
                     df_orig_test_pred,
                     df_transf_test_pred,
@@ -181,6 +185,14 @@ def main(config_path):
                     filepath,
                     technique_name,
                     model_name)
+                fairness_star_list.append([dataset_name,
+                                    model_name,
+                                    technique_name,
+                                    GF_star,
+                                    PP_star,
+                                    PE_star,
+                                    EOp_star,
+                                    EOd_star])
                 fairness_list.append([dataset_name,
                                     model_name,
                                     technique_name,
@@ -246,7 +258,7 @@ def main(config_path):
     model_printing(
         df_to_plot=performance_df,
         metrics=performance_metrics,
-        axhline=0,
+        axhline=-2,
         title="Performance Metrics",
         filepath=f"{plots_dir}")
     performance_df.to_csv(f"{tables_dir}/performance_results.csv", index=False)
@@ -257,10 +269,19 @@ def main(config_path):
     model_printing(
         df_to_plot=fairness_df,
         metrics=fairness_metrics,
-        axhline=0,
+        axhline=-2,
         title="Fairness Metrics Behavior",
         filepath=f"{plots_dir}")
     fairness_df.to_csv(f"{tables_dir}/fairness_results.csv", index=False)
+    fairness_star_metrics = [
+    "GroupFairness_star",
+    "PredictiveParity_star",
+    "PredictiveEquality_star",
+    "EqualOpportunity_star",
+    "EqualizedOdds_star"]
+    fairness_star_df_columns = common_columns_df + fairness_star_metrics
+    fairness_star_df = pd.DataFrame(fairness_star_list, columns=fairness_star_df_columns)
+    fairness_star_df.to_csv(f"{tables_dir}/fairness_star_results.csv", index=False)
     
     accuracy_df_columns = common_columns_df + ["priv_accuracy", "unpriv_accuracy", "overall_accuracy"]
     accuracy_df = pd.DataFrame(accuracy_list, columns=accuracy_df_columns)

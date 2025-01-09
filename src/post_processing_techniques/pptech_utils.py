@@ -106,11 +106,9 @@ def apply_pp_technique(technique, model_instance, best_class_thresh, dataset, da
             rec_size=len_pred,
             target_prop=target_prop,
             rerank_type=reranking_type,
-            renormalize_scores = True)
-        # target_prop = {
-        #     0: 0.5,
-        #     1: 0.5
-        # }
+            renormalize_scores = False)
+        
+        # target_prop = [0.5,0.5]
         # dataset_transf = technique_instance.fit_predict(
         #     dataset=dataset_pred,
         #     rec_size=len_pred,

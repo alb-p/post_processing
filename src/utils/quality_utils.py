@@ -30,7 +30,7 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     # female_accuracy_before = round((1 - abs(female_pred_before - female_actual) / total_test_len), 3)
     # total_accuracy_before = round((1 - abs(abs(male_pred_before - male_actual) + abs(female_pred_before - female_actual)) / total_test_len), 3)
 
-    #FIXME: add a minus to the delta
+  
     male_accuracy_after = round(1-(abs(male_pred_after - male_actual) / total_test_len), 3)
     female_accuracy_after = round(1-(abs(female_pred_after - female_actual) / total_test_len), 3)
     total_accuracy_after = round(1-(abs(abs(male_pred_after - male_actual) + abs(female_pred_after - female_actual)) / total_test_len), 3)

@@ -8,7 +8,12 @@
                 "target_variable_values": ["<50K", ">50K"],
                 "sensible_attribute": "sex",
                 "sensible_attribute_values": ["Female", "Male"]
+            },
+            "association_rules_parameters":{
+                "min_confidence": 0.8,
+                "min_support": 0.2
             }
+
         },
         {
             "name": "compas",
@@ -18,6 +23,10 @@
                 "target_variable_values": ["risk_high", "risk_low"],
                 "sensible_attribute": "race",
                 "sensible_attribute_values": ["African-American", "Caucasian"]
+            },
+            "association_rules_parameters":{
+                "min_confidence": 0.8,
+                "min_support": 0.2
             }
         }
     ],
@@ -94,9 +103,5 @@
     "results_dir": "../output/results/",
     "plots_dir": "../output/plots/",
     
-    "num_thresh_test": 100,
-
-    "min_confidence": 0.8,
-    "min_support": 0.2
-
+    "num_thresh_test": 100
 }
