@@ -6,12 +6,12 @@ import pandas as pd
 from data.compas_utils import preprocess_compas
 from models.models_utils import calculate_best_thr, compute_model_performance, get_scores, instantiate_and_fit_model, predict_model
 from post_processing_techniques.pptech_utils import apply_pp_technique
-from utils.association_rules_utils import clean_association_rules, compute_association_rules, compute_diff_association_rules, export_association_rules
-from utils.data_utils import load_data, merge_accuracy_consistency, print_distribution, save_data, prev_unprev, generate_bld, X_y_train, train_test_distribution_plot, stages_distribution_plot
+from utils.association_rules_utils import compute_association_rules, compute_diff_association_rules, export_association_rules
+from utils.data_utils import load_data, merge_accuracy_consistency, prev_unprev, generate_bld, X_y_train, train_test_distribution_plot, stages_distribution_plot
 from data.adult_utils import preprocess_adult
 from utils.fairness_utils import compute_fairness_metrics
-from utils.gen_utils import model_printing, sns_line_plotting
-from utils.quality_utils import compute_accuracy, compute_consistency, plot_accuracy_list, plot_consistency, plot_consistency_list
+from utils.gen_utils import model_printing
+from utils.quality_utils import compute_accuracy, compute_consistency
 
 logging.basicConfig(level=logging.INFO)
 
@@ -92,7 +92,6 @@ def main(config_path):
                         target_variable = target_variable_values,
                         support = user_min_support,
                         confidence = user_min_confidence)
-        print(orig_asso_rules_target)
         export_association_rules(
             orig_asso_rules_target,
             tables_dir,
@@ -102,13 +101,13 @@ def main(config_path):
         orig_asso_rules_target = orig_asso_rules_target.rename(columns={'support': 'orig_support', 'confidence': 'orig_confidence'})
 
         model_counter = 0
+        
         for model in config["models"]:
             model_counter += 1
             model_name = model["name"]
             association_rules_dataset = orig_asso_rules_target.copy()
-            print("association_rules_dataset")
-            print(association_rules_dataset)
-            print("end association_rules_dataset")
+            diff_asso_rules = association_rules_dataset.copy()
+
             print(f"Training model: {model_name}")
             model_instance = instantiate_and_fit_model(model, X_train, y_train)
             pos_ind, dataset_orig_train_pred = predict_model(model_instance, dataset_orig_train, X_train)
@@ -222,19 +221,17 @@ def main(config_path):
                 transf_asso_rules_target = compute_association_rules(
                     dataset = dataset_transf_test_pred, dataset_name = dataset_name,
                     target_variable = target_variable_values, support = user_min_support,
-                    confidence = user_min_confidence)
+                    confidence = 0.2)
 
-                print(f"Association rules for {model_name} model - {technique_name} technique")
-                print(transf_asso_rules_target)
+                # print(f"Association rules for {model_name} model - {technique_name} technique")
+                # print(transf_asso_rules_target)
                 export_association_rules(
                     transf_asso_rules_target,
                     tables_dir,
                     dataset_name,
                     filename=f"{model_name}_{technique_name}_asso_rules.csv")
-                #transf_asso_rules_target.to_csv(f"{tables_dir}/{dataset_name}/{technique_name}-{model_name}_asso_rules.csv", index=False)
-                association_rules_dataset.to_csv(f"{tables_dir}/{dataset_name}/{model_name}_{technique_name}_progress_dataset_asso.csv", index=False)
                 diff_asso_rules = compute_diff_association_rules(
-                    association_rules_dataset, 
+                    diff_asso_rules, 
                     transf_asso_rules_target, 
                     technique_name)
                 
@@ -273,6 +270,7 @@ def main(config_path):
         title="Fairness Metrics Behavior",
         filepath=f"{plots_dir}")
     fairness_df.to_csv(f"{tables_dir}/fairness_results.csv", index=False)
+
     fairness_star_metrics = [
     "GroupFairness_star",
     "PredictiveParity_star",
@@ -300,13 +298,13 @@ def main(config_path):
 
     data_quality_metrics = ["accuracy", "consistency"]
 
-    print(quality_df)
     model_printing(
         df_to_plot=quality_df,
         metrics=data_quality_metrics,
         axhline=1,
         title="Quality Metrics Behavior",
         filepath=f"{plots_dir}")
+    quality_df.to_csv(f"{tables_dir}/quality_results.csv", index=False)
 
 if __name__ == "__main__":
-    main("../config/config.json")
+    main("config/config.json")

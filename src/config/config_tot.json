@@ -102,6 +102,6 @@
     "tables_dir": "../output/tables/",
     "results_dir": "../output/results/",
     "plots_dir": "../output/plots/",
-    
+    "analysis_dir": "../output/analysis/",
     "num_thresh_test": 100
 }

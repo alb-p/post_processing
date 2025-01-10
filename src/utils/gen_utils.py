@@ -106,3 +106,22 @@ def model_printing(df_to_plot, metrics, axhline=-1, title="Put here the title", 
             plt.tight_layout()
             plt.savefig(f"{filepath}/{dataset}/{model}_{title}.png")
             plt.close()
+
+def compute_average_metrics(df_to_plot, metrics):
+    datasets = df_to_plot["dataset_name"].unique()
+    techniques = df_to_plot["technique_name"].unique()
+    models = df_to_plot["model_name"].unique()
+
+    for dataset in datasets:
+        dataset_data = df_to_plot[df_to_plot["dataset_name"] == dataset]
+        for model in models:
+            model_data = dataset_data[dataset_data["model_name"] == model]
+            technique_names = model_data["technique_name"]
+            values = model_data[metrics].values.T
+
+            x = np.arange(len(metrics)) * 1.5  # the label locations
+            width = 0.2  # the width of the bars
+
+            fig, ax = plt.subplots(figsize=(10, 6))
+            for i, technique in enumerate(technique_names):
+                ax.bar(x + i * width, values[:, i], width, label=technique)

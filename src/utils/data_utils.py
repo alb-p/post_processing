@@ -4,6 +4,7 @@ from aif360.datasets import BinaryLabelDataset
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 from utils.gen_utils import sns_bar_plotting
 
 
@@ -102,7 +103,6 @@ def get_safe_value(data, outer_key, inner_key):
 
 def print_distribution(dataset, sensible_attribute, target_variable):
     sensible_target_counts, _ = extract_target_sensible_attributes(dataset, sensible_attribute, target_variable)
-    print(sensible_target_counts)
 
 def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensible_attribute, sensible_attribute_values,target_variable, target_variable_values, plots_dir, dataset_name, technique_name, model_name): 
   # Extract data for the three datasets

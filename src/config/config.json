@@ -73,12 +73,6 @@
             }
         },
         {
-            "name": "Equalized Odds",
-            "params": {
-                "randseed": 42
-            }
-        },
-        {
             "name": "Calibrated EO",
             "params": {
                 "constraint": "fpr",
@@ -91,11 +85,17 @@
                 "constraints": "false_negative_rate_parity",
                 "objective": "balanced_accuracy_score"
             }
+        },
+        {
+            "name": "Equalized Odds",
+            "params": {
+                "randseed": 42
+            }
         }
     ],
     "tables_dir": "../output/tables/",
     "results_dir": "../output/results/",
     "plots_dir": "../output/plots/",
-    
+    "analysis_dir": "../output/analysis/",
     "num_thresh_test": 100
 }

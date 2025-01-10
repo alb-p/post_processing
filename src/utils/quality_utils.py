@@ -33,6 +33,7 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
   
     male_accuracy_after = round(1-(abs(male_pred_after - male_actual) / total_test_len), 3)
     female_accuracy_after = round(1-(abs(female_pred_after - female_actual) / total_test_len), 3)
+    print(f"overall accuracy: male_actual {male_actual}, male_pred_after {male_pred_after}, female_actul {female_actual}, female_pred_after {female_pred_after}, total_test_len {total_test_len}")
     total_accuracy_after = round(1-(abs(abs(male_pred_after - male_actual) + abs(female_pred_after - female_actual)) / total_test_len), 3)
 
     # df_accuracy = pd.DataFrame({
@@ -40,10 +41,6 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     #     'Before': [male_accuracy_before, female_accuracy_before, total_accuracy_before],
     #     'After':[male_accuracy_after, female_accuracy_after, total_accuracy_after] 
     # })   
-    # TODO: delete
-    # filepath = filepath + "/"+technique_name+"_"+model_name+"_accuracy.png"
-    # sns_line_plotting(df=df_accuracy, axhline=1, filepath=filepath, title=f'{model_name} - {technique_name}: Accuracy')
-    
     # return round(male_accuracy_after-male_accuracy_before,3), round(female_accuracy_after-female_accuracy_before,3), round(total_accuracy_after-total_accuracy_before,3)
     return male_accuracy_after, female_accuracy_after, total_accuracy_after
 
@@ -53,7 +50,6 @@ def plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name):
 
     # Drop privileged and unprivileged accuracy columns as they are not needed for this plot
     accuracy_df = accuracy_df[["Model", "total_accuracy"]]
-    print(accuracy_df)
     # Set up the plot
     plt.figure(figsize=(10, 6))
     sns.barplot(
