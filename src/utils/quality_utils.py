@@ -6,8 +6,6 @@ from utils.gen_utils import sns_line_plotting
 import seaborn as sns
 
 
-# TODO: male/female -> privileged/unprivileged
-
 def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, target_variable, sensible_attribute, filepath, technique_name, model_name):
     '''
     Return the accuracy of the model after the transformation
@@ -18,9 +16,9 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
     total_test_len = df_orig_test.shape[0]
 
 
-    male_actual = get_safe_value(income_gender_counts_test, 1, 1)
-    male_pred_before = get_safe_value(income_gender_counts_test_pred, 1, 1)
-    male_pred_after = get_safe_value(income_gender_counts_transf_test_pred, 1, 1)
+    male_actual = get_safe_value(income_gender_counts_test, 1, 0)
+    male_pred_before = get_safe_value(income_gender_counts_test_pred, 1, 0)
+    male_pred_after = get_safe_value(income_gender_counts_transf_test_pred, 1, 0)
 
     female_actual = get_safe_value(income_gender_counts_test, 0, 0)
     female_pred_before = get_safe_value(income_gender_counts_test_pred, 0, 0)
@@ -33,7 +31,7 @@ def compute_accuracy(df_orig_test, df_orig_test_pred, df_transf_test_pred, targe
   
     male_accuracy_after = round(1-(abs(male_pred_after - male_actual) / total_test_len), 3)
     female_accuracy_after = round(1-(abs(female_pred_after - female_actual) / total_test_len), 3)
-    print(f"overall accuracy: male_actual {male_actual}, male_pred_after {male_pred_after}, female_actul {female_actual}, female_pred_after {female_pred_after}, total_test_len {total_test_len}")
+    # print(f"overall accuracy: male_actual {male_actual}, male_pred_after {male_pred_after}, female_actul {female_actual}, female_pred_after {female_pred_after}, total_test_len {total_test_len}")
     total_accuracy_after = round(1-(abs(abs(male_pred_after - male_actual) + abs(female_pred_after - female_actual)) / total_test_len), 3)
 
     # df_accuracy = pd.DataFrame({
@@ -71,7 +69,47 @@ def plot_accuracy_list(accuracy_list, plots_dir, dataset_name, technique_name):
     # Save and show the plot
     plt.savefig(filepath)
     plt.close()
+
+def violates_any_rule(row, rules):
+    for _, rule in rules.iterrows():
+        antecedents = list(rule['antecedents'])
+        consequents = list(rule['consequents'])
+        if not satisfies_rule(row, antecedents, consequents):
+            return True  # Row violates this rule
+    return False  # Row satisfies all rules
+
+def satisfies_rule(row, antecedents, consequents):
+    antecedent_check = all(row[item] for item in antecedents)
+    consequent_check = all(row[item] for item in consequents)
+    return not antecedent_check or ( antecedent_check and consequent_check)
+ 
+def rule_by_rule_analysis(orig_asso_rules_target, df_transf_test_pred, dataset_name, technique_name_col):
+    transf_transactions = compute_df_transactions(df_transf_test_pred, dataset_name)
     
+    for index, rule in orig_asso_rules_target.iterrows():
+        respecting_antecedents = 0
+        violating_consequent = 0
+        
+        for _, row in transf_transactions.iterrows():
+            if all(item in row.index and row[item] for item in rule['antecedents']):
+                respecting_antecedents += 1
+                if not all(item in row.index and row[item] for item in rule['consequents']):
+                    violating_consequent += 1
+
+        if respecting_antecedents > 0:
+            cons = round(violating_consequent / respecting_antecedents, 3)
+        else:
+            cons = None
+        
+        print(f"Rule: {rule}, Antecedents: {rule['antecedents']}, Consequents: {rule['consequents']}")
+        print(f"Violating Consequents: {violating_consequent}, Respecting Antecedents: {respecting_antecedents}")
+        print(f"Consistency: {cons}")
+        
+        orig_asso_rules_target.at[index, technique_name_col] = cons
+
+    return orig_asso_rules_target
+
+
 
 def compute_consistency(dataset_orig_test, dataset_transf_test_pred, orig_asso_rules, dataset_name):
     changed_tuples = dataset_orig_test.labels != dataset_transf_test_pred.labels
@@ -170,46 +208,3 @@ def plot_consistency_list(consistency_list, plots_dir, dataset_name, technique_n
     filepath = f"{plots_dir}/{technique_name}_{dataset_name}_consistency4.png"
     plt.savefig(filepath)
     plt.close()
-
-# def plot_consistency_list(consistency_list, plots_dir, dataset_name, technique_name):
-#     columns = ["dataset_name", "technique_name", "model_name", "consistency"]
-#     consistency_df = pd.DataFrame(consistency_list, columns=columns)
-    
-#     # Filter the DataFrame for the current dataset and technique
-#     consistency_df = consistency_df[
-#         (consistency_df["dataset_name"] == dataset_name) & 
-#         (consistency_df["technique_name"] == technique_name)
-#     ]
-#     # Plotting
-#     plt.figure(figsize=(10, 6))
-#     plt.plot(
-#         consistency_df["model_name"], 
-#         consistency_df["consistency"], 
-#         marker="o", linestyle="-", label=f"Technique: {technique_name}"
-#     )
-#     plt.title(f"Consistency Scores for {technique_name} on {dataset_name}")
-#     plt.xlabel("Model")
-#     plt.ylabel("Consistency")
-#     plt.axhline(1, color='red', linestyle='--')
-#     plt.xticks(rotation=45)
-#     plt.grid(True)
-#     plt.legend()
-#     plt.tight_layout()
-#     # Set up file path
-#     filepath = f"{plots_dir}/{technique_name}_{dataset_name}_consistency3.png"
-#     plt.savefig(filepath)
-
-
-
-def violates_any_rule(row, rules):
-    for _, rule in rules.iterrows():
-        antecedents = list(rule['antecedents'])
-        consequents = list(rule['consequents'])
-        if not satisfies_rule(row, antecedents, consequents):
-            return True  # Row violates this rule
-    return False  # Row satisfies all rules
-
-def satisfies_rule(row, antecedents, consequents):
-    antecedent_check = all(row[item] for item in antecedents)
-    consequent_check = all(row[item] for item in consequents)
-    return not antecedent_check or ( antecedent_check and consequent_check)

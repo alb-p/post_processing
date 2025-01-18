@@ -1,0 +1,33 @@
+dataset_name,model_name,technique_name,GroupFairness_star,PredictiveParity_star,PredictiveEquality_star,EqualOpportunity_star,EqualizedOdds_star
+adult,Decision Tree,Reject Option Classification,False,False,True,True,True
+adult,Decision Tree,Calibrated EO,False,False,False,False,True
+adult,Decision Tree,Threshold Optimizer,False,False,False,False,False
+adult,Decision Tree,Equalized Odds,False,False,True,False,False
+adult,Logistic Regression,Reject Option Classification,False,True,True,True,True
+adult,Logistic Regression,Calibrated EO,False,True,False,False,True
+adult,Logistic Regression,Threshold Optimizer,False,True,False,False,False
+adult,Logistic Regression,Equalized Odds,False,True,True,False,False
+adult,Random Forest,Reject Option Classification,False,False,True,True,True
+adult,Random Forest,Calibrated EO,False,False,False,False,True
+adult,Random Forest,Threshold Optimizer,False,False,False,True,False
+adult,Random Forest,Equalized Odds,False,False,False,True,True
+adult,KNN,Reject Option Classification,False,False,True,True,True
+adult,KNN,Calibrated EO,False,False,False,False,True
+adult,KNN,Threshold Optimizer,False,False,False,True,False
+adult,KNN,Equalized Odds,False,False,True,False,False
+compas,Decision Tree,Reject Option Classification,False,False,False,False,False
+compas,Decision Tree,Calibrated EO,True,False,True,True,True
+compas,Decision Tree,Threshold Optimizer,True,False,True,False,True
+compas,Decision Tree,Equalized Odds,False,False,False,True,False
+compas,Logistic Regression,Reject Option Classification,False,False,False,False,False
+compas,Logistic Regression,Calibrated EO,True,False,True,True,True
+compas,Logistic Regression,Threshold Optimizer,False,False,False,False,False
+compas,Logistic Regression,Equalized Odds,False,False,False,False,False
+compas,Random Forest,Reject Option Classification,False,False,False,False,False
+compas,Random Forest,Calibrated EO,True,False,True,True,True
+compas,Random Forest,Threshold Optimizer,False,False,False,False,False
+compas,Random Forest,Equalized Odds,False,False,True,False,True
+compas,KNN,Reject Option Classification,False,False,False,False,False
+compas,KNN,Calibrated EO,True,False,True,True,True
+compas,KNN,Threshold Optimizer,False,False,False,False,False
+compas,KNN,Equalized Odds,False,False,False,False,False

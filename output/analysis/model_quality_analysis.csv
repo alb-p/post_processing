@@ -1,0 +1,9 @@
+dataset_name,model_name,accuracy,consistency
+adult,Decision Tree,0.9,0.948
+adult,KNN,0.859,0.95
+adult,Logistic Regression,0.798,0.958
+adult,Random Forest,0.855,0.958
+compas,Decision Tree,0.814,0.894
+compas,KNN,0.74,0.884
+compas,Logistic Regression,0.797,0.899
+compas,Random Forest,0.797,0.889

@@ -1,0 +1,9 @@
+dataset_name,technique_name,GroupFairness_star,PredictiveParity_star,PredictiveEquality_star,EqualOpportunity_star,EqualizedOdds_star
+adult,Calibrated EO,0,1,0,0,4
+adult,Equalized Odds,0,1,3,1,1
+adult,Reject Option Classification,0,1,4,4,4
+adult,Threshold Optimizer,0,1,0,2,0
+compas,Calibrated EO,4,0,4,4,4
+compas,Equalized Odds,0,0,1,1,1
+compas,Reject Option Classification,0,0,0,0,0
+compas,Threshold Optimizer,1,0,1,0,1

@@ -1,0 +1,9 @@
+dataset_name,model_name,GroupFairness,PredictiveParity,PredictiveEquality,EqualOpportunity,EqualizedOdds
+adult,Decision Tree,0.149,-0.395,0.241,0.201,0.215
+adult,KNN,0.296,-0.526,0.322,0.075,0.322
+adult,Logistic Regression,0.354,-0.584,0.48,0.456,0.475
+adult,Random Forest,0.162,-0.45,0.228,0.134,0.228
+compas,Decision Tree,0.091,-0.373,0.226,0.137,0.226
+compas,KNN,0.209,-0.368,0.607,0.136,0.606
+compas,Logistic Regression,0.467,-0.351,0.547,0.088,0.547
+compas,Random Forest,0.197,-0.33,0.588,0.135,0.588

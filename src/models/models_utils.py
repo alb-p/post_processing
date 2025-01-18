@@ -52,14 +52,6 @@ def calculate_best_thr(num_thresh, dataset_orig_test_pred, dataset_orig_test, un
     best_class_thresh = class_thresh_arr[best_ind]
     return best_class_thresh
 
-def compute_model_performance(dataset_orig_test, dataset_transf_test_pred):
-    accuracy = round(accuracy_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
-    recall = round(recall_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
-    precision = round(precision_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
-    F1 = round(f1_score(dataset_orig_test.labels, dataset_transf_test_pred.labels),3)
-    return accuracy, recall, precision, F1
-
-
 def compute_model_performance(dataset_orig_test, dataset_orig_test_pred,dataset_transf_test_pred, filepath, technique_name, model_name):
     accuracy_before = round(accuracy_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
     recall_before = round(recall_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)

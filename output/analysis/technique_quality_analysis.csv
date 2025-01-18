@@ -1,0 +1,9 @@
+dataset_name,technique_name,accuracy,consistency
+adult,Calibrated EO,0.938,0.918
+adult,Equalized Odds,0.869,0.963
+adult,Reject Option Classification,0.888,0.956
+adult,Threshold Optimizer,0.808,0.947
+compas,Calibrated EO,0.661,0.879
+compas,Equalized Odds,0.886,0.895
+compas,Reject Option Classification,0.742,0.867
+compas,Threshold Optimizer,0.878,0.884

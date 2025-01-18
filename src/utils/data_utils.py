@@ -140,7 +140,6 @@ def stages_distribution_plot(dataset_orig, dataset_pred, dataset_transf, sensibl
         ],
     }, index=['Original', 'Predicted', 'Transformed'])
     
-    # FIXME: delete this hard coding from old code
     df_comparison_target_reset = df_comparison_target[[sens1_target0, sens1_target1, sens0_target0, sens0_target1]].reset_index().melt(id_vars='index', var_name='Sens_Target', value_name='Count')
     df_comparison_target_reset.rename(columns={'index': 'Dataset_Type'}, inplace=True)
     filepath=f'{plots_dir}/{dataset_name}/{model_name}_{technique_name}_target_distribution.png'

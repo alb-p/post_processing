@@ -1,0 +1,9 @@
+dataset_name,model_name,Accuracy,Recall,Precision,F1
+adult,Decision Tree,-0.024,-0.108,-0.01,-0.063
+adult,KNN,-0.083,-0.106,-0.071,-0.105
+adult,Logistic Regression,-0.066,-0.106,-0.027,-0.086
+adult,Random Forest,-0.04,-0.081,-0.029,-0.066
+compas,Decision Tree,-0.075,-0.111,-0.028,-0.085
+compas,KNN,-0.078,-0.024,-0.052,-0.066
+compas,Logistic Regression,-0.078,-0.023,-0.066,-0.064
+compas,Random Forest,-0.063,-0.052,-0.03,-0.064

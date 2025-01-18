@@ -11,7 +11,7 @@ from utils.data_utils import load_data, merge_accuracy_consistency, prev_unprev,
 from data.adult_utils import preprocess_adult
 from utils.fairness_utils import compute_fairness_metrics
 from utils.gen_utils import model_printing
-from utils.quality_utils import compute_accuracy, compute_consistency
+from utils.quality_utils import compute_accuracy, compute_consistency, rule_by_rule_analysis
 
 logging.basicConfig(level=logging.INFO)
 
@@ -86,19 +86,19 @@ def main(config_path):
             plots_dir,
             dataset_name)
         # print_distribution(dataset_orig_test, dataset_orig_test, dataset_name)
-        orig_asso_rules_target = compute_association_rules(
+        orig_asso_rules_target_computed = compute_association_rules(
                         dataset = dataset_orig_test,
                         dataset_name = dataset_name,
                         target_variable = target_variable_values,
                         support = user_min_support,
                         confidence = user_min_confidence)
         export_association_rules(
-            orig_asso_rules_target,
+            orig_asso_rules_target_computed,
             tables_dir,
             dataset_name,
             filename="orig_asso_rules.csv")
         
-        orig_asso_rules_target = orig_asso_rules_target.rename(columns={'support': 'orig_support', 'confidence': 'orig_confidence'})
+        orig_asso_rules_target = orig_asso_rules_target_computed.rename(columns={'support': 'orig_support', 'confidence': 'orig_confidence'})
 
         model_counter = 0
         
@@ -222,7 +222,6 @@ def main(config_path):
                     dataset = dataset_transf_test_pred, dataset_name = dataset_name,
                     target_variable = target_variable_values, support = user_min_support,
                     confidence = 0.2)
-
                 # print(f"Association rules for {model_name} model - {technique_name} technique")
                 # print(transf_asso_rules_target)
                 export_association_rules(
@@ -235,6 +234,7 @@ def main(config_path):
                     transf_asso_rules_target, 
                     technique_name)
                 
+                rule_by_rule_df = rule_by_rule_analysis(orig_asso_rules_target_computed, df_transf_test_pred, dataset_name, technique_name)
                 consistency = compute_consistency(
                     dataset_orig_test, dataset_transf_test_pred,
                     orig_asso_rules_target, dataset_name)
@@ -244,6 +244,9 @@ def main(config_path):
                     technique_name,
                     consistency
                 ])
+
+            rule_by_rule_df.to_csv(f"{tables_dir}/{dataset_name}/{model_name}_rule_by_rule_analysis.csv", index=False)
+
             if diff_asso_rules is not None:
                 diff_asso_rules.to_csv(f"{tables_dir}/{dataset_name}/{model_name}_diff_asso_rules.csv", index=False)
             else:

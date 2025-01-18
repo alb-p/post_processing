@@ -30,9 +30,12 @@ def compute_df_transactions(dataset, dataset_name):
     df_transactions = data_asso_rules.map(lambda x: True if x > 0 else False)
     return df_transactions
 
-def compute_diff_association_rules(association_rules_technique, transf_asso_rules, model_name):
-    support_col = f"{model_name}_support"
-    confidence_col = f"{model_name}_confidence"
+
+
+
+def compute_diff_association_rules(association_rules_technique, transf_asso_rules, technique_name):
+    support_col = f"{technique_name}_support"
+    confidence_col = f"{technique_name}_confidence"
     association_rules_technique[support_col] = None
     association_rules_technique[confidence_col] = None
 

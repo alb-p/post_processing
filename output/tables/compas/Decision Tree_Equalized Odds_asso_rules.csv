@@ -1,99 +1,452 @@
 Dataset,Rule,support,confidence
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.119,0.916
-compas,"{'male', 'n_recidive', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.119,0.916
-compas,"{'male', 'n_recidive', 'priors_No', 'juv_fel=0'} -> {'risk_low'}",0.119,0.916
-compas,"{'male', 'n_recidive', 'priors_No'} -> {'risk_low'}",0.119,0.916
-compas,"{'juv_fel=0', 'n_recidive', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.165,0.916
-compas,"{'juv_fel=0', 'n_recidive', 'priors_No'} -> {'risk_low'}",0.165,0.916
-compas,"{'n_recidive', 'priors_No'} -> {'risk_low'}",0.165,0.916
-compas,"{'n_recidive', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.165,0.916
-compas,"{'c_misdemeanor', 'priors_No'} -> {'risk_low'}",0.108,0.884
-compas,"{'juv_fel=0', 'c_misdemeanor', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.108,0.884
-compas,"{'c_misdemeanor', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.108,0.884
-compas,"{'juv_fel=0', 'c_misdemeanor', 'priors_No'} -> {'risk_low'}",0.108,0.884
-compas,"{'juv_fel=0', 'priors_No', 'n_white'} -> {'risk_low'}",0.114,0.858
-compas,"{'priors_No', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.114,0.858
-compas,"{'priors_No', 'n_white'} -> {'risk_low'}",0.114,0.858
-compas,"{'juv_fel=0', 'priors_No', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.114,0.858
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'white', 'juv_misd=0'} -> {'risk_low'}",0.15,0.844
-compas,"{'male', 'n_recidive', 'white', 'juv_fel=0'} -> {'risk_low'}",0.152,0.843
-compas,"{'male', 'n_recidive', 'white', 'juv_misd=0'} -> {'risk_low'}",0.15,0.841
-compas,"{'male', 'n_recidive', 'white'} -> {'risk_low'}",0.152,0.841
-compas,"{'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.231,0.837
-compas,{'priors_No'} -> {'risk_low'},0.231,0.837
-compas,"{'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.231,0.837
-compas,"{'juv_fel=0', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.231,0.837
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'priors_Few', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.102,0.836
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.105,0.835
-compas,"{'juv_fel=0', 'c_misdemeanor', 'juv_misd=0', 'n_recidive'} -> {'risk_low'}",0.154,0.835
-compas,"{'n_recidive', 'juv_misd=0', 'c_misdemeanor'} -> {'risk_low'}",0.155,0.834
-compas,"{'male', 'n_recidive', 'priors_Few', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.102,0.833
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'c_misdemeanor', 'juv_misd=0'} -> {'risk_low'}",0.113,0.829
-compas,"{'juv_fel=0', 'Age (decade)_30.0', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.107,0.828
-compas,"{'male', 'c_misdemeanor', 'juv_misd=0', 'n_recidive'} -> {'risk_low'}",0.114,0.827
-compas,"{'Age (decade)_30.0', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.109,0.827
-compas,"{'male', 'priors_Few', 'n_recidive', 'c_felony'} -> {'risk_low'}",0.105,0.826
-compas,"{'male', 'n_recidive', 'juv_misd=0', 'juv_fel=0'} -> {'risk_low'}",0.298,0.825
-compas,"{'juv_fel=0', 'n_recidive', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.2,0.824
-compas,"{'juv_fel=0', 'n_recidive', 'c_misdemeanor'} -> {'risk_low'}",0.157,0.823
-compas,"{'male', 'priors_No', 'juv_misd=0'} -> {'risk_low'}",0.169,0.823
-compas,"{'male', 'priors_No', 'juv_misd=0', 'juv_fel=0'} -> {'risk_low'}",0.169,0.823
-compas,"{'male', 'priors_No'} -> {'risk_low'}",0.169,0.823
-compas,"{'male', 'priors_No', 'juv_fel=0'} -> {'risk_low'}",0.169,0.823
-compas,"{'male', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.301,0.822
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'priors_Few', 'juv_misd=0'} -> {'risk_low'}",0.156,0.822
-compas,"{'juv_fel=0', 'n_recidive', 'n_white', 'priors_Few', 'juv_misd=0'} -> {'risk_low'}",0.105,0.822
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.185,0.822
-compas,"{'n_recidive', 'c_misdemeanor'} -> {'risk_low'}",0.159,0.821
-compas,"{'n_recidive', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.203,0.821
-compas,"{'male', 'n_recidive', 'priors_Few', 'juv_misd=0'} -> {'risk_low'}",0.156,0.821
-compas,"{'juv_fel=0', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.388,0.82
-compas,"{'male', 'n_recidive', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.187,0.819
-compas,"{'male', 'c_misdemeanor', 'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.115,0.819
-compas,"{'male', 'n_recidive', 'priors_Few', 'juv_fel=0'} -> {'risk_low'}",0.159,0.819
-compas,"{'juv_fel=0', 'Age (decade)_30.0', 'n_recidive'} -> {'risk_low'}",0.11,0.819
-compas,"{'male', 'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.305,0.818
-compas,"{'priors_No', 'white'} -> {'risk_low'}",0.117,0.817
-compas,"{'priors_No', 'juv_misd=0', 'white'} -> {'risk_low'}",0.117,0.817
-compas,"{'juv_fel=0', 'priors_No', 'white'} -> {'risk_low'}",0.117,0.817
-compas,"{'juv_fel=0', 'priors_No', 'white', 'juv_misd=0'} -> {'risk_low'}",0.117,0.817
-compas,"{'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.391,0.817
-compas,"{'male', 'n_recidive', 'c_felony', 'juv_fel=0'} -> {'risk_low'}",0.189,0.817
-compas,"{'male', 'n_recidive', 'c_misdemeanor'} -> {'risk_low'}",0.118,0.816
-compas,"{'juv_fel=0', 'n_recidive', 'white', 'juv_misd=0'} -> {'risk_low'}",0.188,0.816
-compas,"{'n_recidive', 'priors_Few', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.106,0.816
-compas,"{'Age (decade)_30.0', 'n_recidive'} -> {'risk_low'}",0.113,0.816
-compas,"{'juv_fel=0', 'n_recidive', 'white'} -> {'risk_low'}",0.19,0.814
-compas,"{'n_recidive', 'juv_misd=0', 'white'} -> {'risk_low'}",0.188,0.814
-compas,"{'male', 'n_recidive', 'priors_Few'} -> {'risk_low'}",0.16,0.813
-compas,"{'n_recidive', 'c_felony', 'white', 'juv_misd=0'} -> {'risk_low'}",0.108,0.813
-compas,"{'juv_fel=0', 'n_recidive', 'c_felony', 'white', 'juv_misd=0'} -> {'risk_low'}",0.108,0.813
-compas,"{'juv_fel=0', 'n_recidive', 'priors_Few', 'n_white'} -> {'risk_low'}",0.108,0.813
-compas,"{'juv_fel=0', 'n_recidive', 'c_felony', 'white'} -> {'risk_low'}",0.111,0.813
-compas,"{'n_recidive', 'c_felony', 'white'} -> {'risk_low'}",0.111,0.813
-compas,"{'juv_fel=0', 'n_recidive'} -> {'risk_low'}",0.395,0.813
-compas,"{'n_recidive', 'white'} -> {'risk_low'}",0.19,0.812
-compas,"{'juv_fel=0', 'n_recidive', 'n_white'} -> {'risk_low'}",0.205,0.811
-compas,"{'male', 'n_recidive'} -> {'risk_low'}",0.309,0.811
-compas,"{'juv_fel=0', 'n_recidive', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.234,0.81
-compas,"{'juv_fel=0', 'priors_Few', 'n_recidive', 'c_felony'} -> {'risk_low'}",0.128,0.809
-compas,"{'male', 'n_recidive', 'c_felony'} -> {'risk_low'}",0.191,0.808
-compas,"{'juv_fel=0', 'n_recidive', 'priors_Few', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.125,0.808
-compas,"{'juv_fel=0', 'n_recidive', 'n_white', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.125,0.808
-compas,"{'n_recidive', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.236,0.807
-compas,{'n_recidive'} -> {'risk_low'},0.4,0.807
-compas,"{'male', 'juv_fel=0', 'n_recidive', 'n_white', 'juv_misd=0'} -> {'risk_low'}",0.149,0.806
-compas,"{'juv_fel=0', 'n_recidive', 'c_felony'} -> {'risk_low'}",0.238,0.806
-compas,"{'juv_fel=0', 'n_recidive', 'priors_Few', 'juv_misd=0'} -> {'risk_low'}",0.195,0.805
-compas,"{'juv_fel=0', 'c_misdemeanor', 'white', 'juv_misd=0'} -> {'risk_low'}",0.125,0.805
-compas,"{'male', 'n_recidive', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.152,0.805
-compas,"{'male', 'c_misdemeanor', 'white'} -> {'risk_low'}",0.1,0.804
-compas,"{'c_misdemeanor', 'juv_misd=0', 'white'} -> {'risk_low'}",0.126,0.803
-compas,"{'priors_Few', 'n_recidive', 'c_felony', 'juv_misd=0'} -> {'risk_low'}",0.126,0.803
-compas,"{'n_recidive', 'priors_Few', 'juv_misd=0'} -> {'risk_low'}",0.196,0.802
-compas,"{'juv_fel=0', 'n_recidive', 'priors_Few'} -> {'risk_low'}",0.2,0.802
-compas,"{'n_recidive', 'c_felony', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.127,0.802
-compas,"{'n_recidive', 'priors_Few', 'n_white'} -> {'risk_low'}",0.109,0.802
-compas,"{'n_recidive', 'n_white'} -> {'risk_low'}",0.21,0.801
-compas,"{'male', 'juv_fel=0', 'Age (decade)_20.0', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.1,0.801
-compas,"{'juv_fel=0', 'n_recidive', 'juv_misd=0', 'Age (decade)_20.0'} -> {'risk_low'}",0.133,0.801
+compas,"{'juv_misd=0', 'c_misdemeanor', 'priors_No'} -> {'risk_low'}",0.121,0.945
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_misdemeanor', 'priors_No'} -> {'risk_low'}",0.121,0.945
+compas,"{'c_misdemeanor', 'priors_No'} -> {'risk_low'}",0.121,0.941
+compas,"{'juv_fel=0', 'c_misdemeanor', 'priors_No'} -> {'risk_low'}",0.121,0.941
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.173,0.928
+compas,"{'n_recidive', 'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.173,0.928
+compas,"{'n_recidive', 'juv_misd=0', 'priors_No'} -> {'risk_low'}",0.173,0.928
+compas,"{'n_recidive', 'priors_No'} -> {'risk_low'}",0.173,0.928
+compas,"{'n_recidive', 'juv_fel=0', 'priors_No', 'male'} -> {'risk_low'}",0.124,0.927
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'juv_misd=0', 'priors_No'} -> {'risk_low'}",0.124,0.927
+compas,"{'n_recidive', 'juv_misd=0', 'priors_No', 'male'} -> {'risk_low'}",0.124,0.927
+compas,"{'n_recidive', 'priors_No', 'male'} -> {'risk_low'}",0.124,0.927
+compas,"{'juv_misd=0', 'n_white', 'priors_No'} -> {'risk_low'}",0.137,0.917
+compas,"{'juv_fel=0', 'n_white', 'priors_No'} -> {'risk_low'}",0.137,0.917
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white', 'priors_No'} -> {'risk_low'}",0.137,0.917
+compas,"{'n_white', 'priors_No'} -> {'risk_low'}",0.137,0.917
+compas,"{'juv_fel=0', 'n_white', 'priors_No', 'male'} -> {'risk_low'}",0.105,0.902
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'n_white', 'priors_No'} -> {'risk_low'}",0.105,0.902
+compas,"{'juv_misd=0', 'n_white', 'priors_No', 'male'} -> {'risk_low'}",0.105,0.902
+compas,"{'n_white', 'priors_No', 'male'} -> {'risk_low'}",0.105,0.902
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.119,0.894
+compas,"{'juv_misd=0', 'priors_No', 'Age (decade)_20.0'} -> {'risk_low'}",0.119,0.894
+compas,"{'juv_misd=0', 'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.25,0.893
+compas,"{'juv_misd=0', 'priors_No'} -> {'risk_low'}",0.25,0.893
+compas,"{'priors_No', 'male'} -> {'risk_low'}",0.188,0.892
+compas,"{'juv_misd=0', 'priors_No', 'male'} -> {'risk_low'}",0.188,0.892
+compas,"{'juv_misd=0', 'juv_fel=0', 'priors_No', 'male'} -> {'risk_low'}",0.188,0.892
+compas,"{'juv_fel=0', 'priors_No', 'male'} -> {'risk_low'}",0.188,0.892
+compas,{'priors_No'} -> {'risk_low'},0.25,0.892
+compas,"{'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.25,0.892
+compas,"{'Age (decade)_20.0', 'priors_No'} -> {'risk_low'}",0.119,0.891
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'priors_No'} -> {'risk_low'}",0.119,0.891
+compas,"{'n_recidive', 'juv_fel=0', 'c_misdemeanor', 'male', 'juv_misd=0'} -> {'risk_low'}",0.114,0.886
+compas,"{'n_recidive', 'juv_misd=0', 'c_misdemeanor', 'male'} -> {'risk_low'}",0.115,0.884
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'c_misdemeanor'} -> {'risk_low'}",0.16,0.878
+compas,"{'n_recidive', 'juv_misd=0', 'c_misdemeanor'} -> {'risk_low'}",0.162,0.877
+compas,"{'n_recidive', 'Age (decade)_20.0', 'juv_misd=0', 'male'} -> {'risk_low'}",0.104,0.873
+compas,"{'female', 'juv_misd=0', 'n_recidive'} -> {'risk_low'}",0.102,0.871
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'female'} -> {'risk_low'}",0.102,0.87
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'male', 'Age (decade)_20.0'} -> {'risk_low'}",0.102,0.87
+compas,"{'n_recidive', 'juv_fel=0', 'c_misdemeanor', 'male'} -> {'risk_low'}",0.115,0.869
+compas,"{'juv_misd=0', 'priors_No', 'white'} -> {'risk_low'}",0.113,0.867
+compas,"{'juv_misd=0', 'juv_fel=0', 'priors_No', 'white'} -> {'risk_low'}",0.113,0.867
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'white'} -> {'risk_low'}",0.147,0.866
+compas,"{'n_recidive', 'juv_misd=0', 'Age (decade)_20.0'} -> {'risk_low'}",0.143,0.866
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'white', 'juv_misd=0'} -> {'risk_low'}",0.146,0.865
+compas,"{'n_recidive', 'male', 'white'} -> {'risk_low'}",0.148,0.864
+compas,"{'n_recidive', 'juv_fel=0', 'c_misdemeanor'} -> {'risk_low'}",0.162,0.864
+compas,"{'n_recidive', 'c_misdemeanor', 'male'} -> {'risk_low'}",0.117,0.863
+compas,"{'n_recidive', 'Age (decade)_20.0', 'juv_fel=0', 'juv_misd=0'} -> {'risk_low'}",0.14,0.863
+compas,"{'juv_fel=0', 'priors_No', 'white'} -> {'risk_low'}",0.113,0.863
+compas,"{'priors_No', 'white'} -> {'risk_low'}",0.113,0.863
+compas,"{'n_recidive', 'juv_misd=0', 'male', 'white'} -> {'risk_low'}",0.147,0.863
+compas,"{'n_recidive', 'c_misdemeanor'} -> {'risk_low'}",0.163,0.86
+compas,"{'female', 'n_recidive'} -> {'risk_low'}",0.102,0.859
+compas,"{'female', 'juv_fel=0', 'n_recidive'} -> {'risk_low'}",0.102,0.858
+compas,"{'n_recidive', 'priors_Few', 'white'} -> {'risk_low'}",0.101,0.858
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'white'} -> {'risk_low'}",0.195,0.857
+compas,"{'n_recidive', 'juv_misd=0', 'priors_Few', 'white'} -> {'risk_low'}",0.1,0.856
+compas,"{'n_recidive', 'juv_fel=0', 'priors_Few', 'white'} -> {'risk_low'}",0.1,0.856
+compas,"{'n_recidive', 'juv_fel=0', 'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.142,0.856
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_misdemeanor', 'white'} -> {'risk_low'}",0.129,0.856
+compas,"{'n_recidive', 'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.145,0.856
+compas,"{'n_recidive', 'juv_misd=0', 'white'} -> {'risk_low'}",0.196,0.855
+compas,"{'n_recidive', 'juv_fel=0', 'white'} -> {'risk_low'}",0.196,0.855
+compas,"{'n_recidive', 'white'} -> {'risk_low'}",0.197,0.854
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0'} -> {'risk_low'}",0.409,0.854
+compas,"{'juv_misd=0', 'c_misdemeanor', 'white'} -> {'risk_low'}",0.13,0.854
+compas,"{'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.414,0.853
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'n_white'} -> {'risk_low'}",0.214,0.851
+compas,"{'c_felony', 'priors_No', 'male'} -> {'risk_low'}",0.105,0.85
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'c_felony', 'priors_No'} -> {'risk_low'}",0.105,0.85
+compas,"{'juv_misd=0', 'c_felony', 'priors_No', 'male'} -> {'risk_low'}",0.105,0.85
+compas,"{'juv_fel=0', 'c_felony', 'priors_No', 'male'} -> {'risk_low'}",0.105,0.85
+compas,"{'juv_fel=0', 'c_felony', 'priors_No'} -> {'risk_low'}",0.129,0.85
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'priors_No'} -> {'risk_low'}",0.129,0.85
+compas,"{'c_felony', 'priors_No'} -> {'risk_low'}",0.129,0.85
+compas,"{'juv_misd=0', 'c_felony', 'priors_No'} -> {'risk_low'}",0.129,0.85
+compas,"{'n_recidive', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.218,0.85
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'male'} -> {'risk_low'}",0.307,0.849
+compas,"{'n_recidive', 'juv_misd=0', 'male'} -> {'risk_low'}",0.311,0.847
+compas,"{'n_recidive', 'juv_misd=0', 'priors_Few', 'male'} -> {'risk_low'}",0.16,0.843
+compas,"{'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.411,0.841
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'juv_misd=0', 'priors_Few'} -> {'risk_low'}",0.157,0.841
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.111,0.84
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'c_felony'} -> {'risk_low'}",0.248,0.839
+compas,"{'n_recidive', 'male', 'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.113,0.839
+compas,"{'juv_fel=0', 'c_misdemeanor', 'white'} -> {'risk_low'}",0.13,0.839
+compas,"{'n_recidive', 'juv_misd=0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.135,0.838
+compas,"{'n_recidive', 'juv_misd=0', 'c_felony'} -> {'risk_low'}",0.251,0.838
+compas,"{'n_recidive', 'juv_misd=0', 'priors_Few'} -> {'risk_low'}",0.207,0.837
+compas,{'n_recidive'} -> {'risk_low'},0.416,0.837
+compas,"{'c_misdemeanor', 'white'} -> {'risk_low'}",0.13,0.836
+compas,"{'n_recidive', 'juv_fel=0', 'juv_misd=0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.133,0.836
+compas,"{'n_recidive', 'juv_fel=0', 'male'} -> {'risk_low'}",0.309,0.836
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'priors_Few'} -> {'risk_low'}",0.203,0.835
+compas,"{'n_recidive', 'juv_fel=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.143,0.835
+compas,"{'n_recidive', 'male', 'juv_misd=0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.104,0.835
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'juv_misd=0', 'n_white'} -> {'risk_low'}",0.161,0.834
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'juv_misd=0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.102,0.833
+compas,"{'n_recidive', 'Age (decade)_20.0', 'juv_fel=0', 'male'} -> {'risk_low'}",0.102,0.833
+compas,"{'n_recidive', 'juv_misd=0', 'n_white', 'male'} -> {'risk_low'}",0.164,0.832
+compas,"{'n_recidive', 'male'} -> {'risk_low'}",0.314,0.83
+compas,"{'n_recidive', 'Age (decade)_20.0', 'male'} -> {'risk_low'}",0.105,0.829
+compas,"{'n_recidive', 'juv_fel=0', 'n_white'} -> {'risk_low'}",0.215,0.829
+compas,"{'n_recidive', 'Age (decade)_20.0', 'juv_fel=0'} -> {'risk_low'}",0.141,0.828
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'juv_misd=0', 'c_felony'} -> {'risk_low'}",0.193,0.828
+compas,"{'n_recidive', 'c_felony', 'n_white'} -> {'risk_low'}",0.146,0.828
+compas,"{'n_recidive', 'juv_fel=0', 'c_felony'} -> {'risk_low'}",0.249,0.827
+compas,"{'n_recidive', 'Age (decade)_20.0'} -> {'risk_low'}",0.144,0.826
+compas,"{'n_recidive', 'juv_misd=0', 'c_felony', 'male'} -> {'risk_low'}",0.196,0.826
+compas,"{'n_recidive', 'juv_fel=0', 'priors_Few', 'male'} -> {'risk_low'}",0.159,0.826
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_misdemeanor'} -> {'risk_low'}",0.259,0.824
+compas,"{'n_recidive', 'c_felony'} -> {'risk_low'}",0.253,0.822
+compas,"{'n_recidive', 'priors_Few', 'male'} -> {'risk_low'}",0.163,0.822
+compas,"{'n_recidive', 'n_white'} -> {'risk_low'}",0.22,0.822
+compas,"{'juv_misd=0', 'c_misdemeanor'} -> {'risk_low'}",0.263,0.821
+compas,"{'n_recidive', 'priors_Few', 'juv_fel=0'} -> {'risk_low'}",0.205,0.82
+compas,"{'n_recidive', 'juv_misd=0', 'priors_Few', 'n_white'} -> {'risk_low'}",0.106,0.82
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'c_felony', 'n_white'} -> {'risk_low'}",0.111,0.82
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_misdemeanor', 'male'} -> {'risk_low'}",0.193,0.818
+compas,"{'n_recidive', 'juv_fel=0', 'c_felony', 'priors_Few'} -> {'risk_low'}",0.134,0.818
+compas,"{'n_recidive', 'priors_Few'} -> {'risk_low'}",0.209,0.818
+compas,"{'n_recidive', 'juv_fel=0', 'c_felony', 'white'} -> {'risk_low'}",0.107,0.817
+compas,"{'n_recidive', 'juv_fel=0', 'c_felony', 'male'} -> {'risk_low'}",0.194,0.817
+compas,"{'n_recidive', 'juv_fel=0', 'juv_misd=0', 'priors_Few', 'n_white'} -> {'risk_low'}",0.104,0.817
+compas,"{'n_recidive', 'juv_fel=0', 'white', 'juv_misd=0', 'c_felony'} -> {'risk_low'}",0.106,0.817
+compas,"{'n_recidive', 'juv_fel=0', 'male', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.104,0.816
+compas,"{'n_recidive', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.137,0.816
+compas,"{'n_recidive', 'c_felony', 'white'} -> {'risk_low'}",0.107,0.815
+compas,"{'n_recidive', 'juv_misd=0', 'c_felony', 'white'} -> {'risk_low'}",0.107,0.814
+compas,"{'juv_misd=0', 'c_misdemeanor', 'male'} -> {'risk_low'}",0.197,0.814
+compas,"{'female', 'juv_misd=0'} -> {'risk_low'}",0.149,0.813
+compas,"{'n_recidive', 'priors_Few', 'c_felony', 'male'} -> {'risk_low'}",0.106,0.812
+compas,"{'n_recidive', 'c_felony', 'n_white', 'male'} -> {'risk_low'}",0.114,0.811
+compas,"{'female', 'juv_misd=0', 'juv_fel=0'} -> {'risk_low'}",0.146,0.811
+compas,"{'n_recidive', 'c_felony', 'male'} -> {'risk_low'}",0.197,0.811
+compas,"{'n_recidive', 'juv_fel=0', 'n_white', 'male'} -> {'risk_low'}",0.162,0.81
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_misdemeanor', 'priors_Few'} -> {'risk_low'}",0.119,0.802
+compas,"{'juv_misd=0', 'priors_Few', 'c_misdemeanor'} -> {'risk_low'}",0.121,0.802
+compas,"{'juv_fel=0', 'c_misdemeanor'} -> {'risk_low'}",0.265,0.802
+compas,"{'n_recidive', 'n_white', 'male'} -> {'risk_low'}",0.166,0.801
+compas,{'female'} -> {'risk_low'},0.15,0.798
+compas,"{'n_recidive', 'juv_misd=0', 'juv_fel=0', 'Age (decade)_30.0'} -> {'risk_low'}",0.106,0.797
+compas,{'c_misdemeanor'} -> {'risk_low'},0.269,0.796
+compas,"{'n_recidive', 'Age (decade)_30.0', 'juv_fel=0'} -> {'risk_low'}",0.108,0.796
+compas,"{'female', 'juv_fel=0'} -> {'risk_low'}",0.147,0.795
+compas,"{'juv_fel=0', 'c_misdemeanor', 'male'} -> {'risk_low'}",0.198,0.795
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_misdemeanor', 'n_white'} -> {'risk_low'}",0.13,0.795
+compas,"{'n_recidive', 'juv_misd=0', 'Age (decade)_30.0'} -> {'risk_low'}",0.108,0.793
+compas,"{'juv_misd=0', 'c_misdemeanor', 'n_white'} -> {'risk_low'}",0.134,0.792
+compas,"{'n_recidive', 'juv_fel=0', 'n_white', 'priors_Few'} -> {'risk_low'}",0.105,0.789
+compas,"{'c_misdemeanor', 'male'} -> {'risk_low'}",0.202,0.788
+compas,"{'n_recidive', 'Age (decade)_30.0'} -> {'risk_low'}",0.109,0.786
+compas,"{'priors_Few', 'c_misdemeanor', 'juv_fel=0'} -> {'risk_low'}",0.123,0.785
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'c_misdemeanor'} -> {'risk_low'}",0.101,0.785
+compas,"{'juv_misd=0', 'juv_fel=0', 'priors_Few', 'white'} -> {'risk_low'}",0.16,0.785
+compas,"{'Age (decade)_20.0', 'c_misdemeanor'} -> {'risk_low'}",0.102,0.784
+compas,"{'n_recidive', 'priors_Few', 'n_white'} -> {'risk_low'}",0.108,0.783
+compas,"{'juv_fel=0', 'male', 'white', 'juv_misd=0', 'priors_Few'} -> {'risk_low'}",0.121,0.783
+compas,"{'priors_Few', 'c_misdemeanor'} -> {'risk_low'}",0.125,0.783
+compas,"{'juv_misd=0', 'priors_Few', 'white'} -> {'risk_low'}",0.161,0.782
+compas,"{'juv_misd=0', 'Age (decade)_30.0', 'priors_Few'} -> {'risk_low'}",0.101,0.782
+compas,"{'juv_misd=0', 'priors_Few', 'male', 'white'} -> {'risk_low'}",0.122,0.779
+compas,"{'Age (decade)_30.0', 'priors_Few'} -> {'risk_low'}",0.103,0.779
+compas,"{'Age (decade)_30.0', 'priors_Few', 'juv_fel=0'} -> {'risk_low'}",0.101,0.778
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'white'} -> {'risk_low'}",0.225,0.776
+compas,"{'priors_Few', 'juv_fel=0', 'white'} -> {'risk_low'}",0.162,0.774
+compas,"{'juv_misd=0', 'juv_fel=0', 'white'} -> {'risk_low'}",0.296,0.773
+compas,"{'juv_fel=0', 'priors_Few', 'male', 'white'} -> {'risk_low'}",0.123,0.772
+compas,"{'priors_Few', 'white'} -> {'risk_low'}",0.163,0.771
+compas,"{'juv_fel=0', 'c_misdemeanor', 'n_white'} -> {'risk_low'}",0.136,0.769
+compas,"{'priors_Few', 'male', 'white'} -> {'risk_low'}",0.124,0.768
+compas,"{'juv_misd=0', 'male', 'white'} -> {'risk_low'}",0.227,0.768
+compas,"{'juv_misd=0', 'white'} -> {'risk_low'}",0.297,0.768
+compas,"{'juv_fel=0', 'male', 'white'} -> {'risk_low'}",0.227,0.766
+compas,"{'juv_misd=0', 'c_misdemeanor', 'n_white', 'male'} -> {'risk_low'}",0.102,0.765
+compas,"{'c_misdemeanor', 'n_white'} -> {'risk_low'}",0.139,0.763
+compas,"{'juv_fel=0', 'white'} -> {'risk_low'}",0.298,0.762
+compas,"{'male', 'white'} -> {'risk_low'}",0.228,0.759
+compas,{'white'} -> {'risk_low'},0.299,0.757
+compas,"{'juv_misd=0', 'priors_Few', 'juv_fel=0'} -> {'risk_low'}",0.348,0.756
+compas,"{'juv_misd=0', 'juv_fel=0', 'Age (decade)_40.0'} -> {'risk_low'}",0.107,0.755
+compas,"{'juv_misd=0', 'priors_Few'} -> {'risk_low'}",0.357,0.754
+compas,"{'juv_fel=0', 'Age (decade)_40.0'} -> {'risk_low'}",0.107,0.753
+compas,"{'juv_misd=0', 'juv_fel=0', 'priors_Few', 'male'} -> {'risk_low'}",0.274,0.751
+compas,"{'juv_misd=0', 'juv_fel=0'} -> {'risk_low'}",0.682,0.751
+compas,"{'juv_misd=0', 'priors_Few', 'male'} -> {'risk_low'}",0.282,0.747
+compas,"{'juv_misd=0', 'c_misdemeanor', 'recidive'} -> {'risk_low'}",0.101,0.745
+compas,"{'juv_misd=0', 'Age (decade)_40.0'} -> {'risk_low'}",0.108,0.743
+compas,{'juv_misd=0'} -> {'risk_low'},0.697,0.742
+compas,"{'juv_fel=0', 'c_misdemeanor', 'n_white', 'male'} -> {'risk_low'}",0.104,0.74
+compas,"{'juv_fel=0', 'c_felony', 'priors_Few', 'white'} -> {'risk_low'}",0.1,0.74
+compas,{'Age (decade)_40.0'} -> {'risk_low'},0.109,0.739
+compas,"{'priors_Few', 'juv_fel=0'} -> {'risk_low'}",0.358,0.738
+compas,"{'priors_Few', 'c_felony', 'white'} -> {'risk_low'}",0.101,0.738
+compas,"{'juv_misd=0', 'juv_fel=0', 'male'} -> {'risk_low'}",0.536,0.736
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'priors_Few'} -> {'risk_low'}",0.229,0.734
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white'} -> {'risk_low'}",0.386,0.734
+compas,{'priors_Few'} -> {'risk_low'},0.369,0.734
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white', 'priors_Few'} -> {'risk_low'}",0.188,0.734
+compas,"{'c_misdemeanor', 'n_white', 'male'} -> {'risk_low'}",0.107,0.732
+compas,"{'juv_misd=0', 'priors_Few', 'n_white'} -> {'risk_low'}",0.196,0.732
+compas,"{'juv_fel=0', 'priors_Few', 'male'} -> {'risk_low'}",0.283,0.731
+compas,{'juv_fel=0'} -> {'risk_low'},0.7,0.731
+compas,"{'juv_misd=0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.236,0.731
+compas,"{'juv_misd=0', 'Age (decade)_30.0', 'juv_fel=0'} -> {'risk_low'}",0.176,0.727
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'priors_Few', 'n_white'} -> {'risk_low'}",0.153,0.727
+compas,"{'juv_misd=0', 'male'} -> {'risk_low'}",0.549,0.725
+compas,"{'priors_Few', 'male'} -> {'risk_low'}",0.293,0.725
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.182,0.725
+compas,"{'juv_fel=0', 'juv_misd=0', 'priors_Few', 'c_felony', 'n_white'} -> {'risk_low'}",0.13,0.725
+compas,"{'juv_misd=0', 'n_white'} -> {'risk_low'}",0.4,0.725
+compas,"{'juv_misd=0', 'priors_Few', 'n_white', 'male'} -> {'risk_low'}",0.159,0.724
+compas,"{'juv_misd=0', 'juv_fel=0', 'Age (decade)_20.0'} -> {'risk_low'}",0.269,0.723
+compas,"{'juv_misd=0', 'priors_Few', 'c_felony', 'n_white'} -> {'risk_low'}",0.136,0.721
+compas,"{'juv_misd=0', 'priors_Few', 'c_felony', 'male'} -> {'risk_low'}",0.188,0.721
+compas,"{'juv_fel=0', 'c_misdemeanor', 'recidive'} -> {'risk_low'}",0.104,0.721
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'white'} -> {'risk_low'}",0.167,0.72
+compas,"{'juv_misd=0', 'Age (decade)_30.0'} -> {'risk_low'}",0.181,0.718
+compas,"{'Age (decade)_30.0', 'juv_fel=0'} -> {'risk_low'}",0.182,0.717
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'priors_Few', 'c_felony', 'n_white'} -> {'risk_low'}",0.106,0.717
+compas,"{'juv_fel=0', 'male', 'white', 'juv_misd=0', 'c_felony'} -> {'risk_low'}",0.132,0.717
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'juv_fel=0', 'n_white'} -> {'risk_low'}",0.182,0.716
+compas,"{'juv_fel=0', 'male'} -> {'risk_low'}",0.553,0.716
+compas,"{'priors_Few', 'c_felony', 'juv_fel=0'} -> {'risk_low'}",0.235,0.716
+compas,"{'c_misdemeanor', 'recidive'} -> {'risk_low'}",0.106,0.715
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'juv_fel=0', 'male'} -> {'risk_low'}",0.211,0.714
+compas,"{'juv_misd=0', 'Age (decade)_20.0'} -> {'risk_low'}",0.275,0.713
+compas,"{'juv_fel=0', 'c_felony', 'white'} -> {'risk_low'}",0.168,0.713
+compas,"{'juv_misd=0', 'c_felony', 'white'} -> {'risk_low'}",0.167,0.712
+compas,"{'male', 'juv_misd=0', 'priors_Few', 'c_felony', 'n_white'} -> {'risk_low'}",0.111,0.712
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony'} -> {'risk_low'}",0.423,0.712
+compas,"{'priors_Few', 'n_white', 'juv_fel=0'} -> {'risk_low'}",0.196,0.711
+compas,"{'priors_Few', 'c_felony'} -> {'risk_low'}",0.244,0.711
+compas,"{'juv_fel=0', 'n_white'} -> {'risk_low'}",0.403,0.71
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white', 'male'} -> {'risk_low'}",0.31,0.709
+compas,"{'juv_fel=0', 'c_felony', 'male', 'white'} -> {'risk_low'}",0.133,0.708
+compas,"{'juv_misd=0', 'c_felony', 'male', 'white'} -> {'risk_low'}",0.132,0.707
+compas,"{'priors_Few', 'n_white'} -> {'risk_low'}",0.207,0.707
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.256,0.707
+compas,"{'juv_misd=0', 'n_white', 'Age (decade)_20.0'} -> {'risk_low'}",0.188,0.706
+compas,"{'juv_misd=0', 'juv_fel=0', 'Age (decade)_30.0', 'n_white'} -> {'risk_low'}",0.101,0.706
+compas,"{'juv_fel=0', 'c_felony', 'priors_Few', 'male'} -> {'risk_low'}",0.187,0.706
+compas,"{'c_felony', 'white'} -> {'risk_low'}",0.169,0.705
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'Age (decade)_30.0'} -> {'risk_low'}",0.11,0.705
+compas,"{'juv_misd=0', 'juv_fel=0', 'Age (decade)_30.0', 'male'} -> {'risk_low'}",0.137,0.705
+compas,{'Age (decade)_30.0'} -> {'risk_low'},0.188,0.703
+compas,"{'juv_fel=0', 'n_white', 'priors_Few', 'male'} -> {'risk_low'}",0.16,0.703
+compas,{'male'} -> {'risk_low'},0.571,0.703
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'male'} -> {'risk_low'}",0.217,0.702
+compas,"{'juv_misd=0', 'c_felony'} -> {'risk_low'}",0.434,0.702
+compas,"{'Age (decade)_30.0', 'c_felony', 'juv_fel=0'} -> {'risk_low'}",0.114,0.7
+compas,"{'priors_Few', 'c_felony', 'male'} -> {'risk_low'}",0.195,0.699
+compas,"{'c_felony', 'male', 'white'} -> {'risk_low'}",0.133,0.699
+compas,"{'juv_fel=0', 'c_felony', 'n_white', 'priors_Few'} -> {'risk_low'}",0.134,0.699
+compas,"{'juv_misd=0', 'n_white', 'male'} -> {'risk_low'}",0.322,0.698
+compas,{'n_white'} -> {'risk_low'},0.422,0.697
+compas,"{'juv_misd=0', 'Age (decade)_30.0', 'n_white'} -> {'risk_low'}",0.106,0.696
+compas,"{'priors_Few', 'n_white', 'male'} -> {'risk_low'}",0.169,0.696
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'male'} -> {'risk_low'}",0.343,0.696
+compas,"{'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.266,0.695
+compas,"{'juv_fel=0', 'Age (decade)_30.0', 'male'} -> {'risk_low'}",0.142,0.695
+compas,"{'juv_misd=0', 'Age (decade)_30.0', 'male'} -> {'risk_low'}",0.141,0.694
+compas,"{'juv_fel=0', 'c_felony'} -> {'risk_low'}",0.435,0.694
+compas,"{'Age (decade)_30.0', 'n_white', 'juv_fel=0'} -> {'risk_low'}",0.106,0.694
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'Age (decade)_20.0', 'n_white'} -> {'risk_low'}",0.145,0.694
+compas,"{'juv_misd=0', 'Age (decade)_30.0', 'c_felony'} -> {'risk_low'}",0.113,0.693
+compas,"{'priors_Few', 'c_felony', 'n_white'} -> {'risk_low'}",0.143,0.693
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'Age (decade)_20.0', 'priors_Few'} -> {'risk_low'}",0.108,0.692
+compas,"{'juv_fel=0', 'male', 'priors_Few', 'c_felony', 'n_white'} -> {'risk_low'}",0.11,0.69
+compas,"{'Age (decade)_20.0', 'juv_fel=0'} -> {'risk_low'}",0.281,0.688
+compas,"{'Age (decade)_30.0', 'c_felony'} -> {'risk_low'}",0.118,0.685
+compas,"{'juv_fel=0', 'n_white', 'male'} -> {'risk_low'}",0.326,0.685
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'juv_fel=0', 'priors_Few'} -> {'risk_low'}",0.133,0.684
+compas,"{'juv_misd=0', 'c_felony', 'male'} -> {'risk_low'}",0.352,0.684
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.211,0.684
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'priors_Few', 'male'} -> {'risk_low'}",0.113,0.683
+compas,"{'juv_fel=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.267,0.683
+compas,"{'priors_Few', 'c_felony', 'n_white', 'male'} -> {'risk_low'}",0.118,0.682
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'n_white', 'male'} -> {'risk_low'}",0.15,0.682
+compas,{'c_felony'} -> {'risk_low'},0.451,0.682
+compas,{'Age (decade)_20.0'} -> {'risk_low'},0.292,0.68
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'n_white'} -> {'risk_low'}",0.193,0.679
+compas,"{'Age (decade)_30.0', 'male'} -> {'risk_low'}",0.147,0.678
+compas,"{'juv_misd=0', 'priors_Few', 'Age (decade)_20.0'} -> {'risk_low'}",0.138,0.678
+compas,"{'juv_fel=0', 'c_felony', 'male'} -> {'risk_low'}",0.355,0.678
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'male'} -> {'risk_low'}",0.223,0.678
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'juv_fel=0', 'c_felony'} -> {'risk_low'}",0.172,0.677
+compas,"{'Age (decade)_30.0', 'n_white'} -> {'risk_low'}",0.111,0.677
+compas,"{'juv_misd=0', 'c_felony', 'n_white', 'male'} -> {'risk_low'}",0.22,0.671
+compas,"{'Age (decade)_20.0', 'n_white'} -> {'risk_low'}",0.204,0.67
+compas,"{'n_white', 'male'} -> {'risk_low'}",0.343,0.67
+compas,"{'c_felony', 'n_white'} -> {'risk_low'}",0.283,0.669
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'Age (decade)_20.0', 'c_felony'} -> {'risk_low'}",0.141,0.668
+compas,"{'juv_misd=0', 'juv_fel=0', 'priors_Few', 'recidive'} -> {'risk_low'}",0.145,0.668
+compas,"{'Age (decade)_20.0', 'male'} -> {'risk_low'}",0.233,0.667
+compas,"{'juv_misd=0', 'c_felony', 'Age (decade)_20.0'} -> {'risk_low'}",0.177,0.665
+compas,"{'c_felony', 'male'} -> {'risk_low'}",0.369,0.664
+compas,"{'juv_misd=0', 'priors_Few', 'recidive'} -> {'risk_low'}",0.15,0.663
+compas,"{'juv_misd=0', 'juv_fel=0', 'Age (decade)_20.0', 'c_felony', 'n_white'} -> {'risk_low'}",0.119,0.662
+compas,"{'juv_fel=0', 'c_felony', 'n_white', 'male'} -> {'risk_low'}",0.222,0.661
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'priors_Few', 'male'} -> {'risk_low'}",0.115,0.657
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'priors_Few', 'recidive'} -> {'risk_low'}",0.117,0.657
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'n_white', 'male'} -> {'risk_low'}",0.156,0.655
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'c_felony', 'male'} -> {'risk_low'}",0.145,0.654
+compas,"{'Age (decade)_20.0', 'priors_Few', 'juv_fel=0'} -> {'risk_low'}",0.14,0.652
+compas,"{'juv_misd=0', 'juv_fel=0', 'recidive', 'white'} -> {'risk_low'}",0.101,0.652
+compas,"{'priors_Few', 'juv_fel=0', 'recidive'} -> {'risk_low'}",0.152,0.65
+compas,"{'juv_misd=0', 'priors_Few', 'male', 'recidive'} -> {'risk_low'}",0.122,0.65
+compas,"{'Age (decade)_20.0', 'priors_Few', 'male'} -> {'risk_low'}",0.122,0.649
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'c_felony', 'n_white'} -> {'risk_low'}",0.123,0.649
+compas,"{'Age (decade)_20.0', 'priors_Few'} -> {'risk_low'}",0.149,0.648
+compas,"{'priors_Few', 'recidive'} -> {'risk_low'}",0.16,0.647
+compas,"{'c_felony', 'n_white', 'male'} -> {'risk_low'}",0.236,0.645
+compas,"{'Age (decade)_20.0', 'n_white', 'male'} -> {'risk_low'}",0.165,0.645
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'c_felony'} -> {'risk_low'}",0.18,0.644
+compas,"{'juv_misd=0', 'white', 'recidive'} -> {'risk_low'}",0.101,0.64
+compas,"{'juv_fel=0', 'priors_Few', 'male', 'recidive'} -> {'risk_low'}",0.124,0.638
+compas,"{'juv_misd=0', 'juv_fel=0', 'recidive'} -> {'risk_low'}",0.273,0.636
+compas,"{'Age (decade)_20.0', 'c_felony'} -> {'risk_low'}",0.19,0.634
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'c_felony', 'male'} -> {'risk_low'}",0.149,0.634
+compas,"{'priors_Few', 'male', 'recidive'} -> {'risk_low'}",0.131,0.633
+compas,"{'juv_misd=0', 'male', 'Age (decade)_20.0', 'c_felony', 'n_white'} -> {'risk_low'}",0.103,0.631
+compas,"{'juv_fel=0', 'white', 'recidive'} -> {'risk_low'}",0.102,0.631
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white', 'recidive'} -> {'risk_low'}",0.172,0.626
+compas,"{'Age (decade)_20.0', 'priors_Few', 'n_white'} -> {'risk_low'}",0.101,0.625
+compas,"{'juv_misd=0', 'recidive'} -> {'risk_low'}",0.283,0.625
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'c_felony', 'n_white'} -> {'risk_low'}",0.126,0.625
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'recidive'} -> {'risk_low'}",0.229,0.624
+compas,"{'juv_misd=0', 'priors_Few', 'c_felony', 'recidive'} -> {'risk_low'}",0.101,0.624
+compas,"{'Age (decade)_20.0', 'c_felony', 'male'} -> {'risk_low'}",0.157,0.621
+compas,"{'white', 'recidive'} -> {'risk_low'}",0.102,0.62
+compas,"{'juv_fel=0', 'recidive'} -> {'risk_low'}",0.289,0.617
+compas,"{'juv_misd=0', 'n_white', 'recidive'} -> {'risk_low'}",0.182,0.617
+compas,"{'Age (decade)_20.0', 'priors_Few', 'c_felony'} -> {'risk_low'}",0.106,0.616
+compas,"{'Age (decade)_20.0', 'c_felony', 'n_white'} -> {'risk_low'}",0.135,0.615
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'juv_fel=0', 'recidive'} -> {'risk_low'}",0.128,0.614
+compas,"{'juv_fel=0', 'c_felony', 'priors_Few', 'recidive'} -> {'risk_low'}",0.101,0.614
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'Age (decade)_20.0', 'recidive'} -> {'risk_low'}",0.109,0.612
+compas,"{'priors_Few', 'c_felony', 'recidive'} -> {'risk_low'}",0.107,0.611
+compas,"{'juv_misd=0', 'male', 'recidive'} -> {'risk_low'}",0.237,0.611
+compas,"{'juv_fel=0', 'male', 'Age (decade)_20.0', 'c_felony', 'n_white'} -> {'risk_low'}",0.107,0.61
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'n_white', 'recidive'} -> {'risk_low'}",0.149,0.61
+compas,"{'juv_fel=0', 'n_white', 'recidive'} -> {'risk_low'}",0.188,0.609
+compas,{'recidive'} -> {'risk_low'},0.305,0.606
+compas,"{'juv_fel=0', 'male', 'recidive'} -> {'risk_low'}",0.244,0.606
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'recidive'} -> {'risk_low'}",0.132,0.6
+compas,"{'n_white', 'recidive'} -> {'risk_low'}",0.203,0.599
+compas,"{'Age (decade)_20.0', 'c_felony', 'n_white', 'male'} -> {'risk_low'}",0.114,0.598
+compas,"{'juv_misd=0', 'n_white', 'male', 'recidive'} -> {'risk_low'}",0.158,0.598
+compas,"{'juv_misd=0', 'Age (decade)_20.0', 'male', 'recidive'} -> {'risk_low'}",0.113,0.595
+compas,"{'juv_fel=0', 'n_white', 'male', 'recidive'} -> {'risk_low'}",0.164,0.593
+compas,"{'male', 'recidive'} -> {'risk_low'}",0.257,0.592
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'recidive'} -> {'risk_low'}",0.14,0.589
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'recidive'} -> {'risk_low'}",0.175,0.585
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'male', 'recidive'} -> {'risk_low'}",0.121,0.585
+compas,"{'n_white', 'male', 'recidive'} -> {'risk_low'}",0.177,0.581
+compas,"{'juv_fel=0', 'juv_misd=0', 'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.114,0.58
+compas,"{'Age (decade)_20.0', 'recidive'} -> {'risk_low'}",0.148,0.58
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'n_white', 'recidive'} -> {'risk_low'}",0.101,0.579
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'c_felony', 'recidive'} -> {'risk_low'}",0.15,0.577
+compas,"{'Age (decade)_20.0', 'male', 'recidive'} -> {'risk_low'}",0.128,0.574
+compas,"{'juv_misd=0', 'c_felony', 'recidive'} -> {'risk_low'}",0.182,0.573
+compas,"{'Age (decade)_20.0', 'n_white', 'recidive'} -> {'risk_low'}",0.109,0.573
+compas,"{'juv_fel=0', 'c_felony', 'recidive'} -> {'risk_low'}",0.186,0.571
+compas,"{'juv_misd=0', 'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.121,0.569
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.1,0.567
+compas,"{'juv_fel=0', 'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.125,0.565
+compas,"{'juv_fel=0', 'c_felony', 'male', 'recidive'} -> {'risk_low'}",0.161,0.562
+compas,"{'juv_misd=0', 'c_felony', 'male', 'recidive'} -> {'risk_low'}",0.156,0.562
+compas,"{'c_felony', 'recidive'} -> {'risk_low'}",0.198,0.56
+compas,"{'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.137,0.556
+compas,"{'juv_fel=0', 'male', 'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.111,0.554
+compas,"{'male', 'juv_misd=0', 'c_felony', 'n_white', 'recidive'} -> {'risk_low'}",0.107,0.553
+compas,"{'c_felony', 'male', 'recidive'} -> {'risk_low'}",0.172,0.549
+compas,"{'male', 'priors_Many'} -> {'risk_high'}",0.107,0.544
+compas,"{'c_felony', 'n_white', 'male', 'recidive'} -> {'risk_low'}",0.122,0.542
+compas,{'priors_Many'} -> {'risk_high'},0.115,0.53
+compas,"{'juv_fel=0', 'priors_Many'} -> {'risk_high'}",0.1,0.52
+compas,{'priors_Many'} -> {'risk_low'},0.102,0.47
+compas,"{'c_felony', 'n_white', 'male', 'recidive'} -> {'risk_high'}",0.103,0.458
+compas,"{'c_felony', 'male', 'recidive'} -> {'risk_high'}",0.141,0.451
+compas,"{'c_felony', 'n_white', 'recidive'} -> {'risk_high'}",0.109,0.444
+compas,"{'c_felony', 'recidive'} -> {'risk_high'}",0.156,0.44
+compas,"{'juv_fel=0', 'c_felony', 'male', 'recidive'} -> {'risk_high'}",0.125,0.438
+compas,"{'juv_misd=0', 'c_felony', 'male', 'recidive'} -> {'risk_high'}",0.121,0.438
+compas,"{'juv_fel=0', 'c_felony', 'recidive'} -> {'risk_high'}",0.14,0.429
+compas,"{'juv_misd=0', 'c_felony', 'recidive'} -> {'risk_high'}",0.136,0.427
+compas,"{'juv_fel=0', 'male', 'juv_misd=0', 'c_felony', 'recidive'} -> {'risk_high'}",0.109,0.423
+compas,"{'Age (decade)_20.0', 'recidive'} -> {'risk_high'}",0.107,0.42
+compas,"{'n_white', 'male', 'recidive'} -> {'risk_high'}",0.127,0.419
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'recidive'} -> {'risk_high'}",0.124,0.415
+compas,"{'male', 'recidive'} -> {'risk_high'}",0.177,0.408
+compas,"{'juv_fel=0', 'n_white', 'male', 'recidive'} -> {'risk_high'}",0.112,0.407
+compas,"{'juv_misd=0', 'n_white', 'male', 'recidive'} -> {'risk_high'}",0.106,0.402
+compas,"{'n_white', 'recidive'} -> {'risk_high'}",0.136,0.401
+compas,"{'juv_fel=0', 'male', 'recidive'} -> {'risk_high'}",0.159,0.394
+compas,{'recidive'} -> {'risk_high'},0.198,0.394
+compas,"{'juv_fel=0', 'n_white', 'recidive'} -> {'risk_high'}",0.12,0.391
+compas,"{'juv_misd=0', 'male', 'recidive'} -> {'risk_high'}",0.151,0.389
+compas,"{'juv_misd=0', 'n_white', 'recidive'} -> {'risk_high'}",0.113,0.383
+compas,"{'juv_fel=0', 'recidive'} -> {'risk_high'}",0.18,0.383
+compas,"{'juv_misd=0', 'juv_fel=0', 'male', 'recidive'} -> {'risk_high'}",0.138,0.376
+compas,"{'juv_misd=0', 'recidive'} -> {'risk_high'}",0.17,0.375
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white', 'recidive'} -> {'risk_high'}",0.102,0.374
+compas,"{'Age (decade)_20.0', 'c_felony'} -> {'risk_high'}",0.109,0.366
+compas,"{'juv_misd=0', 'juv_fel=0', 'recidive'} -> {'risk_high'}",0.157,0.364
+compas,"{'c_felony', 'n_white', 'male'} -> {'risk_high'}",0.13,0.355
+compas,"{'juv_fel=0', 'c_felony', 'n_white', 'male'} -> {'risk_high'}",0.114,0.339
+compas,"{'c_felony', 'male'} -> {'risk_high'}",0.187,0.336
+compas,"{'Age (decade)_20.0', 'male'} -> {'risk_high'}",0.117,0.333
+compas,"{'c_felony', 'n_white'} -> {'risk_high'}",0.14,0.331
+compas,"{'n_white', 'male'} -> {'risk_high'}",0.169,0.33
+compas,"{'Age (decade)_20.0', 'n_white'} -> {'risk_high'}",0.1,0.33
+compas,"{'juv_misd=0', 'c_felony', 'n_white', 'male'} -> {'risk_high'}",0.108,0.329
+compas,"{'Age (decade)_20.0', 'juv_fel=0', 'male'} -> {'risk_high'}",0.106,0.322
+compas,"{'juv_fel=0', 'c_felony', 'male'} -> {'risk_high'}",0.169,0.322
+compas,{'Age (decade)_20.0'} -> {'risk_high'},0.138,0.32
+compas,{'c_felony'} -> {'risk_high'},0.21,0.318
+compas,"{'juv_fel=0', 'c_felony', 'n_white'} -> {'risk_high'}",0.124,0.317
+compas,"{'juv_misd=0', 'c_felony', 'male'} -> {'risk_high'}",0.163,0.316
+compas,"{'juv_fel=0', 'n_white', 'male'} -> {'risk_high'}",0.15,0.315
+compas,"{'Age (decade)_20.0', 'juv_fel=0'} -> {'risk_high'}",0.127,0.312
+compas,"{'juv_fel=0', 'c_felony'} -> {'risk_high'}",0.192,0.306
+compas,"{'juv_misd=0', 'c_felony', 'n_white'} -> {'risk_high'}",0.117,0.305
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'male'} -> {'risk_high'}",0.15,0.304
+compas,{'n_white'} -> {'risk_high'},0.183,0.303
+compas,"{'juv_misd=0', 'n_white', 'male'} -> {'risk_high'}",0.139,0.302
+compas,"{'juv_misd=0', 'c_felony'} -> {'risk_high'}",0.184,0.298
+compas,{'male'} -> {'risk_high'},0.241,0.297
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony', 'n_white'} -> {'risk_high'}",0.106,0.293
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white', 'male'} -> {'risk_high'}",0.127,0.291
+compas,"{'juv_fel=0', 'n_white'} -> {'risk_high'}",0.165,0.29
+compas,"{'juv_misd=0', 'juv_fel=0', 'c_felony'} -> {'risk_high'}",0.171,0.288
+compas,"{'juv_misd=0', 'Age (decade)_20.0'} -> {'risk_high'}",0.111,0.287
+compas,"{'juv_fel=0', 'male'} -> {'risk_high'}",0.22,0.284
+compas,"{'juv_misd=0', 'juv_fel=0', 'Age (decade)_20.0'} -> {'risk_high'}",0.103,0.277
+compas,"{'juv_misd=0', 'n_white'} -> {'risk_high'}",0.152,0.275
+compas,"{'priors_Few', 'male'} -> {'risk_high'}",0.111,0.275
+compas,"{'juv_misd=0', 'male'} -> {'risk_high'}",0.208,0.275
+compas,{'juv_fel=0'} -> {'risk_high'},0.257,0.269
+compas,"{'juv_fel=0', 'priors_Few', 'male'} -> {'risk_high'}",0.104,0.269
+compas,{'priors_Few'} -> {'risk_high'},0.134,0.266
+compas,"{'juv_misd=0', 'juv_fel=0', 'n_white'} -> {'risk_high'}",0.14,0.266
+compas,"{'juv_misd=0', 'juv_fel=0', 'male'} -> {'risk_high'}",0.192,0.264
+compas,"{'priors_Few', 'juv_fel=0'} -> {'risk_high'}",0.127,0.262
+compas,{'juv_misd=0'} -> {'risk_high'},0.242,0.258
+compas,"{'juv_misd=0', 'juv_fel=0'} -> {'risk_high'}",0.227,0.249
+compas,"{'juv_misd=0', 'priors_Few'} -> {'risk_high'}",0.117,0.246
+compas,"{'juv_misd=0', 'priors_Few', 'juv_fel=0'} -> {'risk_high'}",0.112,0.244

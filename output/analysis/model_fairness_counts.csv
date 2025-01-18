@@ -1,0 +1,9 @@
+dataset_name,model_name,GroupFairness_star,PredictiveParity_star,PredictiveEquality_star,EqualOpportunity_star,EqualizedOdds_star
+adult,Decision Tree,0,0,1,2,2
+adult,KNN,0,0,2,2,3
+adult,Logistic Regression,0,4,2,2,3
+adult,Random Forest,0,0,2,1,2
+compas,Decision Tree,1,0,1,0,1
+compas,KNN,0,0,1,0,0
+compas,Logistic Regression,0,0,1,0,1
+compas,Random Forest,0,0,0,0,0
