@@ -1,32 +1,4 @@
 Dataset,Rule,support,confidence
-adult,"{'n_married', 'male'} -> {'<50K'}",0.244,0.944
-adult,"{'n_married', 'male', 'UnitedStates'} -> {'<50K'}",0.219,0.942
-adult,"{'n_married', 'male', 'white'} -> {'<50K'}",0.204,0.941
-adult,"{'n_married', 'UnitedStates'} -> {'<50K'}",0.4,0.835
-adult,{'n_married'} -> {'<50K'},0.443,0.834
-adult,"{'n_married', 'white'} -> {'<50K'}",0.364,0.832
-adult,"{'UnitedStates', 'n_married', 'white'} -> {'<50K'}",0.335,0.832
-adult,"{'UnitedStates', 'married', 'white'} -> {'>50K'}",0.282,0.732
-adult,"{'white', 'married', 'male', 'UnitedStates'} -> {'>50K'}",0.249,0.727
-adult,"{'married', 'UnitedStates'} -> {'>50K'}",0.299,0.719
-adult,"{'married', 'male', 'UnitedStates'} -> {'>50K'}",0.262,0.716
-adult,"{'married', 'white'} -> {'>50K'}",0.297,0.707
-adult,"{'married', 'male', 'white'} -> {'>50K'}",0.261,0.702
-adult,{'married'} -> {'>50K'},0.325,0.692
-adult,"{'married', 'male'} -> {'>50K'}",0.283,0.689
-adult,{'female'} -> {'<50K'},0.216,0.652
-adult,{'education.num_9.0'} -> {'<50K'},0.207,0.639
-adult,{'UnitedStates'} -> {'<50K'},0.517,0.578
-adult,{'white'} -> {'<50K'},0.487,0.568
-adult,"{'UnitedStates', 'white'} -> {'<50K'}",0.438,0.556
-adult,{'male'} -> {'<50K'},0.371,0.555
-adult,"{'male', 'UnitedStates'} -> {'<50K'}",0.323,0.539
-adult,"{'male', 'white'} -> {'<50K'}",0.315,0.535
-adult,"{'UnitedStates', 'male', 'white'} -> {'<50K'}",0.28,0.518
-adult,"{'UnitedStates', 'male', 'white'} -> {'>50K'}",0.261,0.482
-adult,"{'male', 'white'} -> {'>50K'}",0.274,0.465
-adult,"{'male', 'UnitedStates'} -> {'>50K'}",0.276,0.461
-adult,{'male'} -> {'>50K'},0.297,0.445
-adult,"{'UnitedStates', 'white'} -> {'>50K'}",0.349,0.444
-adult,{'white'} -> {'>50K'},0.371,0.432
-adult,{'UnitedStates'} -> {'>50K'},0.378,0.422
+adult,"{'male', 'n_married'} -> {'<50K'}",0.237,0.932
+adult,"{'male', 'UnitedStates', 'n_married'} -> {'<50K'}",0.212,0.93
+adult,{'n_married'} -> {'<50K'},0.426,0.803

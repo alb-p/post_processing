@@ -1,20 +1,20 @@
-antecedents,consequents,support,confidence,Reject Option Classification,Calibrated EO,Threshold Optimizer,Equalized Odds
-"frozenset({'female', 'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.237,0.956,0.17,0.0,0.442,0.266
-"frozenset({'female', 'n_married'})",frozenset({'<50K'}),0.26,0.956,0.165,0.0,0.44,0.27
-"frozenset({'female', 'n_married', 'white'})",frozenset({'<50K'}),0.209,0.952,0.19,0.0,0.448,0.275
-frozenset({'n_married'}),frozenset({'<50K'}),0.497,0.937,0.102,0.012,0.402,0.166
-frozenset({'Age (decade)_20.0'}),frozenset({'<50K'}),0.228,0.937,0.127,0.033,0.158,0.206
-"frozenset({'n_married', 'UnitedStates'})",frozenset({'<50K'}),0.449,0.937,0.105,0.012,0.41,0.165
-"frozenset({'Age (decade)_20.0', 'UnitedStates'})",frozenset({'<50K'}),0.201,0.934,0.132,0.036,0.167,0.209
-"frozenset({'n_married', 'white'})",frozenset({'<50K'}),0.408,0.934,0.113,0.012,0.414,0.168
-"frozenset({'UnitedStates', 'n_married', 'white'})",frozenset({'<50K'}),0.375,0.933,0.115,0.012,0.42,0.168
-"frozenset({'n_married', 'male'})",frozenset({'<50K'}),0.237,0.917,0.035,0.024,0.363,0.056
-"frozenset({'n_married', 'male', 'UnitedStates'})",frozenset({'<50K'}),0.213,0.916,0.036,0.025,0.375,0.058
-"frozenset({'female', 'UnitedStates'})",frozenset({'<50K'}),0.263,0.889,0.301,0.0,0.477,0.345
-frozenset({'female'}),frozenset({'<50K'}),0.294,0.889,0.301,0.0,0.475,0.348
-"frozenset({'female', 'white'})",frozenset({'<50K'}),0.236,0.879,0.328,0.0,0.484,0.36
-"frozenset({'female', 'UnitedStates', 'white'})",frozenset({'<50K'}),0.216,0.878,0.329,0.0,0.486,0.359
-frozenset({'education.num_9.0'}),frozenset({'<50K'}),0.269,0.832,0.17,0.051,0.489,0.361
-"frozenset({'education.num_9.0', 'UnitedStates'})",frozenset({'<50K'}),0.247,0.827,0.172,0.054,0.495,0.373
-"frozenset({'education.num_9.0', 'white'})",frozenset({'<50K'}),0.225,0.819,0.179,0.056,0.507,0.391
-"frozenset({'white', 'education.num_9.0', 'UnitedStates'})",frozenset({'<50K'}),0.21,0.814,0.181,0.059,0.511,0.401
+antecedents,consequents,support,confidence,Reject Option Classification,Equalized Odds,Calibrated EO,Threshold Optimizer
+"frozenset({'female', 'UnitedStates', 'n_married'})",frozenset({'<50K'}),0.24,0.95,0.282,0.318,0.0,0.549
+"frozenset({'female', 'n_married'})",frozenset({'<50K'}),0.262,0.949,0.275,0.315,0.0,0.548
+"frozenset({'female', 'white', 'n_married'})",frozenset({'<50K'}),0.209,0.945,0.301,0.325,0.0,0.553
+"frozenset({'UnitedStates', 'Age (decade)_20.0'})",frozenset({'<50K'}),0.206,0.939,0.203,0.239,0.032,0.271
+frozenset({'Age (decade)_20.0'}),frozenset({'<50K'}),0.233,0.939,0.197,0.234,0.031,0.265
+"frozenset({'UnitedStates', 'n_married'})",frozenset({'<50K'}),0.451,0.936,0.173,0.201,0.013,0.514
+frozenset({'n_married'}),frozenset({'<50K'}),0.496,0.936,0.167,0.197,0.013,0.508
+"frozenset({'white', 'n_married'})",frozenset({'<50K'}),0.406,0.931,0.178,0.201,0.014,0.518
+"frozenset({'UnitedStates', 'white', 'n_married'})",frozenset({'<50K'}),0.376,0.93,0.183,0.203,0.014,0.522
+"frozenset({'male', 'n_married'})",frozenset({'<50K'}),0.234,0.922,0.049,0.068,0.027,0.465
+"frozenset({'male', 'UnitedStates', 'n_married'})",frozenset({'<50K'}),0.21,0.921,0.051,0.07,0.028,0.476
+"frozenset({'female', 'UnitedStates'})",frozenset({'<50K'}),0.269,0.89,0.396,0.396,0.0,0.58
+frozenset({'female'}),frozenset({'<50K'}),0.298,0.89,0.392,0.392,0.0,0.577
+"frozenset({'female', 'white'})",frozenset({'<50K'}),0.236,0.88,0.415,0.404,0.0,0.582
+"frozenset({'female', 'UnitedStates', 'white'})",frozenset({'<50K'}),0.217,0.878,0.423,0.409,0.0,0.585
+frozenset({'education.num_9.0'}),frozenset({'<50K'}),0.273,0.847,0.271,0.431,0.049,0.61
+"frozenset({'UnitedStates', 'education.num_9.0'})",frozenset({'<50K'}),0.252,0.844,0.28,0.442,0.052,0.615
+"frozenset({'white', 'education.num_9.0'})",frozenset({'<50K'}),0.227,0.833,0.296,0.464,0.054,0.634
+"frozenset({'UnitedStates', 'white', 'education.num_9.0'})",frozenset({'<50K'}),0.215,0.831,0.304,0.471,0.056,0.637

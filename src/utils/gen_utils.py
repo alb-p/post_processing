@@ -60,6 +60,74 @@ def plot_fn_metrics(df_metrics, title, filepath):
     plt.savefig(filepath)
     plt.close()
 
+def model_printing_fairness(df_to_plot, metrics, axhline=-1, title="Fairness Metrics Comparison", filepath="output/plots"):
+    datasets = df_to_plot["dataset_name"].unique()
+    models = df_to_plot["model_name"].unique()
+    
+    for dataset in datasets:
+        dataset_data = df_to_plot[df_to_plot["dataset_name"] == dataset]
+        for model in models:
+            model_data = dataset_data[dataset_data["model_name"] == model]
+            techniques = model_data["technique_name"].unique()
+
+            x = np.arange(len(metrics) // 2)  # Base x positions for metrics
+            width = 0.8  # Base bar width
+
+            fig, ax = plt.subplots(figsize=(12, 6))
+
+            # Generate paired colors
+            colormap = plt.cm.tab20
+            for i, technique in enumerate(techniques):
+                technique_data = model_data[model_data["technique_name"] == technique]
+                before_values = technique_data[metrics[::2]].values.flatten()
+                after_values = technique_data[metrics[1::2]].values.flatten()
+
+                before_color = colormap.colors[2 * i +1]
+                after_color = colormap.colors[2 * i]
+
+                ax.bar(
+                    x + i * width / len(techniques),
+                    before_values,
+                    width=0.8 * width / len(techniques),
+                    label=f"{technique} (Before)",
+                    alpha=0.8,
+                    color=before_color
+                )
+                ax.bar(
+                    x + i * width / len(techniques) + 0.2 * width / len(techniques),
+                    after_values,
+                    width=0.5 * width / len(techniques),
+                    label=f"{technique} (After)",
+                    alpha=0.5,
+                    color=after_color
+                )
+
+            # Add gridlines, labels, and title
+            ax.set_ylabel("Metric Values")
+            ax.set_xlabel("Fairness Metrics")
+            ax.set_title(f"{model} - {title} ({dataset})")
+            ax.set_xticks(x + (len(techniques) - 1) * width / (2 * len(techniques)))
+            ax.set_xticklabels([metric.replace("_after", "") for metric in metrics[1::2]])
+            ax.grid(axis="y")
+
+            # Add horizontal line if specified
+            if axhline == -2:
+                ax.axhline(1.0, color="red", linestyle="dashed", label="Max Improvement")
+                ax.axhline(-1.0, color="red", linestyle="dashed", label="Max Decline")
+            elif axhline != -1:
+                ax.axhline(axhline, color="red", linestyle="--", label="Ideal Value")
+                ax.set_ylim(min(-1, axhline - 0.1), max(1.1, axhline + 0.1))
+
+            ax.legend(title="Techniques")
+            plt.xticks(rotation=30)
+            plt.tight_layout()
+
+            # Save the plot
+            plot_filename = f"{filepath}/{dataset}_{model}_{title.replace(' ', '_')}.png"
+            plt.savefig(plot_filename)
+            plt.close()
+
+
 def model_printing(df_to_plot, metrics, axhline=-1, title="Put here the title", filepath="output/plots"):
     # Generate bar plots for each model
     datasets = df_to_plot["dataset_name"].unique()

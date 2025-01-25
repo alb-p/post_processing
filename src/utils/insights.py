@@ -1,6 +1,9 @@
 import pandas as pd
 import json
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 config_path = "config/config.json"
 
 def load_config(config_path):
@@ -68,6 +71,94 @@ def compute_count(table_path, metrics, title):
     # Save the table to a CSV file
     output_file = f"{analysis_dir}/{title}.csv"
     combined_data.to_csv(output_file, index=False)
+
+
+def model_printing_fairness(df_to_plot, metrics, axhline=-1, title="Fairness Metrics Comparison", filepath="output/plots"):
+    config = load_config(config_path)
+    plot = config["tables_dir"]
+    filepath = f"{plot}/"
+    analysis_dir = config["analysis_dir"]
+    datasets = df_to_plot["dataset_name"].unique()
+    models = df_to_plot["model_name"].unique()
+    
+    for dataset in datasets:
+        dataset_data = df_to_plot[df_to_plot["dataset_name"] == dataset]
+        for model in models:
+            model_data = dataset_data[dataset_data["model_name"] == model]
+            techniques = model_data["technique_name"].unique()
+
+            x = np.arange(len(metrics) // 2)  # Base x positions for metrics
+            width = 0.8  # Base bar width
+
+            fig, ax = plt.subplots(figsize=(12, 6))
+
+            # Generate paired colors
+            colormap = plt.cm.Set1
+            num_colors = len(techniques) * 2  # Each technique has 'Before' and 'After'
+            colors = [colormap(i / num_colors) for i in range(num_colors)]
+
+            for i, technique in enumerate(techniques):
+                technique_data = model_data[model_data["technique_name"] == technique]
+                before_values = technique_data[metrics[::2]].values.flatten()
+                after_values = technique_data[metrics[1::2]].values.flatten()
+
+                # Assign colors from the paired colormap
+                before_color = colors[2 * i]
+                after_color = colors[2 * i + 1]
+
+                ax.bar(
+                    x + i * width / len(techniques),
+                    before_values,
+                    width=0.8 * width / len(techniques),
+                    label=f"{technique} (Before)",
+                    alpha=0.5,
+                    color=before_color
+                )
+                ax.bar(
+                    x + i * width / len(techniques) + 0.2 * width / len(techniques),
+                    after_values,
+                    width=0.8 * width / len(techniques),
+                    label=f"{technique} (After)",
+                    alpha=0.8,
+                    color=after_color
+                )
+
+            # Add gridlines, labels, and title
+            ax.set_ylabel("Metric Values")
+            ax.set_xlabel("Fairness Metrics")
+            ax.set_title(f"{model} - {title} ({dataset})")
+            ax.set_xticks(x + (len(techniques) - 1) * width / (2 * len(techniques)))
+            ax.set_xticklabels([metric.replace("_after", "") for metric in metrics[1::2]])
+            ax.grid(axis="y")
+
+            # Add horizontal line if specified
+            if axhline == -2:
+                ax.axhline(1.0, color="red", linestyle="dashed", label="Max Improvement")
+                ax.axhline(-1.0, color="red", linestyle="dashed", label="Max Decline")
+            elif axhline != -1:
+                ax.axhline(axhline, color="red", linestyle="--", label="Ideal Value")
+                ax.set_ylim(min(-1, axhline - 0.1), max(1.1, axhline + 0.1))
+
+            ax.legend(title="Techniques")
+            plt.xticks(rotation=30)
+            plt.tight_layout()
+
+            # Save the plot
+            plot_filename = f"{filepath}/{dataset}_{model}_{title.replace(' ', '_')}.png"
+            plt.savefig(plot_filename)
+            plt.close()
+
+
+fairness_metrics = ["dataset_name", "model_name", "technique_name", "GroupFairness", "GroupFairness_after", "PredictiveParity", "PredictiveParity_after", "PredictiveEquality", "PredictiveEquality_after", "EqualOpportunity", "EqualOpportunity_after", "EqualizedOdds", "EqualizedOdds_after"]
+fairness_df = pd.DataFrame(fairness_list, columns=fairness_df_columns)
+model_printing_fairness(
+    df_to_plot=fairness_df,
+    metrics=fairness_metrics,
+    axhline=0,
+    title="Fairness Metrics Behavior")
+fairness_df.to_csv(f"{tables_dir}/fairness_results.csv", index=False)
+
+
 
 fairness_metrics = ["GroupFairness", "PredictiveParity", "PredictiveEquality", "EqualOpportunity", "EqualizedOdds"]
 compute_analysis("fairness_results.csv", fairness_metrics, "technique_fairness_analysis")

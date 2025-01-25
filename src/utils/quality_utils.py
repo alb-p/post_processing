@@ -101,9 +101,9 @@ def rule_by_rule_analysis(orig_asso_rules_target, df_transf_test_pred, dataset_n
         else:
             cons = None
         
-        print(f"Rule: {rule}, Antecedents: {rule['antecedents']}, Consequents: {rule['consequents']}")
-        print(f"Violating Consequents: {violating_consequent}, Respecting Antecedents: {respecting_antecedents}")
-        print(f"Consistency: {cons}")
+        # print(f"Rule: {rule}, Antecedents: {rule['antecedents']}, Consequents: {rule['consequents']}")
+        # print(f"Violating Consequents: {violating_consequent}, Respecting Antecedents: {respecting_antecedents}")
+        # print(f"Consistency: {cons}")
         
         orig_asso_rules_target.at[index, technique_name_col] = cons
 

@@ -9,8 +9,8 @@ from post_processing_techniques.pptech_utils import apply_pp_technique
 from utils.association_rules_utils import compute_association_rules, compute_diff_association_rules, export_association_rules
 from utils.data_utils import load_data, merge_accuracy_consistency, prev_unprev, generate_bld, X_y_train, train_test_distribution_plot, stages_distribution_plot
 from data.adult_utils import preprocess_adult
-from utils.fairness_utils import compute_fairness_metrics
-from utils.gen_utils import model_printing
+from utils.fairness_utils import compute_fairness_metrics, compute_fairness_metrics_deltas
+from utils.gen_utils import model_printing, model_printing_fairness
 from utils.quality_utils import compute_accuracy, compute_consistency, rule_by_rule_analysis
 
 logging.basicConfig(level=logging.INFO)
@@ -18,6 +18,7 @@ logging.basicConfig(level=logging.INFO)
 performance_list = []
 accuracy_list = []
 fairness_list = []
+fairness_deltas_list = []
 fairness_star_list = []
 consistency_list = []
 
@@ -173,7 +174,7 @@ def main(config_path):
                                         model_precision,
                                         model_F1])
                 # Star is True if the metric has changed sign, meaning that the group with bigger fairness value has changed
-                GroupFairness, GF_star, PredictiveParity, PP_star, PredictiveEquality, PE_star, EqualOpportunity, EOp_star, EqualizedOdds, EOd_star= compute_fairness_metrics(
+                GroupFairness, GroupFairness_after, PredictiveParity, PredictiveParity_after, PredictiveEquality, PredictiveEquality_after, EqualOpportunity, EqualOpportunity_after, EqualizedOdds, EqualizedOdds_after = compute_fairness_metrics(
                     df_orig_test,
                     df_orig_test_pred,
                     df_transf_test_pred,
@@ -184,15 +185,32 @@ def main(config_path):
                     filepath,
                     technique_name,
                     model_name)
-                fairness_star_list.append([dataset_name,
+                fairness_list.append([dataset_name,
                                     model_name,
                                     technique_name,
-                                    GF_star,
-                                    PP_star,
-                                    PE_star,
-                                    EOp_star,
-                                    EOd_star])
-                fairness_list.append([dataset_name,
+                                    GroupFairness,
+                                    GroupFairness_after,
+                                    PredictiveParity,
+                                    PredictiveParity_after,
+                                    PredictiveEquality,
+                                    PredictiveEquality_after,
+                                    EqualOpportunity,
+                                    EqualOpportunity_after,
+                                    EqualizedOdds,
+                                    EqualizedOdds_after])
+                
+                GroupFairness, PredictiveParity, PredictiveEquality, EqualOpportunity, EqualizedOdds = compute_fairness_metrics_deltas(
+                    df_orig_test,
+                    df_orig_test_pred,
+                    df_transf_test_pred,
+                    unprivileged_groups,
+                    privileged_groups,
+                    target_variable,
+                    sensible_attribute,
+                    filepath,
+                    technique_name,
+                    model_name)
+                fairness_deltas_list.append([dataset_name,
                                     model_name,
                                     technique_name,
                                     GroupFairness,
@@ -221,7 +239,7 @@ def main(config_path):
                 transf_asso_rules_target = compute_association_rules(
                     dataset = dataset_transf_test_pred, dataset_name = dataset_name,
                     target_variable = target_variable_values, support = user_min_support,
-                    confidence = 0.2)
+                    confidence = user_min_confidence)
                 # print(f"Association rules for {model_name} model - {technique_name} technique")
                 # print(transf_asso_rules_target)
                 export_association_rules(
@@ -265,24 +283,36 @@ def main(config_path):
 
     fairness_metrics = ["GroupFairness", "PredictiveParity", "PredictiveEquality", "EqualOpportunity", "EqualizedOdds"]
     fairness_df_columns = common_columns_df + fairness_metrics
-    fairness_df = pd.DataFrame(fairness_list, columns=fairness_df_columns)
+    fairness_df = pd.DataFrame(fairness_deltas_list, columns=fairness_df_columns)
+    
     model_printing(
         df_to_plot=fairness_df,
         metrics=fairness_metrics,
         axhline=-2,
+        title="Fairness Metrics Deltas",
+        filepath=f"{plots_dir}")
+
+    fairness_metrics = ["GroupFairness", "GroupFairness_after", "PredictiveParity", "PredictiveParity_after", "PredictiveEquality", "PredictiveEquality_after", "EqualOpportunity", "EqualOpportunity_after", "EqualizedOdds", "EqualizedOdds_after"]
+    fairness_df_columns = common_columns_df + fairness_metrics
+    fairness_df = pd.DataFrame(fairness_list, columns=fairness_df_columns)
+    
+    model_printing_fairness(
+        df_to_plot=fairness_df,
+        metrics=fairness_metrics,
+        axhline=0,
         title="Fairness Metrics Behavior",
         filepath=f"{plots_dir}")
     fairness_df.to_csv(f"{tables_dir}/fairness_results.csv", index=False)
 
-    fairness_star_metrics = [
-    "GroupFairness_star",
-    "PredictiveParity_star",
-    "PredictiveEquality_star",
-    "EqualOpportunity_star",
-    "EqualizedOdds_star"]
-    fairness_star_df_columns = common_columns_df + fairness_star_metrics
-    fairness_star_df = pd.DataFrame(fairness_star_list, columns=fairness_star_df_columns)
-    fairness_star_df.to_csv(f"{tables_dir}/fairness_star_results.csv", index=False)
+    # fairness_star_metrics = [
+    # "GroupFairness_star",
+    # "PredictiveParity_star",
+    # "PredictiveEquality_star",
+    # "EqualOpportunity_star",
+    # "EqualizedOdds_star"]
+    # fairness_star_df_columns = common_columns_df + fairness_star_metrics
+    # fairness_star_df = pd.DataFrame(fairness_star_list, columns=fairness_star_df_columns)
+    # fairness_star_df.to_csv(f"{tables_dir}/fairness_star_results.csv", index=False)
     
     accuracy_df_columns = common_columns_df + ["priv_accuracy", "unpriv_accuracy", "overall_accuracy"]
     accuracy_df = pd.DataFrame(accuracy_list, columns=accuracy_df_columns)

@@ -1,35 +1,8 @@
 Dataset,Rule,support,confidence
-adult,"{'n_married', 'male'} -> {'<50K'}",0.234,0.906
-adult,"{'n_married', 'male', 'UnitedStates'} -> {'<50K'}",0.209,0.902
-adult,{'Age (decade)_20.0'} -> {'<50K'},0.21,0.861
-adult,{'n_married'} -> {'<50K'},0.45,0.848
-adult,"{'n_married', 'UnitedStates'} -> {'<50K'}",0.406,0.847
-adult,"{'n_married', 'white'} -> {'<50K'}",0.368,0.842
-adult,"{'UnitedStates', 'n_married', 'white'} -> {'<50K'}",0.339,0.842
-adult,"{'female', 'n_married'} -> {'<50K'}",0.216,0.792
-adult,{'education.num_9.0'} -> {'<50K'},0.239,0.74
-adult,"{'education.num_9.0', 'UnitedStates'} -> {'<50K'}",0.219,0.735
-adult,"{'female', 'UnitedStates'} -> {'<50K'}",0.212,0.716
-adult,{'female'} -> {'<50K'},0.236,0.713
-adult,{'UnitedStates'} -> {'<50K'},0.574,0.641
-adult,{'white'} -> {'<50K'},0.54,0.63
-adult,"{'UnitedStates', 'white'} -> {'<50K'}",0.491,0.623
-adult,{'male'} -> {'<50K'},0.411,0.615
-adult,"{'UnitedStates', 'married', 'white'} -> {'>50K'}",0.233,0.605
-adult,"{'male', 'UnitedStates'} -> {'<50K'}",0.361,0.604
-adult,"{'male', 'white'} -> {'<50K'}",0.353,0.599
-adult,"{'married', 'UnitedStates'} -> {'>50K'}",0.248,0.597
-adult,"{'white', 'married', 'male', 'UnitedStates'} -> {'>50K'}",0.202,0.59
-adult,"{'married', 'white'} -> {'>50K'}",0.248,0.59
-adult,"{'UnitedStates', 'male', 'white'} -> {'<50K'}",0.318,0.588
-adult,"{'married', 'male', 'UnitedStates'} -> {'>50K'}",0.215,0.586
-adult,{'married'} -> {'>50K'},0.272,0.579
-adult,"{'married', 'male', 'white'} -> {'>50K'}",0.214,0.575
-adult,"{'married', 'male'} -> {'>50K'}",0.233,0.568
-adult,"{'UnitedStates', 'male', 'white'} -> {'>50K'}",0.223,0.412
-adult,"{'male', 'white'} -> {'>50K'}",0.236,0.401
-adult,"{'male', 'UnitedStates'} -> {'>50K'}",0.237,0.396
-adult,{'male'} -> {'>50K'},0.257,0.385
-adult,"{'UnitedStates', 'white'} -> {'>50K'}",0.297,0.377
-adult,{'white'} -> {'>50K'},0.317,0.37
-adult,{'UnitedStates'} -> {'>50K'},0.321,0.359
+adult,"{'male', 'n_married'} -> {'<50K'}",0.231,0.909
+adult,"{'male', 'UnitedStates', 'n_married'} -> {'<50K'}",0.206,0.905
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.213,0.858
+adult,{'n_married'} -> {'<50K'},0.448,0.846
+adult,"{'white', 'n_married'} -> {'<50K'}",0.368,0.843
+adult,"{'UnitedStates', 'n_married'} -> {'<50K'}",0.405,0.841
+adult,"{'UnitedStates', 'white', 'n_married'} -> {'<50K'}",0.339,0.839

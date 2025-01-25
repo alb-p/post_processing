@@ -26,7 +26,7 @@
             },
             "association_rules_parameters":{
                 "min_confidence": 0.8,
-                "min_support": 0.1
+                "min_support": 0.15
             }
         }
     ],
@@ -73,6 +73,12 @@
             }
         },
         {
+            "name": "Equalized Odds",
+            "params": {
+                "randseed": 42
+            }
+        },
+        {
             "name": "Calibrated EO",
             "params": {
                 "constraint": "fpr",
@@ -84,12 +90,6 @@
             "params": {
                 "constraints": "false_negative_rate_parity",
                 "objective": "balanced_accuracy_score"
-            }
-        },
-        {
-            "name": "Equalized Odds",
-            "params": {
-                "randseed": 42
             }
         }
     ],
