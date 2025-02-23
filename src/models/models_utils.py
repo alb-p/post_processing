@@ -44,8 +44,6 @@ def calculate_best_thr(num_thresh, dataset_orig_test_pred, dataset_orig_test, un
         fav_inds = dataset_orig_test_pred.scores > class_thresh
         dataset_orig_test_pred.labels[fav_inds] = dataset_orig_test_pred.favorable_label
         dataset_orig_test_pred.labels[~fav_inds] = dataset_orig_test_pred.unfavorable_label
-        # TODO: serve?
-        # classified_metric_orig_test = ClassificationMetric(dataset_orig_test, dataset_orig_test_pred, unprivileged_groups=unprivileged_groups, privileged_groups=privileged_groups)
         ba_arr[idx] = balanced_accuracy_score(dataset_orig_test.labels, dataset_orig_test_pred.labels)
 
     best_ind = np.where(ba_arr == np.max(ba_arr))[0][0]

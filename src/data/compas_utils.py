@@ -89,12 +89,3 @@ def prepare_compas_asso_rules(dataset_to_prepare):
 
     df_prepared = pd.get_dummies(df_prepared, columns=['priors','Age (decade)'],drop_first=False) 
     return df_prepared
-
-def group_edu(x):
-    if x <= 5:
-        return '<6'
-    elif x >= 13:
-        return '>12'
-    else:
-        return x
-    
