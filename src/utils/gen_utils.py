@@ -132,6 +132,7 @@ def model_printing(df_to_plot, metrics, axhline=-1, title="Put here the title", 
     # Generate bar plots for each model
     datasets = df_to_plot["dataset_name"].unique()
     models = df_to_plot["model_name"].unique()
+    plt.rcParams.update({'font.size': 13})  # Adjust the number as needed
 
     for dataset in datasets:
         dataset_data = df_to_plot[df_to_plot["dataset_name"] == dataset]

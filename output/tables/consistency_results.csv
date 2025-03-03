@@ -1,33 +1,17 @@
 dataset_name,model_name,technique_name,consistency
-adult,Decision Tree,Reject Option Classification,0.941
-adult,Decision Tree,Equalized Odds,0.955
+adult,Decision Tree,Reject Option Classification,0.937
+adult,Decision Tree,Equalized Odds,0.953
 adult,Decision Tree,Calibrated EO,0.922
-adult,Decision Tree,Threshold Optimizer,0.923
-adult,Logistic Regression,Reject Option Classification,0.969
-adult,Logistic Regression,Equalized Odds,0.974
-adult,Logistic Regression,Calibrated EO,0.914
-adult,Logistic Regression,Threshold Optimizer,0.989
-adult,Random Forest,Reject Option Classification,0.972
-adult,Random Forest,Equalized Odds,0.966
-adult,Random Forest,Calibrated EO,0.922
-adult,Random Forest,Threshold Optimizer,0.925
-adult,KNN,Reject Option Classification,0.948
-adult,KNN,Equalized Odds,0.957
-adult,KNN,Calibrated EO,0.918
-adult,KNN,Threshold Optimizer,0.917
-compas,Decision Tree,Reject Option Classification,0.942
-compas,Decision Tree,Equalized Odds,0.944
-compas,Decision Tree,Calibrated EO,0.934
-compas,Decision Tree,Threshold Optimizer,0.938
-compas,Logistic Regression,Reject Option Classification,0.93
-compas,Logistic Regression,Equalized Odds,0.953
-compas,Logistic Regression,Calibrated EO,0.935
-compas,Logistic Regression,Threshold Optimizer,0.97
-compas,Random Forest,Reject Option Classification,0.928
-compas,Random Forest,Equalized Odds,0.959
-compas,Random Forest,Calibrated EO,0.938
-compas,Random Forest,Threshold Optimizer,0.941
-compas,KNN,Reject Option Classification,0.931
-compas,KNN,Equalized Odds,0.967
-compas,KNN,Calibrated EO,0.936
-compas,KNN,Threshold Optimizer,0.943
+adult,Decision Tree,Threshold Optimizer,1.0
+adult,Logistic Regression,Reject Option Classification,0.967
+adult,Logistic Regression,Equalized Odds,0.961
+adult,Logistic Regression,Calibrated EO,0.908
+adult,Logistic Regression,Threshold Optimizer,0.983
+adult,Random Forest,Reject Option Classification,0.962
+adult,Random Forest,Equalized Odds,0.963
+adult,Random Forest,Calibrated EO,0.92
+adult,Random Forest,Threshold Optimizer,0.97
+adult,KNN,Reject Option Classification,0.945
+adult,KNN,Equalized Odds,0.953
+adult,KNN,Calibrated EO,0.915
+adult,KNN,Threshold Optimizer,0.912

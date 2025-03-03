@@ -1,4 +1,9 @@
 Dataset,Rule,support,confidence
-adult,"{'male', 'n_married'} -> {'<50K'}",0.237,0.932
-adult,"{'male', 'UnitedStates', 'n_married'} -> {'<50K'}",0.212,0.93
-adult,{'n_married'} -> {'<50K'},0.426,0.803
+adult,"{'male', 'n_married'} -> {'<50K'}",0.238,0.951
+adult,"{'UnitedStates', 'male', 'n_married'} -> {'<50K'}",0.219,0.95
+adult,"{'white', 'male', 'n_married'} -> {'<50K'}",0.202,0.947
+adult,{'n_married'} -> {'<50K'},0.445,0.849
+adult,"{'white', 'n_married'} -> {'<50K'}",0.369,0.847
+adult,"{'UnitedStates', 'n_married'} -> {'<50K'}",0.41,0.847
+adult,"{'UnitedStates', 'white', 'n_married'} -> {'<50K'}",0.344,0.846
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.209,0.827

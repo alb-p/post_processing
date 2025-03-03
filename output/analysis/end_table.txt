@@ -1,0 +1,7 @@
+        \hline
+    \end{tabular}
+    }
+    \\[10pt]
+    \caption{Association Rule Adult KNN}
+    \label{table:asso_rules_adult_KNN}
+\end{table}

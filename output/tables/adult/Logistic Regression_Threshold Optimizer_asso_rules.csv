@@ -1,10 +1,5 @@
 Dataset,Rule,support,confidence
-adult,{'education.num_>12'} -> {'>50K'},0.219,0.89
-adult,"{'male', 'married', 'white', 'UnitedStates'} -> {'>50K'}",0.291,0.859
-adult,"{'male', 'UnitedStates', 'married'} -> {'>50K'}",0.312,0.856
-adult,"{'UnitedStates', 'white', 'married'} -> {'>50K'}",0.322,0.846
-adult,"{'male', 'married', 'white'} -> {'>50K'}",0.312,0.845
-adult,"{'male', 'married'} -> {'>50K'}",0.347,0.843
-adult,"{'UnitedStates', 'married'} -> {'>50K'}",0.348,0.842
-adult,"{'married', 'white'} -> {'>50K'}",0.346,0.831
-adult,{'married'} -> {'>50K'},0.388,0.826
+adult,{'education.num_>12'} -> {'>50K'},0.204,0.83
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.208,0.824
+adult,"{'white', 'married', 'UnitedStates', 'male'} -> {'>50K'}",0.286,0.807
+adult,"{'UnitedStates', 'married', 'male'} -> {'>50K'}",0.305,0.802

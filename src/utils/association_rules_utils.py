@@ -52,13 +52,13 @@ def compute_diff_association_rules(association_rules_technique, transf_asso_rule
                 association_rules_technique.at[index, confidence_col] = rule['confidence']
                 matched = True
                 break
-        
-        if not matched:
-            # Add the unmatched rule to the list for appending
-            new_rule = rule.copy()
-            new_rule[support_col] = new_rule.pop("support")
-            new_rule[confidence_col] = new_rule.pop("confidence")            
-            rules_to_append.append(new_rule)
+        # TODO: uncomment when done with extracting results
+        # if not matched:
+        #     # Add the unmatched rule to the list for appending
+        #     new_rule = rule.copy()
+        #     new_rule[support_col] = new_rule.pop("support")
+        #     new_rule[confidence_col] = new_rule.pop("confidence")            
+        #     rules_to_append.append(new_rule)
 
     # Append unmatched rules to association_rules_technique
     if rules_to_append:

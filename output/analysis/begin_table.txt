@@ -1,0 +1,15 @@
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{6pt} % Adjust column spacing
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{bluepoli!40}
+        \multicolumn{2}{|c|}{\textbf{Rules}} & 
+        \multicolumn{2}{c|}{\textbf{Orig}} & \multicolumn{2}{c|}{\textbf{ROC}} & 
+        \multicolumn{2}{c|}{\textbf{EO}} & \multicolumn{2}{c|}{\textbf{CEO}} & \multicolumn{2}{c|}{\textbf{TO}} \\
+        \cline{1-12}
+        \rowcolor{bluepoli!40}
+        \textbf{Antecedents} & \textbf{Cons} & Sup & Conf & Sup & Conf & Sup & Conf & Sup & Conf & Sup & Conf \\
+        \hline 
+        

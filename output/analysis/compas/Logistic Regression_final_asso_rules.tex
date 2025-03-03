@@ -1,0 +1,38 @@
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{6pt} % Adjust column spacing
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{bluepoli!40}
+        \multicolumn{2}{|c|}{\textbf{Rules}} & 
+        \multicolumn{2}{c|}{\textbf{Orig}} & \multicolumn{2}{c|}{\textbf{ROC}} & 
+        \multicolumn{2}{c|}{\textbf{EO}} & \multicolumn{2}{c|}{\textbf{CEO}} & \multicolumn{2}{c|}{\textbf{TO}} \\
+        \cline{1-12}
+        \rowcolor{bluepoli!40}
+        \textbf{Antecedents} & \textbf{Cons} & Sup & Conf & Sup & Conf & Sup & Conf & Sup & Conf & Sup & Conf \\
+        \hline 
+        juv\_misd=0, white, n\_recidive, male & risk\_low & 0.16 & 0.89 & 0.17 & 1.00 & - & - & 0.17 & 0.99 & - & - \\
+white, juv\_misd=0, male, juv\_fel=0, n\_recidive & risk\_low & 0.16 & 0.89 & 0.17 & 1.00 & - & - & 0.17 & 0.99 & - & - \\
+n\_recidive, white, male & risk\_low & 0.16 & 0.89 & 0.18 & 1.00 & - & - & 0.17 & 0.98 & - & - \\
+n\_recidive, white, juv\_fel=0, male & risk\_low & 0.16 & 0.89 & 0.18 & 1.00 & - & - & 0.17 & 0.98 & - & - \\
+juv\_misd=0, white, n\_recidive & risk\_low & 0.20 & 0.86 & 0.23 & 1.00 & - & - & 0.23 & 0.99 & - & - \\
+juv\_misd=0, white, n\_recidive, juv\_fel=0 & risk\_low & 0.20 & 0.86 & 0.23 & 1.00 & - & - & 0.23 & 0.99 & - & - \\
+n\_recidive, white & risk\_low & 0.20 & 0.86 & 0.23 & 1.00 & - & - & 0.23 & 0.98 & - & - \\
+n\_recidive, white, juv\_fel=0 & risk\_low & 0.20 & 0.86 & 0.23 & 1.00 & - & - & 0.23 & 0.98 & - & - \\
+priors\_No, n\_recidive, juv\_fel=0 & risk\_low & 0.16 & 0.85 & 0.19 & 1.00 & 0.17 & 0.87 & - & - & - & - \\
+priors\_No, n\_recidive & risk\_low & 0.16 & 0.85 & 0.19 & 1.00 & 0.17 & 0.87 & - & - & - & - \\
+priors\_No, juv\_misd=0, n\_recidive & risk\_low & 0.16 & 0.85 & 0.19 & 1.00 & 0.17 & 0.87 & - & - & - & - \\
+priors\_No, juv\_misd=0, n\_recidive, juv\_fel=0 & risk\_low & 0.16 & 0.85 & 0.19 & 1.00 & 0.17 & 0.87 & - & - & - & - \\
+priors\_No, juv\_misd=0, juv\_fel=0, male & risk\_low & 0.16 & 0.80 & 0.20 & 1.00 & 0.16 & 0.81 & - & - & - & - \\
+priors\_No, male & risk\_low & 0.16 & 0.80 & 0.20 & 1.00 & 0.16 & 0.81 & - & - & - & - \\
+priors\_No, juv\_misd=0, male & risk\_low & 0.16 & 0.80 & 0.20 & 1.00 & 0.16 & 0.81 & - & - & - & - \\
+priors\_No, juv\_fel=0, male & risk\_low & 0.16 & 0.80 & 0.20 & 1.00 & 0.16 & 0.81 & - & - & - & - \\
+        \hline
+        \end{tabular}
+        }
+        \\[10pt]
+        \caption{Association Rule for Compas Dataset - Logistic Regression Model}
+        \label{table:asso_rules_compas_Logistic Regression}
+        \end{table}
+        

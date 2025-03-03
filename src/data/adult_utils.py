@@ -3,7 +3,7 @@ from utils.data_utils import preprocess_dataset
 
 def preprocess_adult(dataset):
     to_drop = ["fnlwgt", "education", "relationship", "workclass", "occupation"]
-    dataset_preproc = dataset.preprocess_dataset()
+    dataset_preproc = preprocess_dataset(dataset)
     dataset_preproc.drop(to_drop, axis=1, inplace=True)
 
     dataset_preproc.loc[:, 'income'] = dataset_preproc['income'].map({'<=50K': 0, '>50K': 1})

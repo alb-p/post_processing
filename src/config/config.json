@@ -14,20 +14,6 @@
                 "min_support": 0.2
             }
 
-        },
-        {
-            "name": "compas",
-            "path": "data/compas-scores-two-years.csv",
-            "parameters": {
-                "target_variable": "risk",
-                "target_variable_values": ["risk_high", "risk_low"],
-                "sensible_attribute": "race",
-                "sensible_attribute_values": ["African-American", "Caucasian"]
-            },
-            "association_rules_parameters":{
-                "min_confidence": 0.8,
-                "min_support": 0.15
-            }
         }
     ],
     "models": [
