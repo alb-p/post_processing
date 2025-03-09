@@ -61,3 +61,24 @@ def compute_model_performance(dataset_orig_test, dataset_orig_test_pred,dataset_
     precision_after = round(precision_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
     F1_after = round(f1_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
     return round(accuracy_after - accuracy_before, 3), round(recall_after - recall_before, 3), round(precision_after - precision_before, 3), round(F1_after - F1_before, 3)
+
+def compute_model_performance_baf(dataset_orig_test, dataset_orig_test_pred,dataset_transf_test_pred, filepath, technique_name, model_name):
+    accuracy_before = round(accuracy_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+    recall_before = round(recall_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+    precision_before = round(precision_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+    F1_before = round(f1_score(dataset_orig_test.labels, dataset_orig_test_pred.labels), 3)
+
+    accuracy_after = round(accuracy_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    recall_after = round(recall_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    precision_after = round(precision_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    F1_after = round(f1_score(dataset_orig_test.labels, dataset_transf_test_pred.labels), 3)
+    return (
+        round(accuracy_before, 3), 
+        round(accuracy_after, 3),  
+        round(recall_before, 3), 
+        round(recall_after, 3),  
+        round(precision_before, 3), 
+        round(precision_after, 3),  
+        round(F1_before, 3), 
+        round(F1_after, 3)
+    )

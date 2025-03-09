@@ -1,17 +1,33 @@
 dataset_name,model_name,technique_name,priv_accuracy,unpriv_accuracy,overall_accuracy
-adult,Decision Tree,Reject Option Classification,0.939,0.981,0.92
-adult,Decision Tree,Equalized Odds,0.981,0.953,0.933
-adult,Decision Tree,Calibrated EO,0.991,0.963,0.954
-adult,Decision Tree,Threshold Optimizer,0.54,0.705,0.245
-adult,Logistic Regression,Reject Option Classification,0.916,0.909,0.825
-adult,Logistic Regression,Equalized Odds,0.933,0.931,0.864
-adult,Logistic Regression,Calibrated EO,0.96,0.963,0.923
-adult,Logistic Regression,Threshold Optimizer,0.774,0.876,0.65
-adult,Random Forest,Reject Option Classification,0.96,0.93,0.89
-adult,Random Forest,Equalized Odds,0.927,0.93,0.857
-adult,Random Forest,Calibrated EO,0.969,0.963,0.932
-adult,Random Forest,Threshold Optimizer,0.832,0.96,0.792
-adult,KNN,Reject Option Classification,0.976,0.95,0.927
-adult,KNN,Equalized Odds,0.962,0.947,0.909
-adult,KNN,Calibrated EO,0.976,0.963,0.939
-adult,KNN,Threshold Optimizer,0.866,0.979,0.845
+adult,Decision Tree,Reject Option Classification,0.942,0.974,0.916
+adult,Decision Tree,Equalized Odds,0.968,0.944,0.912
+adult,Decision Tree,Calibrated EO,0.991,0.968,0.959
+adult,Decision Tree,Threshold Optimizer,0.88,0.996,0.876
+adult,Logistic Regression,Reject Option Classification,0.939,0.916,0.854
+adult,Logistic Regression,Equalized Odds,0.902,0.916,0.819
+adult,Logistic Regression,Calibrated EO,0.96,0.968,0.928
+adult,Logistic Regression,Threshold Optimizer,0.791,0.874,0.665
+adult,Random Forest,Reject Option Classification,0.966,0.929,0.895
+adult,Random Forest,Equalized Odds,0.923,0.927,0.85
+adult,Random Forest,Calibrated EO,0.968,0.968,0.935
+adult,Random Forest,Threshold Optimizer,0.858,0.959,0.817
+adult,KNN,Reject Option Classification,0.981,0.95,0.931
+adult,KNN,Equalized Odds,0.949,0.939,0.888
+adult,KNN,Calibrated EO,0.981,0.968,0.949
+adult,KNN,Threshold Optimizer,0.947,0.917,0.865
+compas,Decision Tree,Reject Option Classification,0.977,0.898,0.875
+compas,Decision Tree,Equalized Odds,0.955,0.965,0.92
+compas,Decision Tree,Calibrated EO,0.986,0.702,0.688
+compas,Decision Tree,Threshold Optimizer,0.991,0.789,0.78
+compas,Logistic Regression,Reject Option Classification,0.901,0.759,0.66
+compas,Logistic Regression,Equalized Odds,0.953,0.97,0.924
+compas,Logistic Regression,Calibrated EO,0.944,0.702,0.647
+compas,Logistic Regression,Threshold Optimizer,0.978,0.962,0.94
+compas,Random Forest,Reject Option Classification,0.909,0.807,0.716
+compas,Random Forest,Equalized Odds,0.942,0.991,0.933
+compas,Random Forest,Calibrated EO,0.988,0.702,0.69
+compas,Random Forest,Threshold Optimizer,0.963,0.982,0.945
+compas,KNN,Reject Option Classification,0.906,0.792,0.698
+compas,KNN,Equalized Odds,0.997,0.897,0.894
+compas,KNN,Calibrated EO,0.971,0.702,0.674
+compas,KNN,Threshold Optimizer,0.935,0.837,0.772

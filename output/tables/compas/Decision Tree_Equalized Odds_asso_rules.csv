@@ -1,7 +1,7 @@
 Dataset,Rule,support,confidence
-compas,"{'priors_No', 'juv_misd=0', 'n_recidive'} -> {'risk_low'}",0.157,0.826
-compas,"{'priors_No', 'n_recidive'} -> {'risk_low'}",0.157,0.826
-compas,"{'priors_No', 'juv_misd=0', 'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.157,0.826
-compas,"{'priors_No', 'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.157,0.826
-compas,"{'n_recidive', 'c_misdemeanor', 'juv_misd=0'} -> {'risk_low'}",0.158,0.806
-compas,"{'n_recidive', 'c_misdemeanor', 'juv_misd=0', 'juv_fel=0'} -> {'risk_low'}",0.156,0.804
+compas,"{'juv_misd=0', 'n_recidive', 'priors_No'} -> {'risk_low'}",0.157,0.826
+compas,"{'juv_fel=0', 'n_recidive', 'priors_No'} -> {'risk_low'}",0.157,0.826
+compas,"{'juv_fel=0', 'priors_No', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.157,0.826
+compas,"{'n_recidive', 'priors_No'} -> {'risk_low'}",0.157,0.826
+compas,"{'juv_misd=0', 'n_recidive', 'c_misdemeanor'} -> {'risk_low'}",0.158,0.806
+compas,"{'juv_fel=0', 'juv_misd=0', 'n_recidive', 'c_misdemeanor'} -> {'risk_low'}",0.156,0.804

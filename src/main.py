@@ -124,6 +124,7 @@ def main(config_path):
                 unprivileged_groups,
                 privileged_groups)
             technique_counter = 0
+            
             for technique in config["techniques"]:
                 technique_counter += 1
                 technique_name = technique["name"]
@@ -304,16 +305,7 @@ def main(config_path):
         filepath=f"{plots_dir}")
     fairness_df.to_csv(f"{tables_dir}/fairness_results.csv", index=False)
 
-    # fairness_star_metrics = [
-    # "GroupFairness_star",
-    # "PredictiveParity_star",
-    # "PredictiveEquality_star",
-    # "EqualOpportunity_star",
-    # "EqualizedOdds_star"]
-    # fairness_star_df_columns = common_columns_df + fairness_star_metrics
-    # fairness_star_df = pd.DataFrame(fairness_star_list, columns=fairness_star_df_columns)
-    # fairness_star_df.to_csv(f"{tables_dir}/fairness_star_results.csv", index=False)
-    
+
     accuracy_df_columns = common_columns_df + ["priv_accuracy", "unpriv_accuracy", "overall_accuracy"]
     accuracy_df = pd.DataFrame(accuracy_list, columns=accuracy_df_columns)
     accuracy_df.to_csv(f"{tables_dir}/accuracy_results.csv", index=False)

@@ -1,5 +1,5 @@
 Dataset,Rule,support,confidence
-compas,"{'priors_No', 'juv_misd=0', 'n_recidive'} -> {'risk_low'}",0.155,0.817
-compas,"{'priors_No', 'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.155,0.817
-compas,"{'priors_No', 'n_recidive'} -> {'risk_low'}",0.155,0.817
-compas,"{'priors_No', 'juv_misd=0', 'n_recidive', 'juv_fel=0'} -> {'risk_low'}",0.155,0.817
+compas,"{'n_recidive', 'priors_No'} -> {'risk_low'}",0.155,0.817
+compas,"{'juv_fel=0', 'n_recidive', 'priors_No'} -> {'risk_low'}",0.155,0.817
+compas,"{'juv_misd=0', 'n_recidive', 'priors_No'} -> {'risk_low'}",0.155,0.817
+compas,"{'juv_fel=0', 'priors_No', 'n_recidive', 'juv_misd=0'} -> {'risk_low'}",0.155,0.817

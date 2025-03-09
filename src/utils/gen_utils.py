@@ -159,8 +159,8 @@ def model_printing(df_to_plot, metrics, axhline=-1, title="Put here the title", 
 
             if axhline == -2:
                 # Add labels for the best possible improvement (1.0) and worst possible decline (-1.0)
-                ax.text(ax.get_xlim()[1], 1.0, 'Max Improvement', fontsize=10, ha='center', va='bottom')
-                ax.text(ax.get_xlim()[1], -1.0, 'Max Decline', fontsize=10, ha='center', va='top')
+                # ax.text(ax.get_xlim()[1], 1.0, 'Max Improvement', fontsize=10, ha='center', va='bottom')
+                # ax.text(ax.get_xlim()[1], -1.0, 'Max Decline', fontsize=10, ha='center', va='top')
                 ax.axhline(1.0, color='red', linestyle='dashed')
                 ax.axhline(-1.0, color='red', linestyle='dashed')
             elif axhline != -1:

@@ -1,10 +1,8 @@
 Dataset,Rule,support,confidence
-adult,"{'UnitedStates', 'male', 'n_married'} -> {'<50K'}",0.211,0.915
-adult,"{'male', 'n_married'} -> {'<50K'}",0.229,0.914
-adult,{'Age (decade)_20.0'} -> {'<50K'},0.221,0.876
-adult,{'n_married'} -> {'<50K'},0.452,0.861
-adult,"{'UnitedStates', 'n_married'} -> {'<50K'}",0.416,0.86
-adult,"{'white', 'n_married'} -> {'<50K'}",0.374,0.858
-adult,"{'UnitedStates', 'white', 'n_married'} -> {'<50K'}",0.349,0.857
-adult,"{'female', 'n_married'} -> {'<50K'}",0.223,0.812
-adult,"{'UnitedStates', 'female', 'n_married'} -> {'<50K'}",0.205,0.81
+adult,"{'n_married', 'male'} -> {'<50K'}",0.229,0.905
+adult,"{'n_married', 'male', 'UnitedStates'} -> {'<50K'}",0.21,0.904
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.219,0.868
+adult,"{'white', 'n_married'} -> {'<50K'}",0.368,0.849
+adult,"{'white', 'n_married', 'UnitedStates'} -> {'<50K'}",0.347,0.849
+adult,{'n_married'} -> {'<50K'},0.444,0.847
+adult,"{'n_married', 'UnitedStates'} -> {'<50K'}",0.409,0.845

@@ -1,5 +1,3 @@
 Dataset,Rule,support,confidence
-adult,{'education.num_>12'} -> {'>50K'},0.204,0.83
-adult,{'Age (decade)_20.0'} -> {'<50K'},0.208,0.824
-adult,"{'white', 'married', 'UnitedStates', 'male'} -> {'>50K'}",0.286,0.807
-adult,"{'UnitedStates', 'married', 'male'} -> {'>50K'}",0.305,0.802
+adult,{'Age (decade)_20.0'} -> {'<50K'},0.213,0.841
+adult,{'education.num_>12'} -> {'>50K'},0.206,0.828

@@ -1,17 +1,17 @@
 antecedents,consequents,orig_support,orig_confidence,Reject Option Classification_support,Reject Option Classification_confidence,Equalized Odds_support,Equalized Odds_confidence,Calibrated EO_support,Calibrated EO_confidence,Threshold Optimizer_support,Threshold Optimizer_confidence
-"frozenset({'juv_misd=0', 'white', 'n_recidive', 'male'})",frozenset({'risk_low'}),0.156,0.892,0.175,1.0,0.155,0.885,0.169,0.963,0.168,0.96
-"frozenset({'white', 'juv_misd=0', 'male', 'juv_fel=0', 'n_recidive'})",frozenset({'risk_low'}),0.156,0.891,0.175,1.0,0.155,0.888,0.169,0.966,0.167,0.96
-"frozenset({'n_recidive', 'white', 'male'})",frozenset({'risk_low'}),0.158,0.89,0.177,1.0,0.156,0.881,0.17,0.957,0.17,0.957
-"frozenset({'n_recidive', 'white', 'juv_fel=0', 'male'})",frozenset({'risk_low'}),0.157,0.89,0.177,1.0,0.156,0.883,0.17,0.96,0.169,0.957
-"frozenset({'juv_misd=0', 'white', 'n_recidive'})",frozenset({'risk_low'}),0.198,0.861,0.229,0.995,0.203,0.882,0.22,0.955,0.222,0.962
-"frozenset({'juv_misd=0', 'white', 'n_recidive', 'juv_fel=0'})",frozenset({'risk_low'}),0.198,0.861,0.229,0.995,0.203,0.884,0.22,0.958,0.221,0.962
-"frozenset({'n_recidive', 'white'})",frozenset({'risk_low'}),0.2,0.86,0.231,0.995,0.204,0.879,0.221,0.951,0.223,0.96
-"frozenset({'n_recidive', 'white', 'juv_fel=0'})",frozenset({'risk_low'}),0.199,0.86,0.231,0.995,0.204,0.881,0.221,0.953,0.223,0.96
-"frozenset({'priors_No', 'n_recidive', 'juv_fel=0'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
-"frozenset({'priors_No', 'n_recidive'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
-"frozenset({'priors_No', 'juv_misd=0', 'n_recidive'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
-"frozenset({'priors_No', 'juv_misd=0', 'n_recidive', 'juv_fel=0'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
-"frozenset({'priors_No', 'juv_misd=0', 'juv_fel=0', 'male'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
-"frozenset({'priors_No', 'male'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
-"frozenset({'priors_No', 'juv_misd=0', 'male'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
-"frozenset({'priors_No', 'juv_fel=0', 'male'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
+"frozenset({'white', 'male', 'n_recidive', 'juv_misd=0'})",frozenset({'risk_low'}),0.156,0.892,0.175,1.0,0.155,0.885,0.169,0.963,0.168,0.96
+"frozenset({'n_recidive', 'male', 'juv_fel=0', 'white', 'juv_misd=0'})",frozenset({'risk_low'}),0.156,0.891,0.175,1.0,0.155,0.888,0.169,0.966,0.167,0.96
+"frozenset({'white', 'male', 'n_recidive'})",frozenset({'risk_low'}),0.158,0.89,0.177,1.0,0.156,0.881,0.17,0.957,0.17,0.957
+"frozenset({'juv_fel=0', 'male', 'white', 'n_recidive'})",frozenset({'risk_low'}),0.157,0.89,0.177,1.0,0.156,0.883,0.17,0.96,0.169,0.957
+"frozenset({'white', 'juv_misd=0', 'n_recidive'})",frozenset({'risk_low'}),0.198,0.861,0.229,0.995,0.203,0.882,0.22,0.955,0.222,0.962
+"frozenset({'juv_fel=0', 'white', 'n_recidive', 'juv_misd=0'})",frozenset({'risk_low'}),0.198,0.861,0.229,0.995,0.203,0.884,0.22,0.958,0.221,0.962
+"frozenset({'white', 'n_recidive'})",frozenset({'risk_low'}),0.2,0.86,0.231,0.995,0.204,0.879,0.221,0.951,0.223,0.96
+"frozenset({'white', 'n_recidive', 'juv_fel=0'})",frozenset({'risk_low'}),0.199,0.86,0.231,0.995,0.204,0.881,0.221,0.953,0.223,0.96
+"frozenset({'juv_fel=0', 'priors_No', 'n_recidive', 'juv_misd=0'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
+"frozenset({'n_recidive', 'priors_No'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
+"frozenset({'juv_misd=0', 'n_recidive', 'priors_No'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
+"frozenset({'juv_fel=0', 'n_recidive', 'priors_No'})",frozenset({'risk_low'}),0.162,0.854,0.189,0.994,0.174,0.917,,,0.188,0.989
+"frozenset({'juv_fel=0', 'male', 'priors_No'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
+"frozenset({'male', 'priors_No'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
+"frozenset({'juv_fel=0', 'male', 'juv_misd=0', 'priors_No'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
+"frozenset({'male', 'juv_misd=0', 'priors_No'})",frozenset({'risk_low'}),0.16,0.804,0.198,0.995,0.171,0.861,,,0.197,0.992
